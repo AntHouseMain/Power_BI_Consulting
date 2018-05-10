@@ -11,24 +11,48 @@
 
 ?>
 
-	</div><!-- #content -->
+</main>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'bi-team' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'bi-team' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'bi-team' ), 'bi-team', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer>
+    <div class="container">
+        <?php
+        wp_nav_menu(array(
+            'theme_location' => 'menu-1',
+            'menu_id' => 'primary-menu',
+            'menu_class' => 'footer-main-menu d-flex flex-column flex-lg-row justify-content-center navbar-nav m-auto py-4',
+            'container' => 'nav'
+        ));
+        ?>
+        <div class="footer-info-wrapper py-4 d-flex flex-column flex-lg-row justify-content-between align-items-center">
+            <p class="m-0">
+                (c) 2018, Bi Team.pro
+            </p>
+            <ul class="privacy-list list-style-none m-0 p-0 d-flex">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><span class="sep"> | </span></li>
+                <li><a href="#">Terms of Services</a></li>
+            </ul>
+            <ul class="social-networks list-style-none m-0 p-0 d-flex">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
 
 <?php wp_footer(); ?>
 

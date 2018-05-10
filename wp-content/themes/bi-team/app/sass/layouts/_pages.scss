@@ -1,0 +1,60 @@
+/* --== Front Page ==-- */
+.occupation-section {
+  background-color: #1c1c1c;
+  .occupation-item {
+    background-color: #333333;
+    border-top: 3px solid $main-color;
+  }
+}
+
+.our-different {
+  background-color: $main-color;
+
+}
+
+.customers-section {
+  .logo-item {
+    margin-bottom: 10px;
+    img {
+      display: inline-block;
+      filter: grayscale(100%);
+    }
+    & a:hover img {
+      filter: grayscale(0);
+    }
+  }
+}
+
+.multirow {
+  &:nth-child(even) {
+    display: flex;
+    flex-direction: row-reverse;
+    .multirow-item {
+      margin-left: auto !important;
+    }
+  }
+
+}
+
+.pricing-section {
+  background-color: #1c1c1c;
+  .pricing-item {
+    background-color: $white-color;
+    border-left: 3px solid $main-color;
+    ul {
+      li {
+        &:before {
+        content: '\f00c';
+          font-family: FontAwesome;
+          background-color: $main-color;
+          padding: 5px;
+          margin-bottom: 5px;
+          margin-right: 5px;
+          border-radius: 50%;
+      }
+      }
+    }
+  }
+}
+
+/* --== /Front Page ==-- */

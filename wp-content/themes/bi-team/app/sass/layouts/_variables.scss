@@ -1,0 +1,37 @@
+$main-color: #fccd1a;
+$white-color: #fff;
+
+.bg-white {
+  background-color: #fff;
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+@mixin bottom-line($color) {
+  position: relative;
+  align-self: self-start;
+  margin-bottom: 25px;
+  &:after {
+    content: '';
+    position: absolute;
+    border-bottom: 3px solid $color;
+    width: 40px;
+    position: absolute;
+    margin: auto;
+    top: 40px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+  }
+}
+
+.yellow-border-text-bottom {
+  @include bottom-line($main-color);
+}
+
+.white-border-text-bottom {
+  @include bottom-line($white-color);
+}

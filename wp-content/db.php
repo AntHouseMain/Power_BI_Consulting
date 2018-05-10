@@ -1,1 +1,1 @@
-D:/OSPanel/domains/bi-team/wp-content/plugins/query-monitor/wp-content/db.php
+/var/www/devbiteam/wp-content/plugins/query-monitor/wp-content/db.php

@@ -5,20 +5,22 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer');
 
 
-gulp.task('sass', function() {
-    return gulp.src('app/sass/**/*.sass')
-        .pipe(sass())
-        .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
-        .pipe(gulp.dest('app/css'))
+gulp.task('sass', function () {
+    return gulp.src(['app/sass/**/*.sass', 'app/sass/**/*.scss'])
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(autoprefixer(['last 12 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true}))
+        .pipe(gulp.dest('app/css'));
+
 });
 
-gulp.task('css-min', ['sass'], function() {
+gulp.task('css-libs', ['sass'], function () {
     return gulp.src('app/css/main.css')
         .pipe(cssnano())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('app/css'));
 });
-
-gulp.task('watch', ['css-min'], function() {
-    gulp.watch('app/sass/**/*.sass', ['sass']);
+gulp.task('watch', ['css-libs'], function () {
+    gulp.watch(['app/sass/**/*.sass', 'app/sass/**/*.scss'], ['sass']);
 });
+
+gulp.task('default', ['watch']);
