@@ -120,7 +120,7 @@ add_action( 'widgets_init', 'bi_team_widgets_init' );
  * Enqueue scripts and styles.
  */
 function bi_team_scripts() {
-	wp_enqueue_style( 'bi-team-style', get_template_directory_uri() . '/app/css/main.min.css', [], '' );
+	wp_enqueue_style( 'bi-team-style', get_template_directory_uri() . '/app/css/main.css', [], '' );
 	wp_register_style('bootstrap-css', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css');
 	wp_enqueue_style('bootstrap-css');
 	
