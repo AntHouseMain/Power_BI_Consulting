@@ -12,13 +12,13 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('app/css'))
 });
 
-gulp.task('css-min', function() {
-    return gulp.src('app/css/**/*.css')
+gulp.task('css-min', ['sass'], function() {
+    return gulp.src('app/css/main.css')
         .pipe(cssnano())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('app/css'));
 });
 
-gulp.task('watch', ['css-min', 'sass'], function() {
+gulp.task('watch', ['css-min'], function() {
     gulp.watch('app/sass/**/*.sass', ['sass']);
 });
