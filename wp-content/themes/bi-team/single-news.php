@@ -10,11 +10,13 @@
 get_header();
 ?>
 
-    <div class="container">
-
+    <div class="container py-3">
         <div class="row">
-            <div class="col-md-12 pt-3">
-                <a href="#">< back to blog </a>
+            <div class="col-md-12 pt-3 d-flex flex-row align-items-center back-link">
+                <i class="fa fa-angle-left angel-link" aria-hidden="true"></i>
+                <a class="ml-2" href="#" onclick="history.back();return false;">
+                    Back to blog
+                </a>
             </div>
             <?php
             while (have_posts()) :
@@ -39,15 +41,18 @@ get_header();
                         </div>
                         <div class="col-md-6">
                             <ul class="tag-news list-style-none p-0 m-0 d-flex flex-row flex-wrap align-items-center">
-                                <li>Tags:</li>
+                                <li>
+                                    <i class="fa fa-tag fa-rotate-90 fa-2x align-middle" aria-hidden="true"></i>
+                                    <span>Tags:</span>
+                                </li>
                                 <?php $taxonomies = get_the_terms(get_the_ID(), 'news-tag');
                                 if (!empty($taxonomies)) :
                                     $taxonomies = get_the_terms(get_the_ID(), 'news-tag');
                                     foreach ($taxonomies as $term) :
                                         ?>
-                                        <li class="tag-news-item mx-3">
+                                        <li class="tag-news-item mx-2 mt-1">
                                             <a class="link-hover" href="<?php echo get_term_link($term); ?>">
-                                                #<?php echo $term->name; ?>
+                                                <?php echo $term->name; ?>
                                             </a>
                                         </li>
                                         <?php
@@ -68,8 +73,11 @@ get_header();
                 endwhile; // End of the loop.
                 ?>
             </div>
-            <div class="col-md-12 pb-3">
-                <a href="#">< back to blog </a>
+            <div class="col-md-12 pt-3 d-flex flex-row align-items-center back-link">
+                <i class="fa fa-angle-left angel-link" aria-hidden="true"></i>
+                <a class="ml-2" href="#" onclick="history.back();return false;">
+                    Back to blog
+                </a>
             </div>
         </div>
     </div>

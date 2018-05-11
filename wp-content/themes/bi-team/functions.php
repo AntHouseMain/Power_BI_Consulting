@@ -182,6 +182,9 @@ function render_template_part($template, $params = [])
     return ob_get_clean();
 }
 
+\add_filter('excerpt_more', function () {
+    
+});
 
 ################################################
 #

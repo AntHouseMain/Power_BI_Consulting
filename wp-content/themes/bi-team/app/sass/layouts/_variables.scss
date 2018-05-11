@@ -1,7 +1,7 @@
 $main-color: #fccd1a;
 $white-color: #fff;
 $grey-color: #333333;
-
+$black-color: #1b1b1b;
 
 .bg-white {
   background-color: #fff;
@@ -30,10 +30,28 @@ $grey-color: #333333;
   }
 }
 
+@mixin image-darken-background {
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
 .yellow-border-text-bottom {
   @include bottom-line($main-color);
 }
 
 .white-border-text-bottom {
   @include bottom-line($white-color);
+}
+
+.angel-link {
+  color: $main-color;
+  font-size: 25px;
+  vertical-align: middle;
 }
