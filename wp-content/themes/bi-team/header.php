@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p-0">
         <div class="container">
             <?php $logo = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'header_logo'); ?>
             <a class="d-block" href="<?php bloginfo('url'); ?>">
