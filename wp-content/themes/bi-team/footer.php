@@ -13,7 +13,7 @@
 
 </main>
 
-<footer>
+<footer class="main-footer">
     <div class="container">
         <?php
         wp_nav_menu(array(

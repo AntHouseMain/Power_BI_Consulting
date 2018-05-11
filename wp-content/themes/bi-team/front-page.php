@@ -96,9 +96,21 @@
     <section class="our-different py-5 text-center">
         <div class="container">
             <div class="row">
-                <h2 class="white-border-text-bottom">
-                    Our different
-                </h2>
+                <div class="col-md-10 text-center m-auto">
+                    <h2 class="white-border-text-bottom">
+                        Our different
+                    </h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium, adipisci alias
+                        consequuntur cumque dolor earum fugit harum incidunt magnam maxime nisi recusandae similique
+                        soluta, vero. Fuga, provident repellendus? Eveniet.</p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet delectus earum, laudantium nihil
+                        nulla omnis possimus? Consequatur debitis, deserunt eaque eum illum in incidunt magni mollitia
+                        recusandae sapiente sunt, tempore.
+                    </p>
+                    <a class="text-uppercase" href="#">VISIT MAIN SITE</a>
+                </div>
             </div>
         </div>
     </section>
@@ -252,6 +264,20 @@
                             buy product >
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contacts-us py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="yellow-border-text-bottom text-center">
+                        Contact Us
+                    </h2>
+                </div>
+                <div class="col-md-4 m-auto">
+                   NAMI CODE
                 </div>
             </div>
         </div>

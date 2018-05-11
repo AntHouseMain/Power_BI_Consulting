@@ -69,30 +69,34 @@ main {
 }
 
 header {
-  height: 70px;
   z-index: 10;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "AvenirNext";
-  font-weight: 800;
+.main-header {
+  height: 70px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.header-main-menu, footer .footer-main-menu {
+p {
+  margin: 1rem 0;
+}
+
+.header-main-menu, .main-footer .footer-main-menu {
   list-style: none;
   margin: 0;
 }
 
-.header-main-menu li a, footer .footer-main-menu li a {
+.header-main-menu li a, .main-footer .footer-main-menu li a {
   display: inline-block;
   padding: 15px 30px;
 }
 
-footer {
+.main-footer {
   background-color: #333;
 }
 
-footer .footer-main-menu {
+.main-footer .footer-main-menu {
   border-bottom: 1px solid #a5a5a5;
 }
 
@@ -230,3 +234,24 @@ blockquote.right {
 }
 
 /* --== /Front Page ==-- */
+.tag-news-item {
+  padding: 5px 15px;
+  border: 2px solid #fccd1a;
+}
+
+/* --== Single News ==-- */
+.single-news blockquote {
+  padding: 20px;
+  padding-top: 40px;
+  background-color: #333333;
+  color: #fff;
+  border-left: 3px solid #fccd1a;
+  position: relative;
+}
+
+.single-news blockquote:before {
+  position: absolute;
+  left: 0;
+}
+
+/* --== /Single News ==-- */
