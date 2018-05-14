@@ -220,3 +220,143 @@
     }
   }
 }
+
+/* --== /Products Page ==-- */
+
+.products-header {
+  background-image: url('../images/products-bg.jpg');
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  min-height: 720px;
+  position: relative;
+  @include image-darken-background;
+  color: $white-color;
+  align-content: center;
+
+  .microsoft-dynamics {
+    background-image: url('../images/microsoft-dynamics.png');
+    background-size: cover;
+    background-position: center;
+    height: 101px;
+    width: 100px;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+  }
+
+  .desc-col {
+    z-index: 1;
+    text-align: center;
+
+    .product-header-description {
+      max-width: 955px;
+      margin: 20px auto;
+      h1 {
+        font-size: 50px;
+      }
+      .text-description {
+        font-size: 23px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .btn-col {
+    z-index: 1;
+    button {
+      display: block;
+      margin: 10px auto;
+      font-weight: 600;
+      width: 340px;
+      height: 50px;
+
+      &.download-package-btn {
+        background-color: transparent;
+        color: $white-color;
+        text-transform: uppercase;
+        border-radius: 0;
+        border: 2px solid $main-color;
+        position: relative;
+      }
+
+      &.buy-product-btn {
+        background-color: $main-color;
+        color: $black-color;
+        text-transform: uppercase;
+        border-radius: 0;
+        border: 2px solid $main-color;
+        position: relative;
+      }
+    }
+  }
+}
+
+.advantages-section {
+  height: 360px;
+  width: 100%;
+  background-color: #333333;
+  color: $white-color;
+  text-align: center;
+
+  .heading {
+    position: relative;
+    margin-bottom: 55px;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -25px;
+      right: 48%;
+      height: 4px;
+      width: 60px;
+      background-color: $main-color;
+    }
+  }
+
+  .advantage-text {
+    font-size: 25px;
+    max-width: 955px;
+    margin: 0 auto ;
+  }
+}
+
+.statistics-section {
+  height: 530px;
+
+  .statistics-img {
+    background-image: url('../images/statistics-img.png');
+    background-size: cover;
+    background-position: center;
+    height: 94px;
+    width: 126px;
+    position: relative;
+  }
+
+  .rate-img {
+    background-image: url('../images/rate-img.png');
+    background-size: cover;
+    background-position: center;
+    height: 105px;
+    width: 105px;
+    position: relative;
+  }
+}
+
+.screenshot-block {
+  .multirow {
+    height: 700px;
+    &:nth-child(odd) {
+      background-color: #f8f8f8;
+    }
+
+    .screenshot-pic {
+      text-align: center;
+      img {
+        height: 500px;
+        width: 800px;
+      }
+    }
+  }
+}
+
+

@@ -399,6 +399,164 @@ blockquote.right {
   background: url("../images/css_sprites.png") -10px -124px;
 }
 
+/* --== /Products Page ==-- */
+.products-header {
+  background-image: url("../images/products-bg.jpg");
+  height: 100%;
+  -webkit-background-size: cover;
+          background-size: cover;
+  background-position: center;
+  min-height: 720px;
+  position: relative;
+  color: #fff;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+}
+
+.products-header:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.products-header .microsoft-dynamics {
+  background-image: url("../images/microsoft-dynamics.png");
+  -webkit-background-size: cover;
+          background-size: cover;
+  background-position: center;
+  height: 101px;
+  width: 100px;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.products-header .desc-col {
+  z-index: 1;
+  text-align: center;
+}
+
+.products-header .desc-col .product-header-description {
+  max-width: 955px;
+  margin: 20px auto;
+}
+
+.products-header .desc-col .product-header-description h1 {
+  font-size: 50px;
+}
+
+.products-header .desc-col .product-header-description .text-description {
+  font-size: 23px;
+  margin-bottom: 40px;
+}
+
+.products-header .btn-col {
+  z-index: 1;
+}
+
+.products-header .btn-col button {
+  display: block;
+  margin: 10px auto;
+  font-weight: 600;
+  width: 340px;
+  height: 50px;
+}
+
+.products-header .btn-col button.download-package-btn {
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  border: 2px solid #fccd1a;
+  position: relative;
+}
+
+.products-header .btn-col button.buy-product-btn {
+  background-color: #fccd1a;
+  color: #1b1b1b;
+  text-transform: uppercase;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  border: 2px solid #fccd1a;
+  position: relative;
+}
+
+.advantages-section {
+  height: 360px;
+  width: 100%;
+  background-color: #333333;
+  color: #fff;
+  text-align: center;
+}
+
+.advantages-section .heading {
+  position: relative;
+  margin-bottom: 55px;
+}
+
+.advantages-section .heading:after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  right: 48%;
+  height: 4px;
+  width: 60px;
+  background-color: #fccd1a;
+}
+
+.advantages-section .advantage-text {
+  font-size: 25px;
+  max-width: 955px;
+  margin: 0 auto;
+}
+
+.statistics-section {
+  height: 530px;
+}
+
+.statistics-section .statistics-img {
+  background-image: url("../images/statistics-img.png");
+  -webkit-background-size: cover;
+          background-size: cover;
+  background-position: center;
+  height: 94px;
+  width: 126px;
+  position: relative;
+}
+
+.statistics-section .rate-img {
+  background-image: url("../images/rate-img.png");
+  -webkit-background-size: cover;
+          background-size: cover;
+  background-position: center;
+  height: 105px;
+  width: 105px;
+  position: relative;
+}
+
+.screenshot-block .multirow {
+  height: 700px;
+}
+
+.screenshot-block .multirow:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+
+.screenshot-block .multirow .screenshot-pic {
+  text-align: center;
+}
+
+.screenshot-block .multirow .screenshot-pic img {
+  height: 500px;
+  width: 800px;
+}
+
 /* --== /Contact Page ==-- */
 @media (max-width: 1200px) {
   .contact-information .contact-info-wrap {
@@ -406,5 +564,28 @@ blockquote.right {
   }
   .contact-us-form {
     padding: 70px 20px;
+  }
+}
+
+/* --== /Products Page ==-- */
+@media (max-width: 768px) {
+  .products-header .desc-col .product-header-description h1 {
+    font-size: 35px;
+  }
+  .products-header .desc-col .product-header-description .text-description {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .products-header .btn-col button {
+    width: 260px;
+  }
+  .advantages-section .heading {
+    margin-bottom: 45px;
+  }
+  .advantages-section .heading:after {
+    right: 44%;
+  }
+  .advantages-section .advantage-text {
+    font-size: 19px;
   }
 }

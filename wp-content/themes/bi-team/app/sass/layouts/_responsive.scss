@@ -10,3 +10,38 @@
     padding: 70px 20px;
   }
 }
+
+/* --== /Products Page ==-- */
+
+@media (max-width: 768px) {
+  .products-header {
+    .desc-col {
+      .product-header-description {
+        h1 {
+          font-size: 35px;
+        }
+        .text-description {
+          font-size: 18px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .btn-col {
+      button {
+        width: 260px;
+      }
+    }
+  }
+
+  .advantages-section {
+    .heading {
+      margin-bottom: 45px;
+      &:after {
+        right: 44%;
+      }
+    }
+    .advantage-text {
+      font-size: 19px;
+    }
+  }
+}
