@@ -55,3 +55,30 @@ $black-color: #1b1b1b;
   font-size: 25px;
   vertical-align: middle;
 }
+
+.color-icon {
+  color: $main-color;
+}
+
+.underline-color {
+  text-decoration-color: $main-color !important;
+  color: #000;
+  &:hover {
+    color: #000;
+  }
+  //&:visited {
+  //  color: $main-color;
+  //}
+}
+
+.text-silver {
+  color: #b2b2b2;
+}
+
+.position-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

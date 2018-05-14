@@ -24,7 +24,7 @@
 
 <header class="main-header">
     <nav class="navbar navbar-expand-lg navbar-light bg-white p-0">
-        <div class="container">
+        <div class="container h-100">
             <?php $logo = wp_get_attachment_image_src(get_theme_mod('custom_logo'), 'header_logo'); ?>
             <a class="d-block" href="<?php bloginfo('url'); ?>">
                 <img class="img-fluid" src="<?php echo $logo[0]; ?>" alt="<?php bloginfo('name'); ?>"/>
@@ -39,18 +39,10 @@
                 wp_nav_menu(array(
                     'theme_location' => 'menu-1',
                     'menu_id' => 'primary-menu',
-                    'menu_class' => 'header-main-menu d-flex flex-column flex-lg-row justify-content-end navbar-nav m-auto',
+                    'menu_class' => 'header-main-menu d-flex flex-column flex-lg-row justify-content-end align-items-center navbar-nav ml-auto font-weight-bold',
                     'container' => false
                 ));
                 ?>
-                <div>
-                    <?php if (!\is_user_logged_in()): ?>
-                        <button type="button" class="btn btn-link">Users email</button>
-                    <?php else: ?>
-                        <button type="button" class="btn btn-link">Sign in</button>
-                        <button type="button" class="btn btn-link">Sign up free</button>
-                    <?php endif; ?>
-                </div>
             </div>
         </div>
     </nav>

@@ -58,15 +58,21 @@
 }
 
 /* --== /Front Page ==-- */
-.tag-news {
+.tag-posts {
   i {
     color: $main-color;
   }
   .tag-news-item {
-    border: 2px solid $main-color;
+
     a {
       display: inline-block;
       padding: 5px 15px;
+      color: #b2b2b2;
+      border: 2px solid #525252;
+      &:hover {
+        text-decoration: none;
+        border: 2px solid $main-color;
+      }
     }
   }
 }
@@ -96,6 +102,14 @@
       text-decoration-color: $main-color;
     }
   }
+}
+
+
+
+.tags-social-posts {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding: 30px 0;
 }
 
 /* --== /Single News ==-- */
@@ -262,7 +276,7 @@
 
 /* --== /Contact Page ==-- */
 
-/* Archive News */
+/* --== Archive News ==-- */
 
 .link-read-more {
   padding: 15px 30px;
@@ -279,4 +293,111 @@
   }
 }
 
-/* /Archive News */
+.posts-pagination {
+  li {
+    margin: 5px;
+    font-weight: 700;
+    a, span {
+      display: inline-block;
+      border: 1px solid #000;
+      padding: 7px 15px;
+      cursor: pointer;
+      color: #000;
+    }
+    a {
+      &:hover {
+        background-color: $main-color;
+        border: 1px solid $main-color;
+        border-bottom: 3px solid #fcb801;
+        color: #000;
+        text-decoration: none;
+      }
+    }
+    span.current {
+      border: 2px solid $main-color;
+    }
+    span.disabled {
+      color: #b2b2b2;
+      border: 1px solid #b2b2b2;
+    }
+    .dots {
+      border: 0;
+      padding: 0;
+    }
+  }
+}
+
+/* --== /Archive News ==-- */
+
+/* --== Widget News ==-- */
+.blog-widget-area {
+  section.widget-item {
+    background-color: #333333;
+    padding: 20px;
+    color: $white-color;
+    .tagcloud {
+      a {
+        color: #b2b2b2;
+        font-size: 16px !important;
+        border: 1px solid #525252;
+        display: inline-block;
+        padding: 1px 12px;
+        margin: 0 5px 10px 0;
+        &:hover {
+          border: 1px solid $main-color;
+          text-decoration: none;
+        }
+      }
+    }
+    .rpwe-ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        display: flex;
+        flex-direction: column-reverse;
+        border-bottom: 1px solid #525252;
+        margin-bottom: 10px;
+        time {
+          color: #b2b2b2;
+          font-size: 14px;
+          margin-bottom: 4px;
+        }
+        h3 {
+          font-size: 19px;
+        }
+        a {
+          color: $white-color;
+          &:hover {
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+  .widget-title {
+    color: $main-color;
+    font-size: 23px;
+    margin-bottom: 25px;
+  }
+}
+
+/* --== /Widget News ==-- */
+
+/* --== Portfolio Archvie ==-- */
+
+.portfolio-card {
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    transform: translateY(-20px);
+  }
+  h2 {
+    font-size: 20px;
+  }
+  .card-body {
+    background-color: #221e19;
+    color: $white-color;
+  }
+}
+
+/* --== /Portfolio Archive ==-- */

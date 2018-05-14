@@ -46,6 +46,9 @@ if (!function_exists('bi_team_setup')) :
         add_image_size('header_logo', 100, 100);
         add_image_size('small_avatar', 200, 200, true);
         add_image_size('image_article_large', 1000, 500, true);
+        add_image_size('image_portfolio_small', 500, 500, true);
+        add_image_size('image_portfolio_single', 600, 900, true);
+
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
@@ -116,7 +119,7 @@ function bi_team_widgets_init()
         'name' => esc_html__('Sidebar', 'bi-team'),
         'id' => 'sidebar-1',
         'description' => esc_html__('Add widgets here.', 'bi-team'),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'before_widget' => '<section id="%1$s" class="widget widget-item %2$s">',
         'after_widget' => '</section>',
         'before_title' => '<h2 class="widget-title">',
         'after_title' => '</h2>',
@@ -152,6 +155,8 @@ function bi_team_scripts()
 
     wp_enqueue_script('bootsrtap-js', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js', array('jquery'), '1.0.0', true);
 
+    wp_register_script('bi-team-js', get_template_directory_uri() . '/app/js/scripts.js', array('jquery'), null, true);
+    wp_enqueue_script('bi-team-js');
 
 //	wp_enqueue_script( 'bi-team-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 //
@@ -183,7 +188,7 @@ function render_template_part($template, $params = [])
 }
 
 \add_filter('excerpt_more', function () {
-    
+
 });
 
 ################################################
@@ -229,7 +234,7 @@ function portfolio()
         'label' => __('portfolio', 'bi-team'),
         'description' => 'Custom post type for Portfolio',
         'labels' => $labels,
-        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes', 'author'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
@@ -294,7 +299,7 @@ function news()
         'label' => __('news', 'bi-team'),
         'description' => 'Custom post type for News',
         'labels' => $labels,
-        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes', 'author'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
@@ -331,3 +336,86 @@ function add_taxonomy()
 }
 
 add_action('init', 'add_taxonomy');
+
+
+function custom_paginate_links($prev_page_text = 'Previous page', $next_page_text = 'Next page')
+{
+    global $wp_rewrite, $wp_query;
+
+    if ($wp_query->max_num_pages <= 1)
+        return;
+
+    //Current page
+    $current = $wp_query->query_vars['paged'] > 1 ? $wp_query->query_vars['paged'] : 1;
+
+    //Array with arguments for paginate_links()
+    $pagination = array(
+        'base' => @add_query_arg('page', '%#%'),
+        'format' => '',
+        'total' => $wp_query->max_num_pages,
+        'current' => $current,
+        'prev_text' => $prev_page_text,
+        'next_text' => $next_page_text,
+        'end_size' => 3,
+        'mid_size' => 1,
+        'show_all' => false,
+        'type' => 'array'
+    );
+
+    if ($wp_rewrite->using_permalinks())
+        $pagination['base'] = user_trailingslashit(trailingslashit(remove_query_arg('s', get_pagenum_link(1))) . 'page/%#%/', 'paged');
+
+    if (!empty($wp_query->query_vars['s']))
+        $pagination['add_args'] = array('s' => get_query_var('s'));
+
+    //Generating pages
+    $pages = paginate_links($pagination);
+
+//    echo '<div class="">';
+    echo '<ul class="pagination posts-pagination d-flex justify-content-center py-4 m-0 align-items-center flex-wrap">';
+    if ($current == 1) echo '<li><span class="disabled">' . $prev_page_text . '</span></li>';
+    foreach ($pages as $page) {
+        echo '<li>' . $page . '</li>';
+    }
+    if ($current == $wp_query->max_num_pages) echo '<li><span class="disabled">' . $next_page_text . '</span></li>';
+    echo '</ul>';
+//    echo '</div>';
+}
+
+
+// deleting attribute type in scripts and styles
+
+add_filter('style_loader_tag', 'sj_remove_type_attr', 10, 2);
+add_filter('script_loader_tag', 'sj_remove_type_attr', 10, 2);
+function sj_remove_type_attr($tag)
+{
+    return preg_replace("/type=['\"]text\/(javascript|css)['\"]/", '', $tag);
+}
+
+function wcs_cpt_recent_posts_widget($params)
+{
+    $params['post_type'] = array('news', 'portfolio');
+    return $params;
+}
+
+add_filter('widget_posts_args', 'wcs_cpt_recent_posts_widget');
+
+
+function blog_url()
+{
+    $posts = \get_pages([
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'archive-news.php',
+        'posts_per_page' => 1,
+    ]);
+    return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('news/');
+}
+function portfolio_url()
+{
+    $posts = \get_pages([
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'archive-portfolio.php',
+        'posts_per_page' => 1,
+    ]);
+    return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('portfolio/');
+}

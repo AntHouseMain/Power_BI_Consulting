@@ -54,6 +54,32 @@
   vertical-align: middle;
 }
 
+.color-icon {
+  color: #fccd1a;
+}
+
+.underline-color {
+  -webkit-text-decoration-color: #fccd1a !important;
+          text-decoration-color: #fccd1a !important;
+  color: #000;
+}
+
+.underline-color:hover {
+  color: #000;
+}
+
+.text-silver {
+  color: #b2b2b2;
+}
+
+.position-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 body {
   display: -webkit-box;
   display: -webkit-flex;
@@ -79,9 +105,12 @@ header {
 }
 
 .main-header {
-  height: 70px;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-header nav {
+  min-height: 70px;
 }
 
 p {
@@ -95,7 +124,22 @@ p {
 
 .header-main-menu li a, .main-footer .footer-main-menu li a {
   display: inline-block;
-  padding: 15px 30px;
+  padding: 25px 30px;
+  border-bottom: 4px solid #fff;
+  color: #000;
+}
+
+.header-main-menu li a:hover, .main-footer .footer-main-menu li a:hover {
+  text-decoration: none;
+  border-bottom: 4px solid #fccd1a;
+}
+
+.header-main-menu .current-menu-item, .main-footer .footer-main-menu .current-menu-item {
+  border-bottom: 2px solid #fccd1a;
+}
+
+.header-main-menu .current-menu-item:hover, .main-footer .footer-main-menu .current-menu-item:hover {
+  border-bottom: 2px solid #fccd1a;
 }
 
 .main-footer {
@@ -104,6 +148,35 @@ p {
 
 .main-footer .footer-main-menu {
   border-bottom: 1px solid #a5a5a5;
+}
+
+.main-footer .footer-info-wrapper p {
+  color: #686868;
+}
+
+.main-footer .footer-info-wrapper .privacy-list a {
+  color: #686868;
+}
+
+.main-footer .footer-info-wrapper .privacy-list .sep {
+  color: #686868;
+  margin: 0 8px;
+}
+
+.main-footer .footer-info-wrapper .social-networks li {
+  margin: 0 10px;
+}
+
+.main-footer .footer-info-wrapper .social-networks li:last-child {
+  margin-right: 0;
+}
+
+.main-footer .footer-info-wrapper .social-networks li a {
+  display: inline-block;
+  color: #fccd1a;
+  border: 1px solid #fccd1a;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
 }
 
 /* --== WP WYSIWYG Editor Styles ==-- */
@@ -240,17 +313,20 @@ blockquote.right {
 }
 
 /* --== /Front Page ==-- */
-.tag-news i {
+.tag-posts i {
   color: #fccd1a;
 }
 
-.tag-news .tag-news-item {
-  border: 2px solid #fccd1a;
-}
-
-.tag-news .tag-news-item a {
+.tag-posts .tag-news-item a {
   display: inline-block;
   padding: 5px 15px;
+  color: #b2b2b2;
+  border: 2px solid #525252;
+}
+
+.tag-posts .tag-news-item a:hover {
+  text-decoration: none;
+  border: 2px solid #fccd1a;
 }
 
 /* --== Single News ==-- */
@@ -275,6 +351,12 @@ blockquote.right {
 .back-link a:hover {
   -webkit-text-decoration-color: #fccd1a;
           text-decoration-color: #fccd1a;
+}
+
+.tags-social-posts {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding: 30px 0;
 }
 
 /* --== /Single News ==-- */
@@ -448,7 +530,7 @@ blockquote.right {
 }
 
 /* --== /Contact Page ==-- */
-/* Archive News */
+/* --== Archive News ==-- */
 .link-read-more {
   padding: 15px 30px;
   border: 3px solid #000;
@@ -466,13 +548,151 @@ blockquote.right {
   text-decoration: none;
 }
 
-/* /Archive News */
+.posts-pagination li {
+  margin: 5px;
+  font-weight: 700;
+}
+
+.posts-pagination li a, .posts-pagination li span {
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 7px 15px;
+  cursor: pointer;
+  color: #000;
+}
+
+.posts-pagination li a:hover {
+  background-color: #fccd1a;
+  border: 1px solid #fccd1a;
+  border-bottom: 3px solid #fcb801;
+  color: #000;
+  text-decoration: none;
+}
+
+.posts-pagination li span.current {
+  border: 2px solid #fccd1a;
+}
+
+.posts-pagination li span.disabled {
+  color: #b2b2b2;
+  border: 1px solid #b2b2b2;
+}
+
+.posts-pagination li .dots {
+  border: 0;
+  padding: 0;
+}
+
+/* --== /Archive News ==-- */
+/* --== Widget News ==-- */
+.blog-widget-area section.widget-item {
+  background-color: #333333;
+  padding: 20px;
+  color: #fff;
+}
+
+.blog-widget-area section.widget-item .tagcloud a {
+  color: #b2b2b2;
+  font-size: 16px !important;
+  border: 1px solid #525252;
+  display: inline-block;
+  padding: 1px 12px;
+  margin: 0 5px 10px 0;
+}
+
+.blog-widget-area section.widget-item .tagcloud a:hover {
+  border: 1px solid #fccd1a;
+  text-decoration: none;
+}
+
+.blog-widget-area section.widget-item .rpwe-ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.blog-widget-area section.widget-item .rpwe-ul li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  border-bottom: 1px solid #525252;
+  margin-bottom: 10px;
+}
+
+.blog-widget-area section.widget-item .rpwe-ul li time {
+  color: #b2b2b2;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.blog-widget-area section.widget-item .rpwe-ul li h3 {
+  font-size: 19px;
+}
+
+.blog-widget-area section.widget-item .rpwe-ul li a {
+  color: #fff;
+}
+
+.blog-widget-area section.widget-item .rpwe-ul li a:hover {
+  color: #fccd1a;
+}
+
+.blog-widget-area .widget-title {
+  color: #fccd1a;
+  font-size: 23px;
+  margin-bottom: 25px;
+}
+
+/* --== /Widget News ==-- */
+/* --== Portfolio Archvie ==-- */
+.portfolio-card {
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.portfolio-card:hover {
+  -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+
+.portfolio-card h2 {
+  font-size: 20px;
+}
+
+.portfolio-card .card-body {
+  background-color: #221e19;
+  color: #fff;
+}
+
+/* --== /Portfolio Archive ==-- */
 /* --== /Contact Page ==-- */
-@media (max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
   .contact-information .contact-info-wrap {
     padding: 70px 20px;
   }
   .contact-us-form {
     padding: 70px 20px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .header-main-menu li, .main-footer .footer-main-menu li {
+    width: 100%;
+  }
+  .header-main-menu li a, .main-footer .footer-main-menu li a {
+    width: 100%;
+    text-align: center;
+  }
+  .header-main-menu .current-menu-item, .main-footer .footer-main-menu .current-menu-item {
+    border: 0;
+    background-color: rgba(252, 205, 26, 0.5);
   }
 }
