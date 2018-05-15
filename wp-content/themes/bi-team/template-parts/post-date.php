@@ -1,7 +1,7 @@
 <ul class="article-date-time list-style-none m-0 p-0 d-flex align-items-center flex-wrap">
-    <li>
-        <?php the_author(); ?>
-    </li>
+<!--    <li>-->
+<!--        --><?php //the_author(); ?>
+<!--    </li>-->
     <li>
         <time>
                  <span class="pl-2 text-silver">

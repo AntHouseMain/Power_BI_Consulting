@@ -7,6 +7,10 @@
  * @package bi-team
  */
 
+require_once "functions/functions-products-fields.php";
+require_once "functions/functions-reviews-fields.php";
+
+
 if (!function_exists('bi_team_setup')) :
     /**
      * Sets up theme defaults and registers support for various WordPress features.
@@ -45,6 +49,7 @@ if (!function_exists('bi_team_setup')) :
 
         add_image_size('header_logo', 100, 100);
         add_image_size('small_avatar', 200, 200, true);
+        add_image_size('small_avatar_circle', 100, 100, true);
         add_image_size('image_article_large', 1000, 500, true);
         add_image_size('image_portfolio_small', 500, 500, true);
         add_image_size('image_portfolio_single', 600, 900, true);
@@ -338,6 +343,138 @@ function add_taxonomy()
 add_action('init', 'add_taxonomy');
 
 
+################################################
+#
+# Products Custom Post type
+#
+################################################
+
+
+function products()
+{
+
+    $labels = array(
+        'name' => _x('Products', 'Post Type General Name', 'bi-team'),
+        'singular_name' => _x('Products', 'Post Type Singular Name', 'bi-team'),
+        'menu_name' => __('Products', 'bi-team'),
+        'name_admin_bar' => __('Products', 'bi-team'),
+        'archives' => __('Item Archives', 'bi-team'),
+        'attributes' => __('Item Attributes', 'bi-team'),
+        'parent_item_colon' => __('Parent Item:', 'bi-team'),
+        'all_items' => __('All Items', 'bi-team'),
+        'add_new_item' => __('Add New Item', 'bi-team'),
+        'add_new' => __('Add New', 'bi-team'),
+        'new_item' => __('New Item', 'bi-team'),
+        'edit_item' => __('Edit Item', 'bi-team'),
+        'update_item' => __('Update Item', 'bi-team'),
+        'view_item' => __('View Item', 'bi-team'),
+        'view_items' => __('View Items', 'bi-team'),
+        'search_items' => __('Search Item', 'bi-team'),
+        'not_found' => __('Not found', 'bi-team'),
+        'not_found_in_trash' => __('Not found in Trash', 'bi-team'),
+        'featured_image' => __('Featured Image', 'bi-team'),
+        'set_featured_image' => __('Set featured image', 'bi-team'),
+        'remove_featured_image' => __('Remove featured image', 'bi-team'),
+        'use_featured_image' => __('Use as featured image', 'bi-team'),
+        'insert_into_item' => __('Insert into item', 'bi-team'),
+        'uploaded_to_this_item' => __('Uploaded to this item', 'bi-team'),
+        'items_list' => __('Items list', 'bi-team'),
+        'items_list_navigation' => __('Items list navigation', 'bi-team'),
+        'filter_items_list' => __('Filter items list', 'bi-team'),
+    );
+    $args = array(
+        'label' => __('products', 'bi-team'),
+        'description' => 'Custom post type for Portfolio',
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes', 'author'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_icon' => 'dashicons-format-status',
+        'menu_position' => 5,
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'page',
+    );
+
+    register_post_type('products', $args);
+
+}
+
+add_action('init', 'products', 0);
+
+
+################################################
+#
+# Products Custom Post type
+#
+################################################
+
+
+function reviews()
+{
+
+    $labels = array(
+        'name' => _x('Reviews', 'Post Type General Name', 'bi-team'),
+        'singular_name' => _x('Reviews', 'Post Type Singular Name', 'bi-team'),
+        'menu_name' => __('Reviews', 'bi-team'),
+        'name_admin_bar' => __('Reviews', 'bi-team'),
+        'archives' => __('Item Archives', 'bi-team'),
+        'attributes' => __('Item Attributes', 'bi-team'),
+        'parent_item_colon' => __('Parent Item:', 'bi-team'),
+        'all_items' => __('All Items', 'bi-team'),
+        'add_new_item' => __('Add New Item', 'bi-team'),
+        'add_new' => __('Add New', 'bi-team'),
+        'new_item' => __('New Item', 'bi-team'),
+        'edit_item' => __('Edit Item', 'bi-team'),
+        'update_item' => __('Update Item', 'bi-team'),
+        'view_item' => __('View Item', 'bi-team'),
+        'view_items' => __('View Items', 'bi-team'),
+        'search_items' => __('Search Item', 'bi-team'),
+        'not_found' => __('Not found', 'bi-team'),
+        'not_found_in_trash' => __('Not found in Trash', 'bi-team'),
+        'featured_image' => __('Featured Image', 'bi-team'),
+        'set_featured_image' => __('Set featured image', 'bi-team'),
+        'remove_featured_image' => __('Remove featured image', 'bi-team'),
+        'use_featured_image' => __('Use as featured image', 'bi-team'),
+        'insert_into_item' => __('Insert into item', 'bi-team'),
+        'uploaded_to_this_item' => __('Uploaded to this item', 'bi-team'),
+        'items_list' => __('Items list', 'bi-team'),
+        'items_list_navigation' => __('Items list navigation', 'bi-team'),
+        'filter_items_list' => __('Filter items list', 'bi-team'),
+    );
+    $args = array(
+        'label' => __('reviews', 'bi-team'),
+        'description' => 'Custom post type for Portfolio',
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes', 'author'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_icon' => 'dashicons-megaphone',
+        'menu_position' => 5,
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'page',
+    );
+
+    register_post_type('reviews', $args);
+
+}
+
+add_action('init', 'reviews', 0);
+
+
 function custom_paginate_links($prev_page_text = 'Previous page', $next_page_text = 'Next page')
 {
     global $wp_rewrite, $wp_query;
@@ -371,7 +508,7 @@ function custom_paginate_links($prev_page_text = 'Previous page', $next_page_tex
     //Generating pages
     $pages = paginate_links($pagination);
 
-//    echo '<div class="">';
+
     echo '<ul class="pagination posts-pagination d-flex justify-content-center py-4 m-0 align-items-center flex-wrap">';
     if ($current == 1) echo '<li><span class="disabled">' . $prev_page_text . '</span></li>';
     foreach ($pages as $page) {
@@ -379,7 +516,7 @@ function custom_paginate_links($prev_page_text = 'Previous page', $next_page_tex
     }
     if ($current == $wp_query->max_num_pages) echo '<li><span class="disabled">' . $next_page_text . '</span></li>';
     echo '</ul>';
-//    echo '</div>';
+
 }
 
 
@@ -391,6 +528,7 @@ function sj_remove_type_attr($tag)
 {
     return preg_replace("/type=['\"]text\/(javascript|css)['\"]/", '', $tag);
 }
+
 
 function wcs_cpt_recent_posts_widget($params)
 {
@@ -410,12 +548,35 @@ function blog_url()
     ]);
     return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('news/');
 }
+
 function portfolio_url()
 {
     $posts = \get_pages([
         'meta_key' => '_wp_page_template',
-        'meta_value' => 'archive-portfolio.php',
+        'meta_value' => 'archive-portfolio-off.php',
         'posts_per_page' => 1,
     ]);
     return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('portfolio/');
+}
+
+
+function products_url()
+{
+    $posts = \get_pages([
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'archive-products.php',
+        'posts_per_page' => 1,
+    ]);
+    return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('products/');
+}
+
+
+function reviews_url()
+{
+    $posts = \get_pages([
+        'meta_key' => '_wp_page_template',
+        'meta_value' => 'archive-reviews.php',
+        'posts_per_page' => 1,
+    ]);
+    return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('reviews/');
 }

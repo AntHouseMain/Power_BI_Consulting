@@ -12,11 +12,10 @@ get_header();
 
     <div class="container py-5">
         <div class="row">
-            <?php echo render_template_part('back-blog-link');
-
+            <?php echo render_template_part('back-review-link');
             if (have_posts()) : while (have_posts()) :
             the_post(); ?>
-           <?php echo render_template_part('article-single-parts'); ?>
+        <?php echo render_template_part('reviews-single-parts'); ?>
             <div>
                 <?php
                 // If comments are open or we have at least one comment, load up the comment template.
@@ -27,7 +26,7 @@ get_header();
                 endif; ?>
 
             </div>
-            <?php echo render_template_part('back-blog-link'); ?>
+            <?php echo render_template_part('back-review-link'); ?>
         </div>
     </div>
 <?php

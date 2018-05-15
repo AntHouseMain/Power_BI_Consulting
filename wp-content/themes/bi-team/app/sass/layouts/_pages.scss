@@ -54,7 +54,14 @@
       margin-left: auto !important;
     }
   }
-
+  .products-image-thumbnail {
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    height: 100%;
+    position: relative;
+    @include image-darken-background;
+  }
 }
 
 .pricing-section {
@@ -62,18 +69,9 @@
   .pricing-item {
     background-color: $white-color;
     border-left: 3px solid $main-color;
-    ul {
-      li {
-        &:before {
-          content: '\f00c';
-          font-family: FontAwesome;
-          background-color: $main-color;
-          padding: 5px;
-          margin-bottom: 5px;
-          margin-right: 5px;
-          border-radius: 50%;
-        }
-      }
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      transform: translateY(-20px);
     }
   }
 }
@@ -418,4 +416,38 @@
   }
 }
 
-/* --== /Portfolio Archive ==-- */
+/* --== /Products Archive ==-- */
+
+/* --== Reviews Single ==-- */
+.reviews-item {
+  h3 {
+    font-size: 18px;
+  }
+}
+
+/* --== /Reviews Single ==-- */
+
+/* --== All single-page list style ==-- */
+
+.single-content {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    @include bulleted-list;
+  }
+  ol {
+    counter-reset: li;
+    list-style: none;
+    *list-style: decimal;
+    padding: 0;
+    margin: 0;
+    @include numbered-list;
+
+  }
+}
+
+
+
+/* --== /All single-page list style ==-- */
+

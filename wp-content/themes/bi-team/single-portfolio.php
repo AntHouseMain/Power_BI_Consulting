@@ -1,14 +1,14 @@
 <?php get_header(); ?>
 
     <div class="container py-5">
-        <article class="row">
-            <?php if (have_posts()) : while (have_posts()) :
+        <?php if (have_posts()) : while (have_posts()) :
             the_post(); ?>
-            <div class="col-md-12">
+        <article class="row">
+            <header class="col-md-12">
                 <h1 class="pb-5">
                     <?php the_title(); ?>
                 </h1>
-            </div>
+            </header>
             <div class="col-md-4">
                 <img class="img-fluid mb-4 shadow-lg" src="<?php the_post_thumbnail_url('image_portfolio_single'); ?>"
                      alt="<?php the_post_thumbnail_caption(); ?>"/>
@@ -22,7 +22,9 @@
                 <?php the_time('g:i A'); ?>
                 </span>
                 </time>
+                <div class="single-content">
                 <?php the_content(); ?>
+                </div>
                 <?php echo render_template_part('tags-social-post'); ?>
             </div>
 

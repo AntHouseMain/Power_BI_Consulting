@@ -53,8 +53,8 @@
     <section class="occupation-section py-7">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-3">
-                    <div class="occupation-item text-center p-4 pt-5">
+                <div class="col-md-4 mb-3 d-flex">
+                    <div class="occupation-item text-center p-4 pt-5 w-100">
                         <img width="100" class="img-fluid my-3"
                              src="https://lipstickdigitalmarketing.com.au/wp-content/uploads/Logo-Designs.png" alt="">
                         <h2>lorem lorem lorem</h2>
@@ -65,8 +65,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="occupation-item text-center p-4 pt-5">
+                <div class="col-md-4 mb-3 d-flex">
+                    <div class="occupation-item text-center p-4 pt-5 w-100">
                         <img width="100" class="img-fluid my-3"
                              src="https://lipstickdigitalmarketing.com.au/wp-content/uploads/Logo-Designs.png" alt="">
                         <h2>lorem lorem lorem</h2>
@@ -77,8 +77,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="occupation-item text-center p-4 pt-5">
+                <div class="col-md-4 mb-3 d-flex">
+                    <div class="occupation-item text-center p-4 pt-5 w-100">
                         <img width="100" class="img-fluid my-3"
                              src="https://lipstickdigitalmarketing.com.au/wp-content/uploads/Logo-Designs.png" alt="">
                         <h2>lorem lorem lorem</h2>
@@ -98,7 +98,7 @@
             <div class="row">
                 <div class="col-md-10 text-center m-auto">
                     <h2 class="white-border-text-bottom">
-                        Our different
+                        <?php _e('  Our different', 'bi-team'); ?>
                     </h2>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium, adipisci alias
@@ -128,7 +128,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="yellow-border-text-bottom">
-                        Customers
+                        <?php _e('Customers', 'bi-team'); ?>
                     </h2>
                 </div>
                 <div class="col logo-item">
@@ -177,178 +177,196 @@
         </div>
     </section>
     <!--///-->
-    <section class="reviews-section py-5 pb-6">
-        <div class="container-large container">
-            <div class="row">
-                <div class="col-md-10 mx-auto">
-                    <div id="reviewSlider" class="review-slider carousel slide">
-                        <ol class="carousel-indicators">
-                            <li data-target="#reviewSlider" data-slide-to="0" class="active"></li>
-                            <li data-target="#reviewSlider" data-slide-to="1"></li>
-                            <li data-target="#reviewSlider" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active text-center">
-                                <img class="img-fluid"
-                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"
-                                     width="100" alt="">
-                                <h2>Adriana Fox</h2>
-                                <h3 class="text-silver">
-                                    PCMag.com
-                                </h3>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur
-                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat
-                                    quibusdam quisquam! Maxime optio quod repellendus.
-                                </p>
-                                <a href="#">
-                                    READ THE REVIEW
-                                </a>
-                            </div>
-                            <div class="carousel-item text-center">
-                                <img class="img-fluid"
-                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"
-                                     width="100" alt="">
-                                <h2>Adriana Fox</h2>
-                                <h3 class="text-silver">
-                                    PCMag.com
-                                </h3>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur
-                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat
-                                    quibusdam quisquam! Maxime optio quod repellendus.
-                                </p>
-                                <a href="#">
-                                    READ THE REVIEW
-                                </a>
-                            </div>
-                            <div class="carousel-item text-center">
-                                <img class="img-fluid"
-                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"
-                                     width="100" alt="">
-                                <h2>Adriana Fox</h2>
-                                <h3 class="text-silver">
-                                    PCMag.com
-                                </h3>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur
-                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat
-                                    quibusdam quisquam! Maxime optio quod repellendus.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur
-                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat
-                                    quibusdam quisquam! Maxime optio quod repellendus.
-                                </p>
-                                <a href="#">
-                                    READ THE REVIEW
-                                </a>
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#reviewSlider" role="button"
-                           data-slide="prev">
-                            <span class="review-prev">
-                                <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
-                            </span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#reviewSlider" role="button"
-                           data-slide="next">
-                             <span class="review-next">
-                              <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
-                              </span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--    <section class="reviews-section py-5 pb-6">-->
+    <!--        <div class="container-large container">-->
+    <!--            <div class="row">-->
+    <!--                <div class="col-md-10 mx-auto">-->
+    <!--                    <div id="reviewSlider" class="review-slider carousel slide">-->
+    <!--                        <ol class="carousel-indicators">-->
+    <!--                            <li data-target="#reviewSlider" data-slide-to="0" class="active"></li>-->
+    <!--                            <li data-target="#reviewSlider" data-slide-to="1"></li>-->
+    <!--                            <li data-target="#reviewSlider" data-slide-to="2"></li>-->
+    <!--                        </ol>-->
+    <!--                        <div class="carousel-inner">-->
+    <!--                            <div class="carousel-item active text-center">-->
+    <!--                                <img class="img-fluid"-->
+    <!--                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"-->
+    <!--                                     width="100" alt="">-->
+    <!--                                <h2>Adriana Fox</h2>-->
+    <!--                                <h3 class="text-silver">-->
+    <!--                                    PCMag.com-->
+    <!--                                </h3>-->
+    <!--                                <i class="fa fa-quote-left" aria-hidden="true"></i>-->
+    <!--                                <p>-->
+    <!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur-->
+    <!--                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat-->
+    <!--                                    quibusdam quisquam! Maxime optio quod repellendus.-->
+    <!--                                </p>-->
+    <!--                                <a href="#">-->
+    <!--                                    READ THE REVIEW-->
+    <!--                                </a>-->
+    <!--                            </div>-->
+    <!--                            <div class="carousel-item text-center">-->
+    <!--                                <img class="img-fluid"-->
+    <!--                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"-->
+    <!--                                     width="100" alt="">-->
+    <!--                                <h2>Adriana Fox</h2>-->
+    <!--                                <h3 class="text-silver">-->
+    <!--                                    PCMag.com-->
+    <!--                                </h3>-->
+    <!--                                <i class="fa fa-quote-left" aria-hidden="true"></i>-->
+    <!--                                <p>-->
+    <!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur-->
+    <!--                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat-->
+    <!--                                    quibusdam quisquam! Maxime optio quod repellendus.-->
+    <!--                                </p>-->
+    <!--                                <a href="#">-->
+    <!--                                    READ THE REVIEW-->
+    <!--                                </a>-->
+    <!--                            </div>-->
+    <!--                            <div class="carousel-item text-center">-->
+    <!--                                <img class="img-fluid"-->
+    <!--                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"-->
+    <!--                                     width="100" alt="">-->
+    <!--                                <h2>Adriana Fox</h2>-->
+    <!--                                <h3 class="text-silver">-->
+    <!--                                    PCMag.com-->
+    <!--                                </h3>-->
+    <!--                                <i class="fa fa-quote-left" aria-hidden="true"></i>-->
+    <!--                                <p>-->
+    <!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur-->
+    <!--                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat-->
+    <!--                                    quibusdam quisquam! Maxime optio quod repellendus.-->
+    <!--                                </p>-->
+    <!--                                <p>-->
+    <!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur-->
+    <!--                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat-->
+    <!--                                    quibusdam quisquam! Maxime optio quod repellendus.-->
+    <!--                                </p>-->
+    <!--                                <a href="#">-->
+    <!--                                    READ THE REVIEW-->
+    <!--                                </a>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                        <a class="carousel-control-prev" href="#reviewSlider" role="button"-->
+    <!--                           data-slide="prev">-->
+    <!--                            <span class="review-prev">-->
+    <!--                                <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>-->
+    <!--                            </span>-->
+    <!--                            <span class="sr-only">Previous</span>-->
+    <!--                        </a>-->
+    <!--                        <a class="carousel-control-next" href="#reviewSlider" role="button"-->
+    <!--                           data-slide="next">-->
+    <!--                             <span class="review-next">-->
+    <!--                              <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>-->
+    <!--                              </span>-->
+    <!--                            <span class="sr-only">Next</span>-->
+    <!--                        </a>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
     <!--///-->
+
+<?php global $post;
+$featured_news = get_posts([
+    'numberposts' => 3,
+    'orderby' => 'date',
+    'order' => 'DESC',
+    'meta_query' => [
+        [
+            'key' => 'is_highlighted',
+            'compare' => '==',
+            'value' => 1
+        ]
+    ],
+    'post_type' => 'products'
+]);
+?>
     <section class="multirow-section">
         <div class="container-fluid">
-            <div class="row multirow">
-                <div class="col-md-6 p-0">
-                    <div style="background-image: url('http://www.sky.aw.net.ua/evening/img/evn_016.jpg');height: 100%;
-    background-size: cover;background-position: center;min-height: 200px;">
+            <?php foreach ($featured_news as $post) : setup_postdata($post); ?>
+                <div class="row multirow">
+                    <div class="col-md-6 p-0">
+                        <div class="products-image-thumbnail"
+                             style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, 'image_article_large'); ?>');">
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-7 multirow-item ">
-                            <div class="text-center p-4 pb-5">
-                                <img class="img-fluid"
-                                     src="http://www.noboxsolutions.se/wp-content/uploads/2014/11/wordpressIcon2.png"
-                                     alt="">
-                                <h2>Title title title title title</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore odit quibusdam
-                                    quisquam
-                                    vel voluptas? Aliquam amet, autem enim eos explicabo in ipsam molestiae neque nihil
-                                    obcaecati saepe sequi temporibus vitae.</p>
-                                <a href="#">LINK!</a>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-7 multirow-item">
+                                <div class="text-center p-4 pt-5 pb-7">
+                                    <?php $products_logo = get_field('products_logo', $post->ID);
+                                    if (!empty($products_logo)): ?>
+                                        <img class="img-fluid pb-3" width="150"
+                                             src="<?php echo $products_logo['sizes']['small_avatar']; ?>"
+                                             alt="<?php echo $products_logo['alt']; ?>"/>
+                                    <?php endif; ?>
+                                    <h2 class="text-uppercase">
+                                        <?php the_title(); ?>
+                                    </h2>
+                                    <?php the_excerpt(); ?>
+                                    <a class="more-link text-uppercase" href="<?php the_permalink(); ?>">more about
+                                        product</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row multirow">
-                <div class="col-md-6 p-0">
-                    <div style="background-image: url('http://www.sky.aw.net.ua/evening/img/evn_016.jpg');height: 100%;
-    background-size: cover;background-position: center;min-height: 200px;">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-7 multirow-item ">
-                            <div class="text-center p-4 pb-5">
-                                <img class="img-fluid"
-                                     src="http://www.noboxsolutions.se/wp-content/uploads/2014/11/wordpressIcon2.png"
-                                     alt="">
-                                <h2>Title title title title title</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore odit quibusdam
-                                    quisquam
-                                    vel voluptas? Aliquam amet, autem enim eos explicabo in ipsam molestiae neque nihil
-                                    obcaecati saepe sequi temporibus vitae.</p>
-                                <a href="#">LINK!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <?php
+            endforeach;
+            wp_reset_postdata();
+            ?>
         </div>
     </section>
     <!--///-->
-    <section class="pricing-section py-5">
+<?php global $post;
+$featured_news = get_posts([
+    'numberposts' => 3,
+    'orderby' => 'date',
+    'order' => 'DESC',
+    'meta_query' => [
+        [
+            'key' => 'is_highlighted',
+            'compare' => '==',
+            'value' => 1
+        ]
+    ],
+    'post_type' => 'products'
+]);
+?>
+    <section class="pricing-section py-5 pb-7">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h2 class="text-center yellow-border-text-bottom">
-                        Pricing
+                <div class="col-md-12 pb-5">
+                    <h2 class="text-center yellow-border-text-bottom text-white">
+                        <?php _e('Pricing', 'bi-team'); ?>
                     </h2>
                 </div>
-                <div class="col-md-4">
-                    <div class="pricing-item text-center py-4 px-5">
-                        <h3>
-                            Title title title
-                        </h3>
-                        <p class="circle-text">
-                            $1 950
-                        </p>
-                        <ul class="list-style-none p-0 m-0 text-left">
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                        </ul>
-                        <a class="d-block text-uppercase" href="#">
-                            buy product >
-                        </a>
+                <?php foreach ($featured_news as $post) : setup_postdata($post); ?>
+                    <div class="col-md-4 mb-3 d-flex">
+                        <div class="pricing-item text-center py-4 px-5 w-100">
+                            <h3>
+                                <?php the_title(); ?>
+                            </h3>
+                            <p class="circle-text">
+                               $<?php the_field('products_price'); ?>
+                            </p>
+                           <?php if (!empty(get_field('products_list'))): ?>
+                            <div class="single-content text-left">
+                            <?php the_field('products_list'); ?>
+                            </div>
+                        <?php endif; ?>
+                            <a class="d-block text-uppercase link-buy-products" href="<?php the_permalink(); ?>">
+                                buy product
+                            </a>
+                        </div>
                     </div>
-                </div>
+                    <?php
+                endforeach;
+                wp_reset_postdata();
+                ?>
             </div>
         </div>
     </section>
@@ -358,7 +376,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="yellow-border-text-bottom text-center">
-                        Contact Us
+                        <?php _e(' Contact Us ', 'bi-team'); ?>
                     </h2>
                 </div>
                 <div class="col-md-4 m-auto">

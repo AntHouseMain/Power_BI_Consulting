@@ -101,22 +101,22 @@
   bottom: 0;
 }
 
-.more-link {
+.more-link, .link-buy-products {
   background: #1b1b1b;
   padding: 10px 45px;
   display: inline-block;
-  color: #fff;
+  color: #fff !important;
   -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
           box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 }
 
-.more-link:hover {
+.more-link:hover, .link-buy-products:hover {
   text-decoration: none;
-  color: #1b1b1b;
+  color: #1b1b1b !important;
   background-color: #fccd1a;
 }
 
-.more-link:after {
+.more-link:after, .link-buy-products:after {
   content: "\f105";
   font-family: FontAwesome;
   position: relative;
@@ -125,8 +125,112 @@
   font-size: 22px;
 }
 
-.more-link:hover:after {
+.more-link:hover:after, .link-buy-products:hover:after {
   color: #000;
+}
+
+.bulleted-list {
+  line-height: 2.3;
+}
+
+.bulleted-list li:before {
+  content: '\f00c';
+  font-family: FontAwesome;
+  background-color: #fccd1a;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 500px;
+          border-radius: 500px;
+  vertical-align: middle;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.numbered-list {
+  line-height: 2.3;
+}
+
+.numbered-list li:before {
+  content: counter(li);
+  counter-increment: li;
+  background-color: #fccd1a;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 500px;
+          border-radius: 500px;
+  vertical-align: middle;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.circle-text {
+  width: 120px;
+  height: 120px;
+  -webkit-border-radius: 500px;
+          border-radius: 500px;
+  vertical-align: middle;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 700;
+  color: #000;
+  background-color: #fccd1a;
+  font-size: 21px;
+}
+
+.link-buy-products {
+  background: #fccd1a;
+  color: #000 !important;
+  border-bottom: 4px solid transparent;
+}
+
+.link-buy-products:hover {
+  border-bottom: 4px solid #feb50f;
+}
+
+.link-buy-products:after {
+  color: #000 !important;
 }
 
 body {
@@ -401,6 +505,25 @@ blockquote.right {
   margin-left: auto !important;
 }
 
+.multirow .products-image-thumbnail {
+  -webkit-background-size: cover;
+          background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  height: 100%;
+  position: relative;
+}
+
+.multirow .products-image-thumbnail:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .pricing-section {
   background-color: #1c1c1c;
 }
@@ -408,17 +531,15 @@ blockquote.right {
 .pricing-section .pricing-item {
   background-color: #fff;
   border-left: 3px solid #fccd1a;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
-.pricing-section .pricing-item ul li:before {
-  content: '\f00c';
-  font-family: FontAwesome;
-  background-color: #fccd1a;
-  padding: 5px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+.pricing-section .pricing-item:hover {
+  -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+          transform: translateY(-20px);
 }
 
 /* --== /Front Page ==-- */
@@ -781,7 +902,87 @@ blockquote.right {
   color: #fff;
 }
 
-/* --== /Portfolio Archive ==-- */
+/* --== /Products Archive ==-- */
+/* --== Reviews Single ==-- */
+.reviews-item h3 {
+  font-size: 18px;
+}
+
+/* --== /Reviews Single ==-- */
+/* --== All single-page list style ==-- */
+.single-content ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  line-height: 2.3;
+}
+
+.single-content ul li:before {
+  content: '\f00c';
+  font-family: FontAwesome;
+  background-color: #fccd1a;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 500px;
+          border-radius: 500px;
+  vertical-align: middle;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.single-content ol {
+  counter-reset: li;
+  list-style: none;
+  *list-style: decimal;
+  padding: 0;
+  margin: 0;
+  line-height: 2.3;
+}
+
+.single-content ol li:before {
+  content: counter(li);
+  counter-increment: li;
+  background-color: #fccd1a;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 500px;
+          border-radius: 500px;
+  vertical-align: middle;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* --== /All single-page list style ==-- */
 /* --== /Contact Page ==-- */
 @media only screen and (max-width: 1200px) {
   .contact-information .contact-info-wrap {
