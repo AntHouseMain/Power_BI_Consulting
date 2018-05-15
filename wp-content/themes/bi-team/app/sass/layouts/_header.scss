@@ -43,10 +43,10 @@ p {
       }
     }
   }
-  .current-menu-item {
-    border-bottom: 2px solid $main-color;
+  .current-menu-link-item {
+    border-bottom: 4px solid $main-color;
     &:hover {
-      border-bottom: 2px solid $main-color;
+      border-bottom: 4px solid $main-color;
     }
   }
 }

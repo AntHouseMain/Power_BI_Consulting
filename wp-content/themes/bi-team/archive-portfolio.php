@@ -2,7 +2,7 @@
 <div class="container py-4">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="py-5">
+            <h1 class="py-4">
                 <?php echo post_type_archive_title('', false); ?>
             </h1>
         </div>

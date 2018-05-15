@@ -2,6 +2,7 @@ $main-color: #fccd1a;
 $white-color: #fff;
 $grey-color: #333333;
 $black-color: #1b1b1b;
+$background-button-dark-color: #1b1b1b;
 
 .bg-white {
   background-color: #fff;
@@ -9,6 +10,23 @@ $black-color: #1b1b1b;
 
 .list-style-none {
   list-style: none;
+}
+
+/* --== Custom padding/margin ==-- */
+.pt-6, .py-6 {
+  padding-top: 4rem !important;
+}
+
+.pb-6, .py-6 {
+  padding-bottom: 4rem !important;
+}
+
+.pt-7, .py-7 {
+  padding-top: 5rem !important;
+}
+
+.pb-7, .py-7 {
+  padding-bottom: 5rem !important;
 }
 
 @mixin bottom-line($color) {
@@ -66,9 +84,9 @@ $black-color: #1b1b1b;
   &:hover {
     color: #000;
   }
-  //&:visited {
-  //  color: $main-color;
-  //}
+  &:visited {
+    color: #656565;
+  }
 }
 
 .text-silver {
@@ -81,4 +99,29 @@ $black-color: #1b1b1b;
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.more-link {
+  background: $background-button-dark-color;
+  padding: 10px 45px;
+  display: inline-block;
+  color: $white-color;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+  &:hover {
+    text-decoration: none;
+    color: $background-button-dark-color;
+    background-color: $main-color;
+  }
+  &:after {
+    content: "\f105";
+    font-family: FontAwesome;
+    position: relative;
+    right: -20px;
+    color: $main-color;
+    font-size: 22px;
+
+  }
+  &:hover:after {
+    color: #000;
+  }
 }

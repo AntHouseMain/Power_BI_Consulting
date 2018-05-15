@@ -5,7 +5,7 @@
             var link = this.href
             var result = location.match(link);
             if (result != null) {
-                $(this).addClass('current-menu-item');
+                $(this).addClass('current-menu-link-item');
             }
         });
     });

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <! --== Carousel ==-->
+    <!--    <! --== Carousel ==-->
     <section class="container-fluid p-0">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -50,11 +50,11 @@
         </div>
     </section>
     <!--///-->
-    <section class="occupation-section py-5">
+    <section class="occupation-section py-7">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <div class="occupation-item text-center p-4">
+                    <div class="occupation-item text-center p-4 pt-5">
                         <img width="100" class="img-fluid my-3"
                              src="https://lipstickdigitalmarketing.com.au/wp-content/uploads/Logo-Designs.png" alt="">
                         <h2>lorem lorem lorem</h2>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="occupation-item text-center p-4">
+                    <div class="occupation-item text-center p-4 pt-5">
                         <img width="100" class="img-fluid my-3"
                              src="https://lipstickdigitalmarketing.com.au/wp-content/uploads/Logo-Designs.png" alt="">
                         <h2>lorem lorem lorem</h2>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="occupation-item text-center p-4">
+                    <div class="occupation-item text-center p-4 pt-5">
                         <img width="100" class="img-fluid my-3"
                              src="https://lipstickdigitalmarketing.com.au/wp-content/uploads/Logo-Designs.png" alt="">
                         <h2>lorem lorem lorem</h2>
@@ -100,28 +100,29 @@
                     <h2 class="white-border-text-bottom">
                         Our different
                     </h2>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium, adipisci alias
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium, adipisci alias
                         consequuntur cumque dolor earum fugit harum incidunt magnam maxime nisi recusandae similique
-                        soluta, vero. Fuga, provident repellendus? Eveniet.</p>
+                        soluta, vero. Fuga, provident repellendus? Eveniet.
+                    </p>
+
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet delectus earum, laudantium nihil
                         nulla omnis possimus? Consequatur debitis, deserunt eaque eum illum in incidunt magni mollitia
                         recusandae sapiente sunt, tempore.
                     </p>
-                    <a class="text-uppercase" href="#">VISIT MAIN SITE</a>
+                    <a class="text-uppercase more-link" href="#">VISIT MAIN SITE</a>
                 </div>
             </div>
         </div>
     </section>
     <!--///-->
-    <section>
+    <section class="video-block">
         <div class="container-fluid">
             VIDEO BLOCK
         </div>
     </section>
     <!--///-->
-
     <section class="customers-section py-5">
         <div class="container container-large text-center">
             <div class="row">
@@ -176,14 +177,97 @@
         </div>
     </section>
     <!--///-->
-
-    <section class="comment-section py-5">
+    <section class="reviews-section py-5 pb-6">
         <div class="container-large container">
             <div class="row">
-                <h1 class="text-center">COMMENTS ITEM</h1>
+                <div class="col-md-10 mx-auto">
+                    <div id="reviewSlider" class="review-slider carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#reviewSlider" data-slide-to="0" class="active"></li>
+                            <li data-target="#reviewSlider" data-slide-to="1"></li>
+                            <li data-target="#reviewSlider" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img class="img-fluid"
+                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"
+                                     width="100" alt="">
+                                <h2>Adriana Fox</h2>
+                                <h3 class="text-silver">
+                                    PCMag.com
+                                </h3>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur
+                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat
+                                    quibusdam quisquam! Maxime optio quod repellendus.
+                                </p>
+                                <a href="#">
+                                    READ THE REVIEW
+                                </a>
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img class="img-fluid"
+                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"
+                                     width="100" alt="">
+                                <h2>Adriana Fox</h2>
+                                <h3 class="text-silver">
+                                    PCMag.com
+                                </h3>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur
+                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat
+                                    quibusdam quisquam! Maxime optio quod repellendus.
+                                </p>
+                                <a href="#">
+                                    READ THE REVIEW
+                                </a>
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img class="img-fluid"
+                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"
+                                     width="100" alt="">
+                                <h2>Adriana Fox</h2>
+                                <h3 class="text-silver">
+                                    PCMag.com
+                                </h3>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur
+                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat
+                                    quibusdam quisquam! Maxime optio quod repellendus.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur
+                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat
+                                    quibusdam quisquam! Maxime optio quod repellendus.
+                                </p>
+                                <a href="#">
+                                    READ THE REVIEW
+                                </a>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#reviewSlider" role="button"
+                           data-slide="prev">
+                            <span class="review-prev">
+                                <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
+                            </span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#reviewSlider" role="button"
+                           data-slide="next">
+                             <span class="review-next">
+                              <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+                              </span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <!--///-->
     <section class="multirow-section">
         <div class="container-fluid">
             <div class="row multirow">
@@ -237,7 +321,7 @@
             </div>
         </div>
     </section>
-
+    <!--///-->
     <section class="pricing-section py-5">
         <div class="container">
             <div class="row">
@@ -268,6 +352,7 @@
             </div>
         </div>
     </section>
+    <!--///-->
     <section class="contacts-us py-5">
         <div class="container">
             <div class="row">
@@ -277,7 +362,7 @@
                     </h2>
                 </div>
                 <div class="col-md-4 m-auto">
-                   NAMI CODE
+                    NAMI CODE
                 </div>
             </div>
         </div>
