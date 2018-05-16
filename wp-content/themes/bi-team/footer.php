@@ -19,7 +19,7 @@
         wp_nav_menu(array(
             'theme_location' => 'menu-1',
             'menu_id' => 'primary-menu',
-            'menu_class' => 'footer-main-menu d-flex flex-column flex-lg-row justify-content-center navbar-nav m-auto py-5',
+            'menu_class' => 'footer-main-menu d-flex flex-row justify-content-center flex-wrap navbar-nav m-auto py-5',
             'container' => 'nav'
         ));
         ?>

@@ -18,9 +18,45 @@
 
 }
 
+.video-block {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  @include image-darken-background;
+  .video-button {
+    @extend .circle-text;
+    width: 100px;
+    height: 100px;
+    i {
+      color: #000;
+      font-size: 30px;
+    }
+    &:hover {
+      background-color: darken($main-color, 10%);
+    }
+  }
+  .modal-content {
+    background-color: transparent;
+    border: 0;
+  }
+  .modal-header {
+    border: 0;
+  }
+  .button-close {
+    color: $white-color;
+  }
+  .video-play-pause {
+    background-color: $main-color;
+  }
+}
+
+.modal-video-medium {
+  max-width: 800px;
+}
+
 .customers-section {
   background-color: #f8f8f8;
-  .logo-item {
+  .customers-logo-item {
     margin-bottom: 10px;
     img {
       display: inline-block;
@@ -446,8 +482,6 @@
 
   }
 }
-
-
 
 /* --== /All single-page list style ==-- */
 

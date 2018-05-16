@@ -12,7 +12,6 @@
             'fields' => array(
                 array(
                     'key' => 'field_is_highlighted',
-
                     'name' => 'is_highlighted',
                     'type' => 'true_false',
                     'instructions' => '',

@@ -26,3 +26,38 @@
     }
   }
 }
+
+@media only screen and (min-width: 576px) {
+  .customers-logo-item {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .customers-logo-item {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .customers-logo-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .customers-logo-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .footer-main-menu {
+    li {
+      margin-bottom: 10px;
+
+    }
+  }
+}

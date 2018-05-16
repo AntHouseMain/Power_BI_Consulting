@@ -117,62 +117,72 @@
         </div>
     </section>
     <!--///-->
-    <section class="video-block">
+<?php $image_video = get_field('video_image'); ?>
+    <section class="video-block"
+             style="background-image: url('<?php echo $image_video['sizes']['image_article_large']; ?>');">
         <div class="container-fluid">
-            VIDEO BLOCK
+            <div class="row py-7">
+                <div class="col-md-12 d-flex justify-content-center flex-column align-items-center">
+                    <button type="button" class="btn d-inline-block video-button" data-toggle="modal"
+                            data-target="#exampleModalCenter">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                    </button>
+                    <h2 class="text-white my-4">
+                        <?php _e('See How it Works', 'bi-team') ?>
+                    </h2>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-video-medium modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close button-close" data-dismiss="modal" aria-label="Close">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <?php if (!empty(get_field('page_video_mp4') || get_field('page_video_webm'))) { ?>
+                                <video id="videoBlock" width="100%" height="auto" preload="auto" loop="loop" controls>
+                                    <source src="<?php echo get_field('page_video_mp4'); ?>" type="video/mp4">
+                                    <source src="<?php echo get_field('page_video_webm'); ?>" type="video/webm">
+                                </video>
+                               
+                            <?php } elseif (!empty(get_field('page_video_external_site'))) { ?>
+                                <div class="embed-container">
+                                    <?php the_field('page_video_external_site'); ?>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <!--///-->
     <section class="customers-section py-5">
         <div class="container container-large text-center">
-            <div class="row">
+            <div class="row justify-content-center align-items-center">
                 <div class="col-md-12">
                     <h2 class="yellow-border-text-bottom">
                         <?php _e('Customers', 'bi-team'); ?>
                     </h2>
                 </div>
-                <div class="col logo-item">
-                    <a class="d-block" href="#">
-                        <img class="img-fluid"
-                             src="http://www.noboxsolutions.se/wp-content/uploads/2014/11/wordpressIcon2.png" alt="">
-                    </a>
-                </div>
-                <div class="col logo-item">
-                    <a class="d-block" href="#">
-                        <img class="img-fluid"
-                             src="http://www.noboxsolutions.se/wp-content/uploads/2014/11/wordpressIcon2.png" alt="">
-                    </a>
-                </div>
-                <div class="col logo-item">
-                    <a class="d-block" href="#">
-                        <img class="img-fluid"
-                             src="http://www.noboxsolutions.se/wp-content/uploads/2014/11/wordpressIcon2.png" alt="">
-                    </a>
-                </div>
-                <div class="col logo-item">
-                    <a class="d-block" href="#">
-                        <img class="img-fluid"
-                             src="http://www.noboxsolutions.se/wp-content/uploads/2014/11/wordpressIcon2.png" alt="">
-                    </a>
-                </div>
-                <div class="col logo-item">
-                    <a class="d-block" href="#">
-                        <img class="img-fluid"
-                             src="http://www.noboxsolutions.se/wp-content/uploads/2014/11/wordpressIcon2.png" alt="">
-                    </a>
-                </div>
-                <div class="col logo-item">
-                    <a class="d-block" href="#">
-                        <img class="img-fluid"
-                             src="http://www.noboxsolutions.se/wp-content/uploads/2014/11/wordpressIcon2.png" alt="">
-                    </a>
-                </div>
-                <div class="col logo-item">
-                    <a class="d-block" href="#">
-                        <img class="img-fluid"
-                             src="http://www.noboxsolutions.se/wp-content/uploads/2014/11/wordpressIcon2.png" alt="">
-                    </a>
-                </div>
+                <?php if (have_rows('customers_repeater')): ?>
+                    <?php while (have_rows('customers_repeater')): the_row(); ?>
+                        <div class="col customers-logo-item">
+                            <a class="d-block" target="_blank"
+                               href="<?php the_sub_field('customers_repeater_link'); ?>">
+                                <?php
+                                $customers_logo = get_sub_field('customers_repeater_image');
+                                if (!empty($customers_logo)): ?>
+                                    <img class="img-fluid"
+                                         src="<?php echo $customers_logo['sizes']['customers_logo']; ?>"
+                                         alt="<?php echo $customers_logo['alt']; ?>"/>
+                                <?php endif; ?>
+                            </a>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -270,19 +280,13 @@
     <!--///-->
 
 <?php global $post;
-$featured_news = get_posts([
-    'numberposts' => 3,
+$featured_news = get_posts(['numberposts' => 3,
     'orderby' => 'date',
     'order' => 'DESC',
-    'meta_query' => [
-        [
-            'key' => 'is_highlighted',
-            'compare' => '==',
-            'value' => 1
-        ]
-    ],
-    'post_type' => 'products'
-]);
+    'meta_query' => [['key' => 'is_highlighted',
+        'compare' => '==',
+        'value' => 1]],
+    'post_type' => 'products']);
 ?>
     <section class="multirow-section">
         <div class="container-fluid">
@@ -322,19 +326,13 @@ $featured_news = get_posts([
     </section>
     <!--///-->
 <?php global $post;
-$featured_news = get_posts([
-    'numberposts' => 3,
+$featured_news = get_posts(['numberposts' => 3,
     'orderby' => 'date',
     'order' => 'DESC',
-    'meta_query' => [
-        [
-            'key' => 'is_highlighted',
-            'compare' => '==',
-            'value' => 1
-        ]
-    ],
-    'post_type' => 'products'
-]);
+    'meta_query' => [['key' => 'is_highlighted',
+        'compare' => '==',
+        'value' => 1]],
+    'post_type' => 'products']);
 ?>
     <section class="pricing-section py-5 pb-7">
         <div class="container">
@@ -351,13 +349,13 @@ $featured_news = get_posts([
                                 <?php the_title(); ?>
                             </h3>
                             <p class="circle-text">
-                               $<?php the_field('products_price'); ?>
+                                $<?php the_field('products_price'); ?>
                             </p>
-                           <?php if (!empty(get_field('products_list'))): ?>
-                            <div class="single-content text-left">
-                            <?php the_field('products_list'); ?>
-                            </div>
-                        <?php endif; ?>
+                            <?php if (!empty(get_field('products_list'))): ?>
+                                <div class="single-content text-left">
+                                    <?php the_field('products_list'); ?>
+                                </div>
+                            <?php endif; ?>
                             <a class="d-block text-uppercase link-buy-products" href="<?php the_permalink(); ?>">
                                 buy product
                             </a>

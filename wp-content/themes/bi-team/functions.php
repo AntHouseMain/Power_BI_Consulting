@@ -8,7 +8,10 @@
  */
 
 require_once "functions/functions-products-fields.php";
+require_once "functions/functions-front-page-fields.php";
 require_once "functions/functions-reviews-fields.php";
+require_once "functions/functions-video-block-fields.php";
+require_once "functions/functions-back-links.php";
 
 
 if (!function_exists('bi_team_setup')) :
@@ -48,6 +51,7 @@ if (!function_exists('bi_team_setup')) :
         add_theme_support('post-thumbnails');
 
         add_image_size('header_logo', 100, 100);
+        add_image_size('customers_logo', 200, 200);
         add_image_size('small_avatar', 200, 200, true);
         add_image_size('small_avatar_circle', 100, 100, true);
         add_image_size('image_article_large', 1000, 500, true);
@@ -538,45 +542,3 @@ function wcs_cpt_recent_posts_widget($params)
 
 add_filter('widget_posts_args', 'wcs_cpt_recent_posts_widget');
 
-
-function blog_url()
-{
-    $posts = \get_pages([
-        'meta_key' => '_wp_page_template',
-        'meta_value' => 'archive-news.php',
-        'posts_per_page' => 1,
-    ]);
-    return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('news/');
-}
-
-function portfolio_url()
-{
-    $posts = \get_pages([
-        'meta_key' => '_wp_page_template',
-        'meta_value' => 'archive-portfolio-off.php',
-        'posts_per_page' => 1,
-    ]);
-    return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('portfolio/');
-}
-
-
-function products_url()
-{
-    $posts = \get_pages([
-        'meta_key' => '_wp_page_template',
-        'meta_value' => 'archive-products.php',
-        'posts_per_page' => 1,
-    ]);
-    return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('products/');
-}
-
-
-function reviews_url()
-{
-    $posts = \get_pages([
-        'meta_key' => '_wp_page_template',
-        'meta_value' => 'archive-reviews.php',
-        'posts_per_page' => 1,
-    ]);
-    return (isset($posts[0])) ? \get_permalink($posts[0]) : \network_site_url('reviews/');
-}

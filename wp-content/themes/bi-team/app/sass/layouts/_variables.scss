@@ -58,7 +58,7 @@ $background-button-dark-color: #1b1b1b;
 }
 
 @mixin image-darken-background {
-  &:after {
+  &:before {
     content: '';
     position: absolute;
     left: 0;
@@ -198,4 +198,24 @@ $background-button-dark-color: #1b1b1b;
   &:after {
     color: #000 !important;
   }
+}
+
+/* --== Embed Style ==-- */
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
