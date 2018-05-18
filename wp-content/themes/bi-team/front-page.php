@@ -2,48 +2,36 @@
 
     <!--    <! --== Carousel ==-->
     <section class="container-fluid p-0">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselMain" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselMain" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselMain" data-slide-to="1"></li>
+                <li data-target="#carouselMain" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100 img-fluid"
-                         src="https://1.bp.blogspot.com/-4nsUmbsr7J4/VsIt6kZB4NI/AAAAAAAAAAU/vKLjCMsXjCs/s1600/priroda-gory-les-elki-ozero.jpg"
-                         alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>asdasdasd</h5>
-                        <p>asdasdasd asd as da sd</p>
-                        <a class="d-inline-block" href="#">LINK!</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 img-fluid"
-                         src="http://pskovskie.ru/media/W1siZiIsIjIwMTYvMDgvMjgvNXA4aGllamFuMV9wcmlyb2RhX3Bza292c2tveV9vYmxhc3RpXzMuanBnIl1d/priroda_pskovskoy_oblasti_3.jpg?sha=3ea700107155d063"
-                         alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>asd as as das d asd</h5>
-                        <p>asd asd as da sd</p>
-                        <a class="d-inline-block" href="#">LINK!</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 img-fluid" src="https://i.ytimg.com/vi/iqdRh9IpJ6I/maxresdefault.jpg"
-                         alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>as das dasda sd</h5>
-                        <p>as das das da sd</p>
-                        <a class="d-inline-block" href="#">LINK!</a>
-                    </div>
-                </div>
+                <?php if (have_rows('header_slider_repeater')): ?>
+                    <?php while (have_rows('header_slider_repeater')): the_row(); ?>
+                        <div class="carousel-item active">
+                            <?php $slider_image = get_sub_field('header_slider_image');
+                            if (!empty($slider_image)): ?>
+                                <img class="img-fluid d-block w-100 img-fluid"
+                                     src="<?php echo $slider_image['sizes']['image_main_slider']; ?>"
+                                     alt="<?php echo $slider_image['alt']; ?>"/>
+                            <?php endif; ?>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2><?php the_sub_field('header_slider_title'); ?></h2>
+                                <p><?php the_sub_field('header_slider_content'); ?></p>
+                                <a class="d-inline-block" href="<?php the_field('header_slider_link'); ?>">GET A QUETE</a>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -85,7 +73,8 @@
                     </h2>
                     <?php the_field('our_different_content'); ?>
                     <?php if (!empty(get_field('our_different_link'))) : ?>
-                        <a class="text-uppercase more-link" href="<?php the_field('our_different_link'); ?>"><?php _e('VISIT MAIN
+                        <a class="text-uppercase more-link"
+                           href="<?php the_field('our_different_link'); ?>"><?php _e('VISIT MAIN
                         SITE', 'bi-tema'); ?></a>
                     <?php endif; ?>
                 </div>
@@ -121,7 +110,8 @@
                                 </button>
                             </div>
                             <?php if (!empty(get_field('page_video_mp4') || get_field('page_video_webm'))) { ?>
-                                <video id="videoBlock" width="100%" height="auto" preload="auto" loop="loop" controls>
+                                <video id="videoBlock" width="100%" height="auto" preload="auto" loop="loop"
+                                       controls>
                                     <source src="<?php echo get_field('page_video_mp4'); ?>" type="video/mp4">
                                     <source src="<?php echo get_field('page_video_webm'); ?>" type="video/webm">
                                 </video>
@@ -188,7 +178,7 @@
                             <div class="carousel-item active text-center">
                                 <?php foreach ($featured_reviews as $post) :
                                 setup_postdata($post); ?>
-                                <img class="img-fluid" 
+                                <img class="img-fluid"
                                      src="<?php echo get_the_post_thumbnail_url($post->ID, 'customers_logo'); ?>"
                                      alt="<?php the_post_thumbnail_caption(); ?>">
 

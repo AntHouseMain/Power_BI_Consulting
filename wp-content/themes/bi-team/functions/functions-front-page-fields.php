@@ -10,7 +10,45 @@
             'key' => 'front_page_fields',
             'title' => 'Content Front Page',
             'fields' => array(
-
+                array(
+                    'key' => 'header_slider_tab',
+                    'label' => __('Main Slider', 'bi-team'),
+                    'name' => 'header_slider_tab',
+                    'type' => 'tab',
+                ),
+                array(
+                    'key' => 'header_slider_repeater',
+                    'label' => __('Main Slider', 'bi-team'),
+                    'name' => 'header_slider_repeater',
+                    'type' => 'repeater',
+                    'layout' => 'block',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'header_slider_image',
+                            'label' => __('Image', 'bi-team'),
+                            'name' => 'header_slider_image',
+                            'type' => 'image',
+                        ),
+                        array(
+                            'key' => 'header_slider_title',
+                            'label' => __('Slider Title', 'bi-team'),
+                            'name' => 'header_slider_title',
+                            'type' => 'text',
+                        ),
+                        array(
+                            'key' => 'header_slider_content',
+                            'label' => __('Slider content', 'bi-team'),
+                            'name' => 'header_slider_content',
+                            'type' => 'text',
+                        ),
+                        array(
+                            'key' => 'header_slider_link',
+                            'label' => __('Button Link', 'bi-team'),
+                            'name' => 'header_slider_link',
+                            'type' => 'url',
+                        ),
+                    ),
+                ),
                 array(
                     'key' => 'occupation_tab',
                     'label' => __('Occupation', 'bi-team'),
@@ -47,7 +85,6 @@
                             'type' => 'wysiwyg',
                             'required' => 1,
                         ),
-
                     ),
                 ),
                 array(
