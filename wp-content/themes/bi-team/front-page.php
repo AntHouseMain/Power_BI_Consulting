@@ -50,74 +50,52 @@
         </div>
     </section>
     <!--///-->
+<?php if (!empty(have_rows('customers_repeater'))) : ?>
     <section class="occupation-section py-7">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-3 d-flex">
-                    <div class="occupation-item text-center p-4 pt-5 w-100">
-                        <img width="100" class="img-fluid my-3"
-                             src="https://lipstickdigitalmarketing.com.au/wp-content/uploads/Logo-Designs.png" alt="">
-                        <h2>lorem lorem lorem</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda distinctio
-                            doloremque eveniet excepturi fugiat iure laudantium molestias nemo obcaecati. Aut cupiditate
-                            ducimus enim magnam necessitatibus nobis, quasi temporibus unde.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3 d-flex">
-                    <div class="occupation-item text-center p-4 pt-5 w-100">
-                        <img width="100" class="img-fluid my-3"
-                             src="https://lipstickdigitalmarketing.com.au/wp-content/uploads/Logo-Designs.png" alt="">
-                        <h2>lorem lorem lorem</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda distinctio
-                            doloremque eveniet excepturi fugiat iure laudantium molestias nemo obcaecati. Aut cupiditate
-                            ducimus enim magnam necessitatibus nobis, quasi temporibus unde.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3 d-flex">
-                    <div class="occupation-item text-center p-4 pt-5 w-100">
-                        <img width="100" class="img-fluid my-3"
-                             src="https://lipstickdigitalmarketing.com.au/wp-content/uploads/Logo-Designs.png" alt="">
-                        <h2>lorem lorem lorem</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda distinctio
-                            doloremque eveniet excepturi fugiat iure laudantium molestias nemo obcaecati. Aut cupiditate
-                            ducimus enim magnam necessitatibus nobis, quasi temporibus unde.
-                        </p>
-                    </div>
-                </div>
+                <?php if (have_rows('occupation_repeater')): ?>
+                    <?php while (have_rows('occupation_repeater')): the_row(); ?>
+                        <div class="col-md-4 mb-3 d-flex">
+                            <div class="occupation-item text-center p-4 pt-5 w-100">
+                                <?php $occupation_logo = get_sub_field('occupation_repeater_image');
+                                if (!empty($occupation_logo)): ?>
+                                    <img class="img-fluid"
+                                         src="<?php echo $occupation_logo['sizes']['customers_logo']; ?>"
+                                         alt="<?php echo $occupation_logo['alt']; ?>"/>
+                                <?php endif; ?>
+                                <h2 class="my-4"><?php the_sub_field('occupation_repeater_title'); ?></h2>
+                                <?php the_sub_field('occupation_repeater_content'); ?>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
+<?php endif; ?>
     <!--///-->
+<?php if (!empty(get_field('our_different_content'))) : ?>
     <section class="our-different py-5 text-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 text-center m-auto">
                     <h2 class="white-border-text-bottom">
-                        <?php _e('  Our different', 'bi-team'); ?>
+                        <?php _e('Our different', 'bi-team'); ?>
                     </h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium, adipisci alias
-                        consequuntur cumque dolor earum fugit harum incidunt magnam maxime nisi recusandae similique
-                        soluta, vero. Fuga, provident repellendus? Eveniet.
-                    </p>
-
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet delectus earum, laudantium nihil
-                        nulla omnis possimus? Consequatur debitis, deserunt eaque eum illum in incidunt magni mollitia
-                        recusandae sapiente sunt, tempore.
-                    </p>
-                    <a class="text-uppercase more-link" href="#">VISIT MAIN SITE</a>
+                    <?php the_field('our_different_content'); ?>
+                    <?php if (!empty(get_field('our_different_link'))) : ?>
+                        <a class="text-uppercase more-link" href="<?php the_field('our_different_link'); ?>"><?php _e('VISIT MAIN
+                        SITE', 'bi-tema'); ?></a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
     </section>
+<?php endif; ?>
     <!--///-->
-<?php $image_video = get_field('video_image'); ?>
+<?php if (!empty(get_field('page_video_mp4') || get_field('page_video_webm') || get_field('page_video_external_site'))) : ?>
+    <?php $image_video = get_field('video_image'); ?>
     <section class="video-block"
              style="background-image: url('<?php echo $image_video['sizes']['image_article_large']; ?>');">
         <div class="container-fluid">
@@ -137,7 +115,8 @@
                     <div class="modal-dialog modal-video-medium modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close button-close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close button-close" data-dismiss="modal"
+                                        aria-label="Close">
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -146,7 +125,6 @@
                                     <source src="<?php echo get_field('page_video_mp4'); ?>" type="video/mp4">
                                     <source src="<?php echo get_field('page_video_webm'); ?>" type="video/webm">
                                 </video>
-                               
                             <?php } elseif (!empty(get_field('page_video_external_site'))) { ?>
                                 <div class="embed-container">
                                     <?php the_field('page_video_external_site'); ?>
@@ -158,7 +136,9 @@
             </div>
         </div>
     </section>
+<?php endif; ?>
     <!--///-->
+<?php if (!empty(have_rows('customers_repeater'))) : ?>
     <section class="customers-section py-5">
         <div class="container container-large text-center">
             <div class="row justify-content-center align-items-center">
@@ -186,98 +166,66 @@
             </div>
         </div>
     </section>
+<?php endif; ?>
     <!--///-->
-    <!--    <section class="reviews-section py-5 pb-6">-->
-    <!--        <div class="container-large container">-->
-    <!--            <div class="row">-->
-    <!--                <div class="col-md-10 mx-auto">-->
-    <!--                    <div id="reviewSlider" class="review-slider carousel slide">-->
-    <!--                        <ol class="carousel-indicators">-->
-    <!--                            <li data-target="#reviewSlider" data-slide-to="0" class="active"></li>-->
-    <!--                            <li data-target="#reviewSlider" data-slide-to="1"></li>-->
-    <!--                            <li data-target="#reviewSlider" data-slide-to="2"></li>-->
-    <!--                        </ol>-->
-    <!--                        <div class="carousel-inner">-->
-    <!--                            <div class="carousel-item active text-center">-->
-    <!--                                <img class="img-fluid"-->
-    <!--                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"-->
-    <!--                                     width="100" alt="">-->
-    <!--                                <h2>Adriana Fox</h2>-->
-    <!--                                <h3 class="text-silver">-->
-    <!--                                    PCMag.com-->
-    <!--                                </h3>-->
-    <!--                                <i class="fa fa-quote-left" aria-hidden="true"></i>-->
-    <!--                                <p>-->
-    <!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur-->
-    <!--                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat-->
-    <!--                                    quibusdam quisquam! Maxime optio quod repellendus.-->
-    <!--                                </p>-->
-    <!--                                <a href="#">-->
-    <!--                                    READ THE REVIEW-->
-    <!--                                </a>-->
-    <!--                            </div>-->
-    <!--                            <div class="carousel-item text-center">-->
-    <!--                                <img class="img-fluid"-->
-    <!--                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"-->
-    <!--                                     width="100" alt="">-->
-    <!--                                <h2>Adriana Fox</h2>-->
-    <!--                                <h3 class="text-silver">-->
-    <!--                                    PCMag.com-->
-    <!--                                </h3>-->
-    <!--                                <i class="fa fa-quote-left" aria-hidden="true"></i>-->
-    <!--                                <p>-->
-    <!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur-->
-    <!--                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat-->
-    <!--                                    quibusdam quisquam! Maxime optio quod repellendus.-->
-    <!--                                </p>-->
-    <!--                                <a href="#">-->
-    <!--                                    READ THE REVIEW-->
-    <!--                                </a>-->
-    <!--                            </div>-->
-    <!--                            <div class="carousel-item text-center">-->
-    <!--                                <img class="img-fluid"-->
-    <!--                                     src="https://about.canva.com/wp-content/uploads/sites/3/2016/08/Band-Logo.png"-->
-    <!--                                     width="100" alt="">-->
-    <!--                                <h2>Adriana Fox</h2>-->
-    <!--                                <h3 class="text-silver">-->
-    <!--                                    PCMag.com-->
-    <!--                                </h3>-->
-    <!--                                <i class="fa fa-quote-left" aria-hidden="true"></i>-->
-    <!--                                <p>-->
-    <!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur-->
-    <!--                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat-->
-    <!--                                    quibusdam quisquam! Maxime optio quod repellendus.-->
-    <!--                                </p>-->
-    <!--                                <p>-->
-    <!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur-->
-    <!--                                    eius est in. Consequatur eius esse harum impedit labore nobis odio, pariatur quaerat-->
-    <!--                                    quibusdam quisquam! Maxime optio quod repellendus.-->
-    <!--                                </p>-->
-    <!--                                <a href="#">-->
-    <!--                                    READ THE REVIEW-->
-    <!--                                </a>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                        <a class="carousel-control-prev" href="#reviewSlider" role="button"-->
-    <!--                           data-slide="prev">-->
-    <!--                            <span class="review-prev">-->
-    <!--                                <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>-->
-    <!--                            </span>-->
-    <!--                            <span class="sr-only">Previous</span>-->
-    <!--                        </a>-->
-    <!--                        <a class="carousel-control-next" href="#reviewSlider" role="button"-->
-    <!--                           data-slide="next">-->
-    <!--                             <span class="review-next">-->
-    <!--                              <i class="fa fa-angle-right fa-2x" aria-hidden="true"></i>-->
-    <!--                              </span>-->
-    <!--                            <span class="sr-only">Next</span>-->
-    <!--                        </a>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </section>-->
-    <!--///-->
+    <section class="reviews-section py-5 pb-6">
+        <div class="container-large container">
+            <div class="row">
+                <div class="col-md-10 m-auto">
+
+                    <div id="reviewSlider" class="carousel slide" data-ride="carousel">
+                        <?php global $post;
+                        $featured_reviews = get_posts(['numberposts' => 10,
+                            'orderby' => 'date',
+                            'order' => 'DESC',
+                            'meta_query' => [['key' => 'field_is_highlighted_review',
+                                'compare' => '==',
+                                'value' => 1]],
+                            'post_type' => 'reviews']);
+                        ?>
+                        <div class="carousel-inner">
+                            <?php $i = 1; ?>
+                            <div class="carousel-item active text-center">
+                                <?php foreach ($featured_reviews as $post) :
+                                setup_postdata($post); ?>
+                                <img class="img-fluid" 
+                                     src="<?php echo get_the_post_thumbnail_url($post->ID, 'customers_logo'); ?>"
+                                     alt="<?php the_post_thumbnail_caption(); ?>">
+
+                                <h2> <?php the_title(); ?></h2>
+                                <h3 class="text-silver">
+                                    <?php the_field('reviews_position'); ?>
+                                </h3>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                <?php the_excerpt(); ?>
+                                <a href="<?php the_premalink(); ?>">
+                                    READ THE REVIEW
+                                </a>
+
+                            </div>
+                            <div class="carousel-item">
+                                <!--Сюда выводим следующий слайдер!-->
+                            </div>
+                        <?php
+                        endforeach;
+                        wp_reset_postdata();
+                        ?>
+
+                        </div>
+                        <a class="carousel-control-prev" href="#reviewSlider" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#reviewSlider" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--    ///-->
 
 <?php global $post;
 $featured_news = get_posts(['numberposts' => 3,

@@ -61,7 +61,7 @@ function register_fields_products_add()
                 ),
                 array(
                     'key' => 'products_logo',
-                    'label' => 'Logo products',
+                    'label' => __('Logo products'),
                     'name' => 'products_logo',
                     'type' => 'image',
                     'instructions' => '',
@@ -75,7 +75,7 @@ function register_fields_products_add()
                 ),
                 array(
                     'key' => 'products_price',
-                    'label' => 'Products price',
+                    'label' => __('Products price'),
                     'name' => 'products_price',
                     'type' => 'text',
                     'required' => 0,

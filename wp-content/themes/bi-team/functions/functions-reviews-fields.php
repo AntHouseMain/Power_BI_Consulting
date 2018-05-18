@@ -13,7 +13,15 @@ function register_fields_reviews()
             'key' => 'additional_reviews_content',
             'title' => 'Additional content',
             'fields' => array(
-
+                array(
+                    'key' => 'field_is_highlighted_review',
+                    'name' => 'field_is_highlighted_review',
+                    'type' => 'true_false',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'message' => __('Show feedback on home page ?', 'bi-team'),
+                ),
                 array(
                     'key' => 'reviews_position',
                     'label' => 'Person position ',
