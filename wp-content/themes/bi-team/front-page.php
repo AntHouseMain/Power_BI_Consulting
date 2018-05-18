@@ -14,9 +14,15 @@
                          src="https://1.bp.blogspot.com/-4nsUmbsr7J4/VsIt6kZB4NI/AAAAAAAAAAU/vKLjCMsXjCs/s1600/priroda-gory-les-elki-ozero.jpg"
                          alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>asdasdasd</h5>
-                        <p>asdasdasd asd as da sd</p>
-                        <a class="d-inline-block" href="#">LINK!</a>
+                        <h3>Whether it's Reports, Scorecards or Dashboards</h3>
+                        <h3 class="with-line">We can help</h3>
+                        <p>Contact us for a free, initial consultation.</p>
+                        <button type="button" class="btn get-quote-btn">
+                          <a class="d-inline-block" href="#">
+                            get a quote
+                            <i class="fa fa-2x fa-angle-right" aria-hidden="true"></i>
+                          </a>
+                        </button>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -24,18 +30,30 @@
                          src="http://pskovskie.ru/media/W1siZiIsIjIwMTYvMDgvMjgvNXA4aGllamFuMV9wcmlyb2RhX3Bza292c2tveV9vYmxhc3RpXzMuanBnIl1d/priroda_pskovskoy_oblasti_3.jpg?sha=3ea700107155d063"
                          alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>asd as as das d asd</h5>
-                        <p>asd asd as da sd</p>
-                        <a class="d-inline-block" href="#">LINK!</a>
+                        <h3>Whether it's Reports, Scorecards or Dashboards</h3>
+                        <h3 class="with-line">We can help</h3>
+                        <p>Contact us for a free, initial consultation.</p>
+                        <button type="button" class="btn get-quote-btn">
+                          <a class="d-inline-block" href="#">
+                            get a quote
+                            <i class="fa fa-2x fa-angle-right" aria-hidden="true"></i>
+                          </a>
+                        </button>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100 img-fluid" src="https://i.ytimg.com/vi/iqdRh9IpJ6I/maxresdefault.jpg"
                          alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>as das dasda sd</h5>
-                        <p>as das das da sd</p>
-                        <a class="d-inline-block" href="#">LINK!</a>
+                        <h3>Whether it's Reports, Scorecards or Dashboards</h3>
+                        <h3 class="with-line">We can help</h3>
+                        <p>Contact us for a free, initial consultation.</p>
+                        <button type="button" class="btn get-quote-btn">
+                          <a class="d-inline-block" href="#">
+                            get a quote
+                            <i class="fa fa-2x fa-angle-right" aria-hidden="true"></i>
+                          </a>
+                        </button>
                     </div>
                 </div>
             </div>
