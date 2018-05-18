@@ -12,6 +12,7 @@ require_once "functions/functions-front-page-fields.php";
 require_once "functions/functions-reviews-fields.php";
 require_once "functions/functions-video-block-fields.php";
 require_once "functions/functions-back-links.php";
+require_once "functions/functions-products-template-fields.php";
 
 
 if (!function_exists('bi_team_setup')) :

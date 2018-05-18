@@ -2,7 +2,7 @@
     <header class="py-2">
         <img src="<?php the_post_thumbnail_url('small_avatar_circle'); ?>"
              alt="<?php the_post_thumbnail_caption(); ?>"
-             class="img-fluid"/>
+             class="img-fluid rounded-circle"/>
         <h1 class="py-4"><?php the_title(); ?></h1>
         <i class="fa fa-quote-left fa-2x color-icon" aria-hidden="true"></i>
     </header>

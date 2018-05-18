@@ -485,3 +485,111 @@
 
 /* --== /All single-page list style ==-- */
 
+/* --== Products Page ==-- */
+.products-header {
+  min-height: 65vh;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.section-connect {
+  background-color: #333;
+}
+
+.two-logo-wrapper {
+  :nth-child(odd) {
+    margin-left: auto;
+  }
+  :nth-child(even) {
+    margin-right: auto;
+  }
+}
+
+.products-multirow {
+  background-color: #f8f8f8;
+  &:nth-child(even) {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #fff;
+    .multirow-item {
+      margin-left: auto !important;
+    }
+  }
+  .products-multirow-image {
+    margin-left: auto !important;
+  }
+}
+
+.what-is-new-section {
+  background-color: $main-color;
+}
+
+.accordion-section {
+  background-color: #333333;
+}
+
+[data-toggle="collapse"] .fa:before {
+  content: "\f056";
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+  content: "\f055";
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+.accordion-wrapper {
+  .card {
+    border: 0;
+    margin-bottom: 10px;
+    background-color: transparent;
+    color: #fff;
+    .collapsed {
+      background-color: transparent;
+    }
+  }
+  .card-header {
+    background-color: transparent;
+    padding: 0;
+    border: 2px solid $main-color;
+    border-radius: 0;
+    color: #fff;
+    i {
+      color: $main-color;
+      margin-right: 10px;
+    }
+    button {
+      color: #fff;
+      text-transform: uppercase;
+      border-radius: 0;
+      white-space: normal;
+      text-align: left;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    [data-toggle="collapse"].collapsed {
+      background-color: $main-color;
+      width: 100%;
+      text-align: left;
+      color: #000;
+      i {
+        color: #000;
+      }
+    }
+  }
+}
+.reviews-item-product {
+  &:nth-child(even) {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+}
+
+
+
+/* --== /Products Page ==-- */

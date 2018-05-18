@@ -3,11 +3,11 @@
     <!--    <! --== Carousel ==-->
     <section class="container-fluid p-0">
         <div id="carouselMain" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselMain" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselMain" data-slide-to="1"></li>
-                <li data-target="#carouselMain" data-slide-to="2"></li>
-            </ol>
+<!--            <ol class="carousel-indicators">-->
+<!--                <li data-target="#carouselMain" data-slide-to="0" class="active"></li>-->
+<!--                <li data-target="#carouselMain" data-slide-to="1"></li>-->
+<!--                <li data-target="#carouselMain" data-slide-to="2"></li>-->
+<!--            </ol>-->
             <div class="carousel-inner">
                 <?php if (have_rows('header_slider_repeater')): ?>
                     <?php while (have_rows('header_slider_repeater')): the_row(); ?>
@@ -68,7 +68,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 text-center m-auto">
-                    <h2 class="white-border-text-bottom">
+                    <h2 class="yellow-border-text-bottom">
                         <?php _e('Our different', 'bi-team'); ?>
                     </h2>
                     <?php the_field('our_different_content'); ?>
@@ -83,50 +83,7 @@
     </section>
 <?php endif; ?>
     <!--///-->
-<?php if (!empty(get_field('page_video_mp4') || get_field('page_video_webm') || get_field('page_video_external_site'))) : ?>
-    <?php $image_video = get_field('video_image'); ?>
-    <section class="video-block"
-             style="background-image: url('<?php echo $image_video['sizes']['image_article_large']; ?>');">
-        <div class="container-fluid">
-            <div class="row py-7">
-                <div class="col-md-12 d-flex justify-content-center flex-column align-items-center">
-                    <button type="button" class="btn d-inline-block video-button" data-toggle="modal"
-                            data-target="#exampleModalCenter">
-                        <i class="fa fa-play" aria-hidden="true"></i>
-                    </button>
-                    <h2 class="text-white my-4">
-                        <?php _e('See How it Works', 'bi-team') ?>
-                    </h2>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-video-medium modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close button-close" data-dismiss="modal"
-                                        aria-label="Close">
-                                    <i class="fa fa-times" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <?php if (!empty(get_field('page_video_mp4') || get_field('page_video_webm'))) { ?>
-                                <video id="videoBlock" width="100%" height="auto" preload="auto" loop="loop"
-                                       controls>
-                                    <source src="<?php echo get_field('page_video_mp4'); ?>" type="video/mp4">
-                                    <source src="<?php echo get_field('page_video_webm'); ?>" type="video/webm">
-                                </video>
-                            <?php } elseif (!empty(get_field('page_video_external_site'))) { ?>
-                                <div class="embed-container">
-                                    <?php the_field('page_video_external_site'); ?>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<?php endif; ?>
+<?php echo render_template_part('video-section'); ?>
     <!--///-->
 <?php if (!empty(have_rows('customers_repeater'))) : ?>
     <section class="customers-section py-5">
@@ -158,63 +115,63 @@
     </section>
 <?php endif; ?>
     <!--///-->
-    <section class="reviews-section py-5 pb-6">
-        <div class="container-large container">
-            <div class="row">
-                <div class="col-md-10 m-auto">
-
-                    <div id="reviewSlider" class="carousel slide" data-ride="carousel">
-                        <?php global $post;
-                        $featured_reviews = get_posts(['numberposts' => 10,
-                            'orderby' => 'date',
-                            'order' => 'DESC',
-                            'meta_query' => [['key' => 'field_is_highlighted_review',
-                                'compare' => '==',
-                                'value' => 1]],
-                            'post_type' => 'reviews']);
-                        ?>
-                        <div class="carousel-inner">
-                            <?php $i = 1; ?>
-                            <div class="carousel-item active text-center">
-                                <?php foreach ($featured_reviews as $post) :
-                                setup_postdata($post); ?>
-                                <img class="img-fluid"
-                                     src="<?php echo get_the_post_thumbnail_url($post->ID, 'customers_logo'); ?>"
-                                     alt="<?php the_post_thumbnail_caption(); ?>">
-
-                                <h2> <?php the_title(); ?></h2>
-                                <h3 class="text-silver">
-                                    <?php the_field('reviews_position'); ?>
-                                </h3>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                <?php the_excerpt(); ?>
-                                <a href="<?php the_premalink(); ?>">
-                                    READ THE REVIEW
-                                </a>
-
-                            </div>
-                            <div class="carousel-item">
-                                <!--Сюда выводим следующий слайдер!-->
-                            </div>
-                        <?php
-                        endforeach;
-                        wp_reset_postdata();
-                        ?>
-
-                        </div>
-                        <a class="carousel-control-prev" href="#reviewSlider" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#reviewSlider" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!--    <section class="reviews-section py-5 pb-6">-->
+<!--        <div class="container-large container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-10 m-auto">-->
+<!---->
+<!--                    <div id="reviewSlider" class="carousel slide" data-ride="carousel">-->
+<!--                        --><?php //global $post;
+//                        $featured_reviews = get_posts(['numberposts' => 10,
+//                            'orderby' => 'date',
+//                            'order' => 'DESC',
+//                            'meta_query' => [['key' => 'field_is_highlighted_review',
+//                                'compare' => '==',
+//                                'value' => 1]],
+//                            'post_type' => 'reviews']);
+//                        ?>
+<!--                        <div class="carousel-inner">-->
+<!--                            --><?php //$i = 1; ?>
+<!--                            <div class="carousel-item active text-center">-->
+<!--                                --><?php //foreach ($featured_reviews as $post) :
+//                                setup_postdata($post); ?>
+<!--                                <img class="img-fluid"-->
+<!--                                     src="--><?php //echo get_the_post_thumbnail_url($post->ID, 'customers_logo'); ?><!--"-->
+<!--                                     alt="--><?php //the_post_thumbnail_caption(); ?><!--">-->
+<!---->
+<!--                                <h2> --><?php //the_title(); ?><!--</h2>-->
+<!--                                <h3 class="text-silver">-->
+<!--                                    --><?php //the_field('reviews_position'); ?>
+<!--                                </h3>-->
+<!--                                <i class="fa fa-quote-left" aria-hidden="true"></i>-->
+<!--                                --><?php //the_excerpt(); ?>
+<!--                                <a href="--><?php //the_premalink(); ?><!--">-->
+<!--                                    READ THE REVIEW-->
+<!--                                </a>-->
+<!---->
+<!--                            </div>-->
+<!--                            <div class="carousel-item">-->
+<!--                                <!--Сюда выводим следующий слайдер!-->-->
+<!--                            </div>-->
+<!--                        --><?php
+//                        endforeach;
+//                        wp_reset_postdata();
+//                        ?>
+<!---->
+<!--                        </div>-->
+<!--                        <a class="carousel-control-prev" href="#reviewSlider" role="button" data-slide="prev">-->
+<!--                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--                            <span class="sr-only">Previous</span>-->
+<!--                        </a>-->
+<!--                        <a class="carousel-control-next" href="#reviewSlider" role="button" data-slide="next">-->
+<!--                            <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--                            <span class="sr-only">Next</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
     <!--    ///-->
 
 <?php global $post;
@@ -229,39 +186,14 @@ $featured_news = get_posts(['numberposts' => 3,
     <section class="multirow-section">
         <div class="container-fluid">
             <?php foreach ($featured_news as $post) : setup_postdata($post); ?>
-                <div class="row multirow">
-                    <div class="col-md-6 p-0">
-                        <div class="products-image-thumbnail"
-                             style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, 'image_article_large'); ?>');">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-7 multirow-item">
-                                <div class="text-center p-4 pt-5 pb-7">
-                                    <?php $products_logo = get_field('products_logo', $post->ID);
-                                    if (!empty($products_logo)): ?>
-                                        <img class="img-fluid pb-3" width="150"
-                                             src="<?php echo $products_logo['sizes']['small_avatar']; ?>"
-                                             alt="<?php echo $products_logo['alt']; ?>"/>
-                                    <?php endif; ?>
-                                    <h2 class="text-uppercase">
-                                        <?php the_title(); ?>
-                                    </h2>
-                                    <?php the_excerpt(); ?>
-                                    <a class="more-link text-uppercase" href="<?php the_permalink(); ?>">more about
-                                        product</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               <?php echo render_template_part('multi-row-item'); ?>
                 <?php
             endforeach;
             wp_reset_postdata();
             ?>
         </div>
     </section>
+
     <!--///-->
 <?php global $post;
 $featured_news = get_posts(['numberposts' => 3,
