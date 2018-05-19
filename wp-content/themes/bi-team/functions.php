@@ -56,6 +56,7 @@ if (!function_exists('bi_team_setup')) :
         add_image_size('small_avatar', 200, 200, true);
         add_image_size('small_avatar_circle', 100, 100, true);
         add_image_size('image_article_large', 1000, 500, true);
+        add_image_size('large_background_image', 1500, 600, true);
         add_image_size('image_main_slider', 9999, 500, true);
         add_image_size('image_portfolio_small', 500, 500, true);
         add_image_size('image_portfolio_single', 600, 900, true);

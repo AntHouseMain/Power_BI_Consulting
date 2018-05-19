@@ -264,6 +264,10 @@
   margin-left: auto;
 }
 
+.grey-block {
+  background-color: #333333;
+}
+
 body {
   display: -webkit-box;
   display: -webkit-flex;
@@ -993,14 +997,14 @@ blockquote.right {
 
 /* --== /Reviews Single ==-- */
 /* --== All single-page list style ==-- */
-.single-content ul {
+.single-content ul, .list-section ul {
   padding: 0;
   margin: 0;
   list-style: none;
   line-height: 2.3;
 }
 
-.single-content ul li:before {
+.single-content ul li:before, .list-section ul li:before {
   content: '\f00c';
   font-family: FontAwesome;
   background-color: #fccd1a;
@@ -1028,7 +1032,7 @@ blockquote.right {
           box-sizing: border-box;
 }
 
-.single-content ol {
+.single-content ol, .list-section ol {
   counter-reset: li;
   list-style: none;
   *list-style: decimal;
@@ -1037,7 +1041,7 @@ blockquote.right {
   line-height: 2.3;
 }
 
-.single-content ol li:before {
+.single-content ol li:before, .list-section ol li:before {
   content: counter(li);
   counter-increment: li;
   background-color: #fccd1a;
@@ -1074,6 +1078,16 @@ blockquote.right {
   background-position: center;
 }
 
+.products-header:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .section-connect {
   background-color: #333;
 }
@@ -1103,11 +1117,18 @@ blockquote.right {
   background-color: #fff;
 }
 
-.products-multirow:nth-child(even) .multirow-item {
-  margin-left: auto !important;
+.products-multirow:nth-child(even) .products-multirow-image {
+  margin-right: auto !important;
 }
 
-.products-multirow .products-multirow-image {
+.products-multirow:nth-child(even) .multirow-start-end {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.products-multirow:nth-child(odd) .products-multirow-image {
   margin-left: auto !important;
 }
 
@@ -1191,6 +1212,39 @@ blockquote.right {
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
   text-align: right;
+}
+
+.download-button {
+  display: inline-block;
+  border: 2px solid #fccd1a;
+  padding: 10px 30px;
+  color: #fff !important;
+  margin-bottom: 15px;
+}
+
+.download-button:before {
+  content: "\f019";
+  font-family: FontAwesome;
+  color: #fccd1a;
+  margin-right: 10px;
+}
+
+.download-button:hover {
+  border: 2px solid #ae8a02;
+  text-decoration: none;
+  color: #fff;
+}
+
+.buy-button {
+  display: inline-block;
+  background-color: #fccd1a;
+  padding: 10px 30px;
+  color: #000 !important;
+}
+
+.buy-button:hover {
+  text-decoration: none;
+  background-color: #e0b203;
 }
 
 /* --== /Products Page ==-- */

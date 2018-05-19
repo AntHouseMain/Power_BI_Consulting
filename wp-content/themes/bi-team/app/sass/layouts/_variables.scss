@@ -223,10 +223,15 @@ $background-button-dark-color: #1b1b1b;
 .vh-80 {
   min-height: 80vh;
 }
+
 .container-large {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.grey-block {
+  background-color: #333333;
 }
