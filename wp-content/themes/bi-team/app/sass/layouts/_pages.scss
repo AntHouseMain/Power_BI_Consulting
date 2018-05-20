@@ -134,19 +134,7 @@
 /* --== Single News ==-- */
 
 .single-news {
-  blockquote {
-    padding: 20px;
-    padding-top: 40px;
-    background-color: $grey-color;
-    color: $white-color;
-    border-left: 3px solid $main-color;
-    position: relative;
-    &:before {
-      position: absolute;
-      left: 0;
 
-    }
-  }
 }
 
 .back-link {

@@ -240,23 +240,25 @@ get_header();
             <?php endif; ?>
             <div class="col-md-6">
                 <div id="accordion" class="accordion-wrapper">
-                    <?php if (have_rows('accordion_repeater')): ?>
 
+                    <?php if (have_rows('accordion_repeater')): ?>
+                        <?php $i = 1; ?>
                         <?php while (have_rows('accordion_repeater')):
+
                             the_row(); ?>
                             <div class="card">
-                                <div class="card-header" id="heading-">
-                                    <h5 class="mb-0">
+                                <div class="card-header" id="heading-<?php echo $i; ?>">
+                                    <h2 class="mb-0">
                                         <button class="btn btn-link" data-toggle="collapse"
-                                                data-target="#collapseOne"
-                                                aria-expanded="true" aria-controls="collapseOne"><i class="fa"
-                                                                                                    aria-hidden="true"></i>
+                                                data-target="#collapse-<?php echo $i; ?>" collapseOne
+                                                aria-expanded="true" aria-controls="">
+                                            <i class="fa" aria-hidden="true"></i>
                                             <?php the_sub_field('accordion_title'); ?>
                                         </button>
-                                    </h5>
+                                    </h2>
                                 </div>
-
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                <div id="collapse<?php echo $i; ?>" class="collapse show"
+                                     aria-labelledby="heading<?php echo $i; ?>"
                                      data-parent="#accordion">
                                     <div class="card-body">
                                         <?php the_sub_field('accordion_content'); ?>
@@ -264,6 +266,8 @@ get_header();
                                 </div>
                             </div>
                             <?php
+                            $i++;
+
                         endwhile; ?>
                     <?php endif; ?>
                 </div>

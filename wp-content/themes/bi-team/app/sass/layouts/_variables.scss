@@ -235,3 +235,32 @@ $background-button-dark-color: #1b1b1b;
 .grey-block {
   background-color: #333333;
 }
+
+i.mce-i-icon {
+  font: 400 20px/1 dashicons;
+  padding: 0;
+  vertical-align: top;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-left: -2px;
+  padding-right: 2px;
+}
+
+.blockquote-posts {
+  padding: 30px;
+  padding-top: 40px;
+  background-color: $grey-color;
+  color: #fff;
+  position: relative;
+  border-left: 3px solid $main-color;
+  &:before {
+    content: '\f10e';
+    font-family: FontAwesome;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: $main-color;
+    font-size: 20px;
+  }
+}
