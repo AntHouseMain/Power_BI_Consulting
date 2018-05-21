@@ -62,7 +62,9 @@
         </div>
     </section>
 <?php endif; ?>
+
     <!--///-->
+
 <?php if (!empty(get_field('our_different_content'))) : ?>
     <section class="our-different py-5 text-center">
         <div class="container">
@@ -82,7 +84,9 @@
         </div>
     </section>
 <?php endif; ?>
+
     <!--///-->
+
 <?php echo render_template_part('video-section'); ?>
     <!--///-->
 <?php if (!empty(have_rows('customers_repeater'))) : ?>
