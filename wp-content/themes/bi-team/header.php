@@ -43,6 +43,27 @@
                     'container' => false
                 ));
                 ?>
+
+                <div class="header-main-menu d-flex flex-column flex-lg-row justify-content-end">
+                    <?php if ( is_user_logged_in() ) :
+                        $cur_user_id = get_current_user_id();
+                        $user_info = get_userdata($cur_user_id);
+                        ?>
+                        <div class="user-info">  <a href="/products/"><?php echo $user_info->user_email ;  ?></a></div>
+                    <?php else: ?>
+
+                        <ul class="header-main-menu d-flex flex-column flex-lg-row justify-content-end align-items-center navbar-nav ml-auto font-weight-bold">
+                            <li  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20">
+                                <?php
+                                $register_url = wp_registration_url();
+
+                                ?><a href="<?php echo $register_url; ?>">Sign in</a></li>
+                            <li  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="<?php echo wp_login_url(); ?>">Login</a></li>
+                        </ul>
+                    <?php endif; ?>
+
+
+                </div>
             </div>
         </div>
     </nav>

@@ -1,37 +1,73 @@
-<?php get_header(); ?>
+<?php
 
+/*
+Template Name: Home
+
+*/
+
+get_header();
+
+
+
+?>
+
+<?php
+
+$site = get_field("site", 8);
+$mail = get_field("mail",8);
+$phone = get_field("phone",8);
+$map = get_field("map",8)[0];
+$slider = get_field("header_slider_repeater");
+//var_dump($slider);
+?>
     <!--    <! --== Carousel ==-->
+
     <section class="container-fluid p-0">
-        <div id="carouselMain" class="carousel slide" data-ride="carousel">
-<!--            <ol class="carousel-indicators">-->
-<!--                <li data-target="#carouselMain" data-slide-to="0" class="active"></li>-->
-<!--                <li data-target="#carouselMain" data-slide-to="1"></li>-->
-<!--                <li data-target="#carouselMain" data-slide-to="2"></li>-->
-<!--            </ol>-->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <?php if (have_rows('header_slider_repeater')):
+            $i=0 ;
+            ?>
+            <ol class="carousel-indicators">
+               <?php  foreach ($slider as $it => $slide) :?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $it ; ?> "  class="<?php if ($it == 0){echo 'active' ;} ?>"></li>
+<?php endforeach;?>
+            </ol>
+
             <div class="carousel-inner">
-                <?php if (have_rows('header_slider_repeater')): ?>
-                    <?php while (have_rows('header_slider_repeater')): the_row(); ?>
-                        <div class="carousel-item active">
-                            <?php $slider_image = get_sub_field('header_slider_image');
-                            if (!empty($slider_image)): ?>
-                                <img class="img-fluid d-block w-100 img-fluid"
-                                     src="<?php echo $slider_image['sizes']['image_main_slider']; ?>"
-                                     alt="<?php echo $slider_image['alt']; ?>"/>
-                            <?php endif; ?>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h2><?php the_sub_field('header_slider_title'); ?></h2>
-                                <p><?php the_sub_field('header_slider_content'); ?></p>
-                                <a class="d-inline-block" href="<?php the_field('header_slider_link'); ?>">GET A QUETE</a>
-                            </div>
-                        </div>
-                    <?php endwhile; ?>
+
+               <?php while (have_rows('header_slider_repeater')): the_row();
+
+               ?>
+                <div class="carousel-item <?php if ($i==0){echo 'active' ;} ?> ">
+                    <?php $slider_image = get_sub_field('header_slider_image');
+                    if (!empty($slider_image)): ?>
+                        <img class="d-block w-100 img-fluid"
+                             src="<?php echo $slider_image['sizes']['image_main_slider']; ?>"
+                             alt="<?php echo $slider_image['alt']; ?>"/>
+                    <?php endif; ?>
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3><?php the_sub_field('header_slider_title'); ?></h3>
+                        <h3 class="with-line">We can help</h3>
+                        <p><?php the_sub_field('header_slider_content'); ?></p>
+                        <button type="button" class="btn get-quote-btn">
+                            <a class="d-inline-block" href="<?php the_field('header_slider_link'); ?>">GET A QUETE</a>
+                        </button>
+                    </div>
+                </div>
+
+                <?php
+                $i++ ;
+
+            endwhile; ?>
                 <?php endif; ?>
+
             </div>
-            <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
@@ -115,63 +151,63 @@
     </section>
 <?php endif; ?>
     <!--///-->
-<!--    <section class="reviews-section py-5 pb-6">-->
-<!--        <div class="container-large container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-10 m-auto">-->
-<!---->
-<!--                    <div id="reviewSlider" class="carousel slide" data-ride="carousel">-->
-<!--                        --><?php //global $post;
-//                        $featured_reviews = get_posts(['numberposts' => 10,
-//                            'orderby' => 'date',
-//                            'order' => 'DESC',
-//                            'meta_query' => [['key' => 'field_is_highlighted_review',
-//                                'compare' => '==',
-//                                'value' => 1]],
-//                            'post_type' => 'reviews']);
-//                        ?>
-<!--                        <div class="carousel-inner">-->
-<!--                            --><?php //$i = 1; ?>
-<!--                            <div class="carousel-item active text-center">-->
-<!--                                --><?php //foreach ($featured_reviews as $post) :
-//                                setup_postdata($post); ?>
-<!--                                <img class="img-fluid"-->
-<!--                                     src="--><?php //echo get_the_post_thumbnail_url($post->ID, 'customers_logo'); ?><!--"-->
-<!--                                     alt="--><?php //the_post_thumbnail_caption(); ?><!--">-->
-<!---->
-<!--                                <h2> --><?php //the_title(); ?><!--</h2>-->
-<!--                                <h3 class="text-silver">-->
-<!--                                    --><?php //the_field('reviews_position'); ?>
-<!--                                </h3>-->
-<!--                                <i class="fa fa-quote-left" aria-hidden="true"></i>-->
-<!--                                --><?php //the_excerpt(); ?>
-<!--                                <a href="--><?php //the_premalink(); ?><!--">-->
-<!--                                    READ THE REVIEW-->
-<!--                                </a>-->
-<!---->
-<!--                            </div>-->
-<!--                            <div class="carousel-item">-->
-<!--                                <!--Сюда выводим следующий слайдер!-->-->
-<!--                            </div>-->
-<!--                        --><?php
-//                        endforeach;
-//                        wp_reset_postdata();
-//                        ?>
-<!---->
-<!--                        </div>-->
-<!--                        <a class="carousel-control-prev" href="#reviewSlider" role="button" data-slide="prev">-->
-<!--                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--                            <span class="sr-only">Previous</span>-->
-<!--                        </a>-->
-<!--                        <a class="carousel-control-next" href="#reviewSlider" role="button" data-slide="next">-->
-<!--                            <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--                            <span class="sr-only">Next</span>-->
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+    <section class="reviews-section py-5 pb-6">fffffffffffffff
+        <div class="container-large container">
+            <div class="row">
+                <div class="col-md-10 m-auto">
+
+                    <div id="reviewSlider" class="carousel slide" data-ride="carousel">
+                        <?php global $post;
+                        $featured_reviews = get_posts(['numberposts' => 10,
+                            'orderby' => 'date',
+                            'order' => 'DESC',
+                            'meta_query' => [['key' => 'field_is_highlighted_review',
+                                'compare' => '==',
+                                'value' => 1]],
+                            'post_type' => 'reviews']);
+                        ?>
+                        <div class="carousel-inner">
+                            <?php $i = 1; ?>
+                            <div class="carousel-item active text-center">
+                                <?php foreach ($featured_reviews as $post) :
+                                setup_postdata($post); ?>
+                                <img class="img-fluid"
+                                     src="<?php echo get_the_post_thumbnail_url($post->ID, 'customers_logo'); ?>"
+                                     alt="<?php the_post_thumbnail_caption(); ?>">
+
+                                <h2> <?php the_title(); ?></h2>
+                                <h3 class="text-silver">
+                                    <?php the_field('reviews_position'); ?>
+                                </h3>
+                                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                <?php the_excerpt(); ?>
+                                <a href="<?php the_premalink(); ?>">
+                                    READ THE REVIEW
+                                </a>
+
+                            </div>
+                            <div class="carousel-item">
+                                <!--Сюда выводим следующий слайдер!-->
+                            </div>
+                        <?php
+                        endforeach;
+                        wp_reset_postdata();
+                        ?>
+
+                        </div>
+                        <a class="carousel-control-prev" href="#reviewSlider" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#reviewSlider" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!--    ///-->
 
 <?php global $post;
@@ -239,16 +275,35 @@ $featured_news = get_posts(['numberposts' => 3,
         </div>
     </section>
     <!--///-->
-    <section class="contacts-us py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
+    <section class="contacts-us py-5 contact-information">
+        <div class="container " >
+            <div class="row ">
+                <div class="col-md-12 contact-info-wrap">
                     <h2 class="yellow-border-text-bottom text-center">
                         <?php _e(' Contact Us ', 'bi-team'); ?>
                     </h2>
-                </div>
-                <div class="col-md-4 m-auto">
-                    NAMI CODE
+                    <ul class="list-group">
+                        <?php if (!empty($site)):?>
+                            <li>
+                                <a class="site" href="<?php echo $site;  ?>"><?php echo $site;  ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($mail)):?>
+                            <li>
+                                <a class="mail" href="mailto:<?php echo $mail;  ?>"><?php echo $mail;  ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($phone)):?>
+                            <li>
+                                <a class="phone" href="tel:<?php echo $phone;  ?>"><?php echo $phone;  ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($map)):?>
+                            <li>
+                                <a class="map" href="<?php echo $map["link"] ?>"><?php echo $map["info"] ?></a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
                 </div>
             </div>
         </div>
