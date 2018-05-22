@@ -47,6 +47,16 @@
   }
 }
 
+@media only screen and (max-width: 767px) {
+  .multirow {
+    .multirow-item {
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .customers-logo-item {
     flex-basis: 0;
