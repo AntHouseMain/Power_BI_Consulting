@@ -25,28 +25,30 @@ $map = get_field("map")[0];
         <div class="row justify-content-end m-0 p-0">
           <div class="col-lg-7 col-md-12 col-xs-12 contact-info-wrap">
             <h2>Contact Information</h2>
-            <ul class="list-group">
+            <div class="list-group-wrap">
+              <ul class="list-group">
                 <?php if (!empty($site)):?>
-              <li>
-                <a class="site" href="<?php echo $site;  ?>"><?php echo $site;  ?></a>
-              </li>
+                  <li>
+                    <a class="site" href="<?php echo $site;  ?>"><?php echo $site;  ?></a>
+                  </li>
                 <?php endif; ?>
                 <?php if (!empty($mail)):?>
-              <li>
-                <a class="mail" href="mailto:<?php echo $mail;  ?>"><?php echo $mail;  ?></a>
-              </li>
+                  <li>
+                    <a class="mail" href="mailto:<?php echo $mail;  ?>"><?php echo $mail;  ?></a>
+                  </li>
                 <?php endif; ?>
                 <?php if (!empty($phone)):?>
-              <li>
-                <a class="phone" href="tel:<?php echo $phone;  ?>"><?php echo $phone;  ?></a>
-              </li>
+                  <li>
+                    <a class="phone" href="tel:<?php echo $phone;  ?>"><?php echo $phone;  ?></a>
+                  </li>
                 <?php endif; ?>
                 <?php if (!empty($map)):?>
-                    <li>
-                        <a class="map" href="<?php echo $map["link"] ?>"><?php echo $map["info"] ?></a>
-                    </li>
+                  <li>
+                    <a class="map" href="<?php echo $map["link"] ?>"><?php echo $map["info"] ?></a>
+                  </li>
                 <?php endif; ?>
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

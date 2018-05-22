@@ -27,26 +27,46 @@ p {
   margin: 1rem 0;
 }
 
-.header-main-menu {
-  list-style: none;
-  margin: 0;
-  li {
-    a {
-      display: inline-block;
-      padding: 25px 30px;
-      border-bottom: 4px solid $white-color;
-      color: #000;
-      &:hover {
-        text-decoration: none;
-        border-bottom: 4px solid $main-color;
-
+#navbarSupportedContent {
+  max-width: 565px;
+  .header-main-menu {
+    list-style: none;
+    margin: 0;
+    li {
+      padding: 25px 20px;
+      a {
+        display: inline-block;
+        border-bottom: 4px solid $white-color;
+        color: #000;
+        position: relative;
+        padding: 0 5px;
+        &:hover {
+          text-decoration: none;
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            top: 49px;
+            left: 0;
+            height: 4px;
+            background-color: $main-color;
+          }
+        }
+      }
+    }
+    .current-menu-link-item {
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        top: 49px;
+        left: 0;
+        height: 4px;
+        background-color: $main-color;
       }
     }
   }
-  .current-menu-link-item {
-    border-bottom: 4px solid $main-color;
-    &:hover {
-      border-bottom: 4px solid $main-color;
-    }
-  }
 }
+

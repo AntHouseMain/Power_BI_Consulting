@@ -28,17 +28,17 @@
   -webkit-align-self: self-start;
       -ms-flex-item-align: self-start;
           align-self: self-start;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
 }
 
 .yellow-border-text-bottom:after {
   content: '';
   position: absolute;
   border-bottom: 3px solid #fccd1a;
-  width: 40px;
+  width: 60px;
   position: absolute;
   margin: auto;
-  top: 40px;
+  top: 50px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -49,17 +49,17 @@
   -webkit-align-self: self-start;
       -ms-flex-item-align: self-start;
           align-self: self-start;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
 }
 
 .white-border-text-bottom:after {
   content: '';
   position: absolute;
   border-bottom: 3px solid #fff;
-  width: 40px;
+  width: 60px;
   position: absolute;
   margin: auto;
-  top: 40px;
+  top: 50px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -103,7 +103,7 @@
 
 .more-link, .link-buy-products {
   background: #1b1b1b;
-  padding: 10px 45px;
+  padding: 3px 50px 5px;
   display: inline-block;
   color: #fff !important;
   -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
@@ -282,7 +282,7 @@ i.mce-i-icon {
 .blockquote-posts {
   padding: 30px;
   padding-top: 40px;
-  background-color: #333333;
+  background-color: #f8f8f8;
   color: #fff;
   position: relative;
   border-left: 3px solid #fccd1a;
@@ -335,29 +335,51 @@ p {
   margin: 1rem 0;
 }
 
-.header-main-menu {
+#navbarSupportedContent {
+  max-width: 565px;
+}
+
+#navbarSupportedContent .header-main-menu {
   list-style: none;
   margin: 0;
 }
 
-.header-main-menu li a {
+#navbarSupportedContent .header-main-menu li {
+  padding: 25px 20px;
+}
+
+#navbarSupportedContent .header-main-menu li a {
   display: inline-block;
-  padding: 25px 30px;
   border-bottom: 4px solid #fff;
   color: #000;
+  position: relative;
+  padding: 0 5px;
 }
 
-.header-main-menu li a:hover {
+#navbarSupportedContent .header-main-menu li a:hover {
   text-decoration: none;
-  border-bottom: 4px solid #fccd1a;
 }
 
-.header-main-menu .current-menu-link-item {
-  border-bottom: 4px solid #fccd1a;
+#navbarSupportedContent .header-main-menu li a:hover:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 49px;
+  left: 0;
+  height: 4px;
+  background-color: #fccd1a;
 }
 
-.header-main-menu .current-menu-link-item:hover {
-  border-bottom: 4px solid #fccd1a;
+#navbarSupportedContent .header-main-menu .current-menu-link-item:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 49px;
+  left: 0;
+  height: 4px;
+  background-color: #fccd1a;
 }
 
 .main-footer {
@@ -587,13 +609,7 @@ blockquote.right {
   -webkit-border-radius: 0;
           border-radius: 0;
   position: relative;
-  margin-top: 10px;
-}
-
-#carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption .get-quote-btn a {
-  color: #1b1b1b;
-  text-decoration: none;
-  outline: none;
+  margin: 10px auto 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -602,14 +618,23 @@ blockquote.right {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
-#carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption .get-quote-btn a .fa {
-  margin-left: 10px;
+#carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption .get-quote-btn a {
+  color: #1b1b1b;
+  text-decoration: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#carouselExampleIndicators .carousel-inner .carousel-item .carousel-caption .get-quote-btn .fa {
+  margin: 0 20px;
+  font-size: 1.6em;
 }
 
 #carouselExampleIndicators .carousel-control-prev {
@@ -682,6 +707,23 @@ blockquote.right {
 
 .our-different {
   background-color: #fccd1a;
+}
+
+.our-different .white-border-text:after {
+  border-bottom: 3px solid #fff;
+}
+
+.our-different .our_difference_big_text {
+  font-size: 42px;
+  line-height: 1.3em;
+}
+
+.our-different .our_difference_link {
+  margin-top: 25px;
+}
+
+.our-different .our_difference_link:hover {
+  background-color: #fff;
 }
 
 .video-block {
@@ -768,7 +810,7 @@ blockquote.right {
 }
 
 .multirow {
-  background-color: #333333;
+  background-color: #f8f8f8;
 }
 
 .multirow:nth-child(even) {
@@ -786,30 +828,32 @@ blockquote.right {
 .multirow:nth-child(even) .multirow-item {
   margin-left: auto !important;
   position: relative;
+  margin-right: 70px;
 }
 
 .multirow:nth-child(even) .multirow-item:before {
   content: '';
   position: absolute;
   top: 170px;
-  right: -25px;
+  right: -95px;
   border-style: solid;
   border-width: 35px 0 35px 25px;
-  border-color: transparent transparent transparent #333333;
+  border-color: transparent transparent transparent #f8f8f8;
 }
 
 .multirow:nth-child(odd) .multirow-item {
   position: relative;
+  margin-left: 70px;
 }
 
 .multirow:nth-child(odd) .multirow-item:before {
   content: '';
   position: absolute;
   top: 170px;
-  left: -25px;
+  left: -95px;
   border-style: solid;
   border-width: 35px 25px 35px 0;
-  border-color: transparent #333333 transparent transparent;
+  border-color: transparent #f8f8f8 transparent transparent;
 }
 
 .multirow .products-image-thumbnail {
@@ -870,7 +914,7 @@ blockquote.right {
 .single-news blockquote {
   padding: 20px;
   padding-top: 40px;
-  background-color: #333333;
+  background-color: #f8f8f8;
   color: #fff;
   border-left: 3px solid #fccd1a;
   position: relative;
@@ -924,21 +968,26 @@ blockquote.right {
   color: #fff;
 }
 
-.contact-information .contact-info-wrap .list-group {
+.contact-information .contact-info-wrap .list-group-wrap {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.contact-information .contact-info-wrap .list-group-wrap .list-group {
   list-style-type: none;
 }
 
-.contact-information .contact-info-wrap .list-group li {
+.contact-information .contact-info-wrap .list-group-wrap .list-group li {
   position: relative;
   margin: 10px;
 }
 
-.contact-information .contact-info-wrap .list-group li a {
+.contact-information .contact-info-wrap .list-group-wrap .list-group li a {
   color: #fff;
   font-size: 18px;
 }
 
-.contact-information .contact-info-wrap .list-group li a.site:before {
+.contact-information .contact-info-wrap .list-group-wrap .list-group li a.site:before {
   content: '';
   position: absolute;
   top: -1px;
@@ -948,7 +997,7 @@ blockquote.right {
   background: url("../images/css_sprites.png") -10px -10px;
 }
 
-.contact-information .contact-info-wrap .list-group li a.mail:before {
+.contact-information .contact-info-wrap .list-group-wrap .list-group li a.mail:before {
   content: '';
   position: absolute;
   top: 5px;
@@ -958,7 +1007,7 @@ blockquote.right {
   background: url("../images/css_sprites.png") -112px -10px;
 }
 
-.contact-information .contact-info-wrap .list-group li a.phone:before {
+.contact-information .contact-info-wrap .list-group-wrap .list-group li a.phone:before {
   content: '';
   position: absolute;
   top: -1px;
@@ -968,7 +1017,7 @@ blockquote.right {
   background: url("../images/css_sprites.png") -64px -10px;
 }
 
-.contact-information .contact-info-wrap .list-group li a.map:before {
+.contact-information .contact-info-wrap .list-group-wrap .list-group li a.map:before {
   content: '';
   position: absolute;
   top: -2px;
@@ -976,6 +1025,42 @@ blockquote.right {
   width: 25px;
   height: 40px;
   background: url("../images/css_sprites.png") -10px -64px;
+}
+
+.contact-information .contact-info-wrap .list-group-wrap .send-request-btn {
+  height: 50px;
+  width: 250px;
+  background-color: #fccd1a;
+  text-transform: uppercase;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  position: relative;
+  margin: 10px auto 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.contact-information .contact-info-wrap .list-group-wrap .send-request-btn a {
+  color: #1b1b1b;
+  text-decoration: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.contact-information .contact-info-wrap .list-group-wrap .send-request-btn .fa {
+  margin: 0 20px;
+  font-size: 1.6em;
 }
 
 .contact-us-form {
