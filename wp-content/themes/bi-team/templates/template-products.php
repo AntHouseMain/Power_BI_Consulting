@@ -6,7 +6,25 @@ Template Name: Products
 
 get_header();
 ?>
-<?php $header_bg_image = get_field('header_content_image'); ?>
+<?php $header_bg_image = get_field('header_content_image');
+
+
+$site = get_field("site", 8);
+$mail = get_field("mail",8);
+$phone = get_field("phone",8);
+$map = get_field("map",8)[0];
+
+global $post;
+    $featured_reviews = get_posts(
+            [   'numberposts' => 2,
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'post_type' => 'reviews'
+            ]);
+
+    ?>
+
+
 <section class="products-header py-5 position-relative d-flex align-items-center justify-content-center"
          style="background-image: url('<?php echo $header_bg_image['sizes']['large_background_image']; ?>');">
     <div class="container">
@@ -294,15 +312,11 @@ get_header();
             </div>
         </div>
     </div>
-    <?php global $post;
-    $featured_reviews = get_posts(['numberposts' => -1,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'post_type' => 'reviews']); ?>
+
 
     <div class="container">
         <div class="row">
-            <div class="col-md-10 m-auto">
+            <div id="new-ajax" class="col-md-10 m-auto">
                 <?php foreach ($featured_reviews as $post) :
                     setup_postdata($post); ?>
                     <div class="row align-items-center py-4 reviews-item-product">
@@ -327,10 +341,13 @@ get_header();
                     <?php
                 endforeach;
                 wp_reset_postdata(); ?>
-                <div class="row">
+<!--                <div id="new-ajax" class="new-ajax">-->
+<!---->
+<!--                </div>-->
+                <div class="row add-ajax">
                     <div class="col-md-12 text-center my-5">
                         <?php
-                        echo '<a class="d-inline-block link-read-more text-uppercase font-weight-bold">SHOW MORE
+                        echo '<a class="add-new-rew d-inline-block link-read-more text-uppercase font-weight-bold">SHOW MORE
                             REWIEWS</a>';
                         ?>
                     </div>
@@ -340,10 +357,42 @@ get_header();
     </div>
 </section>
 
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <h2 class="text-center col-md-12">NAMI CODE</h2>
+<section class="contacts-us py-5 contact-information">
+    <div class="container " >
+        <div class="row ">
+            <div class="col-md-12 contact-info-wrap">
+                <h2 class="yellow-border-text-bottom text-center">
+                    <?php _e(' Contact Us ', 'bi-team'); ?>
+                </h2>
+                <div class="list-group-wrap">
+                    <ul class="list-group">
+                        <?php if (!empty($site)):?>
+                            <li>
+                                <a class="site" href="<?php echo $site;  ?>"><?php echo $site;  ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($mail)):?>
+                            <li>
+                                <a class="mail" href="mailto:<?php echo $mail;  ?>"><?php echo $mail;  ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($phone)):?>
+                            <li>
+                                <a class="phone" href="tel:<?php echo $phone;  ?>"><?php echo $phone;  ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($map)):?>
+                            <li>
+                                <a class="map" href="<?php echo $map["link"] ?>"><?php echo $map["info"] ?></a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                    <button type="button" class="btn send-request-btn">
+                        <a class="text-uppercase" href="#">send a request</a>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </section>

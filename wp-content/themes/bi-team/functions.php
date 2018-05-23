@@ -170,6 +170,9 @@ function bi_team_scripts()
     wp_register_script('bi-team-js', get_template_directory_uri() . '/app/js/scripts.js', array('jquery'), null, true);
     wp_enqueue_script('bi-team-js');
 
+    wp_localize_script( 'bi-team-js', 'ajaxpagination', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' )
+    ));
 //	wp_enqueue_script( 'bi-team-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 //
 //	wp_enqueue_script( 'bi-team-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -584,3 +587,71 @@ function ex_first_css()
 }
 
 add_action('admin_enqueue_scripts', 'ex_first_css');
+
+
+/// ajax
+
+add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
+add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
+
+function my_ajax_pagination() {
+
+  $num =  $_POST['num'];
+
+    $featured_reviews = get_posts(
+        [   'numberposts' => 2,
+            'offset' => 0,
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'post_type' => 'reviews'
+        ]);
+    if(!empty($featured_reviews))
+    {
+       // var_dump(1); <?php the_field('reviews_position');
+        $rew ='';
+        foreach ($featured_reviews as $review )
+        {
+           // var_dump($review);
+           // $content = '';
+
+            if (!empty($review->post_excerpt))
+            {
+                $content = $review->post_excerpt ;
+            }else{
+                $content = $review->post_content ;
+            }
+            $thumb_id = get_post_thumbnail_id($review->ID);
+            $thumb_url = wp_get_attachment_image_src($thumb_id,'thumbnail-size', true);
+            $reviews_position = get_field('reviews_position',$review->ID );
+
+
+       $rew .= '  <div class="row align-items-center py-4 reviews-item-product">
+                        <div class="col-md-12 col-lg-4 text-center">
+                            <a href="'.$thumb_url[0].'">
+                                <img src="'.$thumb_url[0].'"
+                                     alt="' .$review->post_title.'"
+                                     class="img-fluid rounded-circle"/>
+                            </a>
+                            <h3>
+                                ' .$review->post_title.'
+                            </h3>
+                            <h2 class="text-silver">
+                                 ' .$reviews_position.'
+                            </h2>
+                            <i class="fa fa-quote-left fa-2x color-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-md-12 col-lg-8">
+                        '.$content.'
+                        </div>
+                    </div>    ' ;
+        }
+        echo  $rew;
+    }
+    else
+    {
+      //  var_dump(2);
+     echo false;
+    }
+
+    die();
+}
