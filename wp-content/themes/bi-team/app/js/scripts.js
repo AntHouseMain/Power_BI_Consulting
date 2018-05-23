@@ -14,30 +14,27 @@
     $(document).on("click", ".add-new-rew", function() {
         event.preventDefault();
 
-
+        var num = $(".reviews-item-product").length ;
         var ajaxpagination = {"ajaxurl":"\/wp-admin\/admin-ajax.php"};
 
-        console.log("inside");
+        console.log(num);
 
         $.ajax({
             url: ajaxpagination.ajaxurl,
             type: 'post',
             data: {
                 action: 'ajax_pagination',
-                num: 1
+                num: num
             },
             success: function( result ) {
 
-               if(result == 'false')
+               if(result == '')
                {
                   $(".add-ajax").hide();
                }else{
                    $("#new-ajax").append(result)
                }
-                console.log(
-                    typeof result);
-                console.log(result);
-              //  alert( result );
+
             }
         })
     });

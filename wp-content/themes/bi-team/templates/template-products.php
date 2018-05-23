@@ -9,6 +9,23 @@ get_header();
 <?php $header_bg_image = get_field('header_content_image');
 
 
+$content_title = get_field("header_content_title");
+$header_logo = get_field("header_content_logo");
+$content_content = get_field("header_content_content");
+
+$c_title = get_field("connect_title");
+$c_content = get_field("connect_content");
+
+$download = get_field("header_content_link_download");
+$buy_link = get_field("header_content_buy_link");
+
+
+$a_title_section = get_field("accordion_title_section");
+$accordion_repeater = get_field("accordion_repeater");
+$p_accordion_repeater = get_field("product_multi_row_repeater");
+
+var_dump($a_title_section);
+
 $site = get_field("site", 8);
 $mail = get_field("mail",8);
 $phone = get_field("phone",8);
@@ -30,26 +47,26 @@ global $post;
     <div class="container">
         <div class="row text-center">
             <div class="col-md-10 m-auto text-center text-white">
-                <?php $header_logo = get_sub_field('header_content_logo');
+                <?php
                 if (!empty($header_logo)): ?>
                     <img class="img-fluid"
                          src="<?php echo $header_logo['sizes']['customers_logo']; ?>"
                          alt="<?php echo $header_logo['alt']; ?>"/>
                 <?php endif; ?>
-                <?php if (!empty(get_field('header_content_title'))) : ?>
+                <?php if (!empty($content_title)) : ?>
                     <h1>
-                        <?php the_field('header_content_title'); ?>
+                        <?php echo $content_title ; ?>
                     </h1>
                 <?php endif; ?>
-                <?php the_field('header_content_content'); ?>
+                <?php echo $content_content; ?>
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <?php if (!empty(get_field('header_content_link_download'))) : ?>
+                    <?php if (!empty($download)) : ?>
                         <a class="download-button text-uppercase"
-                           href="<?php the_field('header_content_link_download'); ?>">Download free
+                           href="<?php echo $download ; ?>">Download free
                             package</a>
                     <?php endif; ?>
-                    <?php if (!empty(get_field('header_content_buy_link'))) : ?>
-                        <a class="buy-button text-uppercase" href="<?php the_field('header_content_buy_link'); ?>"> buy
+                    <?php if (!empty($buy_link)) : ?>
+                        <a class="buy-button text-uppercase" href="<?php echo $buy_link ; ?>"> buy
                             this product </a>
                     <?php endif; ?>
                 </div>
@@ -74,16 +91,16 @@ global $post;
         </div>
     </section>
 <?php endif; ?>
-<?php if (!empty(get_field('some_logo_title'))) : ?>
+<?php if (!empty($c_title)) : ?>
     <section class="section-connect py-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 text-center m-auto text-white">
                     <h2 class="yellow-border-text-bottom text-white">
-                        <?php the_field('connect_title'); ?>
+                        <?php echo $c_title; ?>
                     </h2>
-                    <?php if (!empty(get_field('connect_content'))) : ?>
-                        <?php the_field('connect_content'); ?>
+                    <?php if (!empty($c_content)) : ?>
+                        <?php echo $c_content; ?>
                     <?php endif; ?>
                 </div>
             </div>
@@ -251,19 +268,24 @@ global $post;
 <section class="accordion-section py-5">
     <div class="container-large">
         <div class="row align-items-center">
-            <?php if (get_field('accordion_title_section')) : ?>
+            <?php if (!empty($a_title_section)) : ?>
                 <div class="col-md-12">
-                    <h2 class="py-4 text-white"><?php the_field('accordion_title_section'); ?></h2>
+                    <h2 class="py-4 text-white"><?php echo $a_title_section; ?></h2>
                 </div>
             <?php endif; ?>
             <div class="col-md-6">
                 <div id="accordion" class="accordion-wrapper">
 
-                    <?php if (have_rows('accordion_repeater')): ?>
-                        <?php $i = 1; ?>
-                        <?php while (have_rows('accordion_repeater')):
+                    <?php
 
-                            the_row(); ?>
+                 //   var_dump($p_accordion_repeater);
+                    if (!empty($p_accordion_repeater)): ?>
+                        <?php $i = 1; ?>
+                        <?php  foreach ($p_accordion_repeater as $repeater):
+                          //  var_dump($repeater);
+                        //    while (have_rows('accordion_repeater')):
+
+                             ?>
                             <div class="card">
                                 <div class="card-header" id="heading-<?php echo $i; ?>">
                                     <h2 class="mb-0">
@@ -271,7 +293,7 @@ global $post;
                                                 data-target="#collapse-<?php echo $i; ?>" collapseOne
                                                 aria-expanded="true" aria-controls="">
                                             <i class="fa" aria-hidden="true"></i>
-                                            <?php the_sub_field('accordion_title'); ?>
+                                            <?php echo $repeater["two_logo_title"]; ?>
                                         </button>
                                     </h2>
                                 </div>
@@ -279,14 +301,15 @@ global $post;
                                      aria-labelledby="heading<?php echo $i; ?>"
                                      data-parent="#accordion">
                                     <div class="card-body">
-                                        <?php the_sub_field('accordion_content'); ?>
+
+                                        <?php echo $repeater["two_logo_content"];  ?>
                                     </div>
                                 </div>
                             </div>
                             <?php
                             $i++;
 
-                        endwhile; ?>
+                        endforeach; ?>
                     <?php endif; ?>
                 </div>
             </div>
@@ -316,40 +339,50 @@ global $post;
 
     <div class="container">
         <div class="row">
-            <div id="new-ajax" class="col-md-10 m-auto">
-                <?php foreach ($featured_reviews as $post) :
-                    setup_postdata($post); ?>
-                    <div class="row align-items-center py-4 reviews-item-product">
+            <div  class="col-md-10 m-auto">
+                <?php foreach ($featured_reviews as $it=> $reviews) :
+
+                    $position = '';
+                    $position = get_field('reviews_position',$reviews->ID);
+                    if(!empty($reviews->post_excerpt)){
+                        $content = $reviews->post_excerpt;
+                    }
+                    else 
+                    {
+                        $content = $reviews->post_content;
+                    }
+
+                ?>
+                    <div class="row align-items-center py-4 reviews-item-product <?php    echo $it % 2 == 0 ? 'add-colors' : ''; ?>" data-count="<?php echo $it ?>" >
                         <div class="col-md-12 col-lg-4 text-center">
                             <a href="<?php the_permalink(); ?>">
-                                <img src="<?php the_post_thumbnail_url('small_avatar_circle'); ?>"
-                                     alt="<?php the_post_thumbnail_caption(); ?>"
+                                <img  src="<?php echo get_the_post_thumbnail_url($reviews->ID, 'customers_logo'); ?>"
+                                      alt="<?php the_post_thumbnail_caption($reviews->ID); ?>"
                                      class="img-fluid rounded-circle"/>
                             </a>
                             <h3>
-                                <?php the_title(); ?>
+                                <?php echo  $reviews->post_title; ?>
                             </h3>
                             <h2 class="text-silver">
-                                <?php the_field('reviews_position'); ?>
+                                <?php  echo $position ; ?>
                             </h2>
                             <i class="fa fa-quote-left fa-2x color-icon" aria-hidden="true"></i>
                         </div>
                         <div class="col-md-12 col-lg-8">
-                            <?php the_excerpt(); ?>
+                            <?php echo $content ; ?>
                         </div>
                     </div>
                     <?php
                 endforeach;
-                wp_reset_postdata(); ?>
-<!--                <div id="new-ajax" class="new-ajax">-->
-<!---->
-<!--                </div>-->
+              ?>
+                <div id="new-ajax" class="new-ajax">
+
+                </div>
                 <div class="row add-ajax">
                     <div class="col-md-12 text-center my-5">
-                        <?php
-                        echo '<a class="add-new-rew d-inline-block link-read-more text-uppercase font-weight-bold">SHOW MORE
-                            REWIEWS</a>';
-                        ?>
+                        <a class="add-new-rew d-inline-block link-read-more text-uppercase font-weight-bold">SHOW MORE
+                            REWIEWS</a>
+
                     </div>
                 </div>
             </div>

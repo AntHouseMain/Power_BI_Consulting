@@ -596,28 +596,29 @@ add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
 
 function my_ajax_pagination() {
 
-  $num =  $_POST['num'];
+  $num = (int)$_POST['num'];
 
     $featured_reviews = get_posts(
         [   'numberposts' => 2,
-            'offset' => 0,
+            'offset' => $num,
             'orderby' => 'date',
             'order' => 'DESC',
             'post_type' => 'reviews'
         ]);
     if(!empty($featured_reviews))
     {
-       // var_dump(1); <?php the_field('reviews_position');
+
         $rew ='';
         foreach ($featured_reviews as $review )
         {
-           // var_dump($review);
-           // $content = '';
+            $num++;
 
             if (!empty($review->post_excerpt))
             {
                 $content = $review->post_excerpt ;
-            }else{
+            }
+            else
+            {
                 $content = $review->post_content ;
             }
             $thumb_id = get_post_thumbnail_id($review->ID);
@@ -625,7 +626,7 @@ function my_ajax_pagination() {
             $reviews_position = get_field('reviews_position',$review->ID );
 
 
-       $rew .= '  <div class="row align-items-center py-4 reviews-item-product">
+       $rew .= '<div class="row align-items-center py-4 reviews-item-product ">
                         <div class="col-md-12 col-lg-4 text-center">
                             <a href="'.$thumb_url[0].'">
                                 <img src="'.$thumb_url[0].'"
@@ -649,7 +650,6 @@ function my_ajax_pagination() {
     }
     else
     {
-      //  var_dump(2);
      echo false;
     }
 
