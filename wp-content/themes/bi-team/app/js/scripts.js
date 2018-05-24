@@ -40,4 +40,34 @@
     });
 
 
+
+    $(document).on("click", ".inform-tab", function() {
+        var tab =  $(".tab-content");
+        var img =  $(".content-media-b");
+
+        tab.each(function(i,elem) {
+
+            if (!($(elem).hasClass('no-display')))
+            {
+                $(elem).addClass('no-display')
+            }
+        });
+
+        img.each(function(i,elem) {
+
+                    if (!($(elem).hasClass('no-display')))
+                    {
+                        $(elem).addClass('no-display')
+                    }
+                });
+
+        var number = $(this).data('block');
+        $("#collapse"+number+"").removeClass("no-display");
+        $("#image-b-"+number+"").removeClass("no-display");
+
+        event.preventDefault();
+
+
+    });
+
 })(jQuery);

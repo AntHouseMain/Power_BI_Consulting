@@ -23,8 +23,9 @@ $buy_link = get_field("header_content_buy_link");
 $a_title_section = get_field("accordion_title_section");
 $accordion_repeater = get_field("accordion_repeater");
 $p_accordion_repeater = get_field("product_multi_row_repeater");
+$title_product_tab = get_field("title_product_tab");
 
-var_dump($a_title_section);
+//var_dump($a_title_section);
 
 $site = get_field("site", 8);
 $mail = get_field("mail",8);
@@ -268,26 +269,20 @@ global $post;
 <section class="accordion-section py-5">
     <div class="container-large">
         <div class="row align-items-center">
-            <?php if (!empty($a_title_section)) : ?>
+            <?php if (!empty($title_product_tab)) : ?>
                 <div class="col-md-12">
-                    <h2 class="py-4 text-white"><?php echo $a_title_section; ?></h2>
+                    <h2 class="py-4 text-white"><?php echo $title_product_tab; ?></h2>
                 </div>
             <?php endif; ?>
             <div class="col-md-6">
                 <div id="accordion" class="accordion-wrapper">
 
                     <?php
-
-                 //   var_dump($p_accordion_repeater);
                     if (!empty($p_accordion_repeater)): ?>
                         <?php $i = 1; ?>
-                        <?php  foreach ($p_accordion_repeater as $repeater):
-                          //  var_dump($repeater);
-                        //    while (have_rows('accordion_repeater')):
-
-                             ?>
+                        <?php  foreach ($p_accordion_repeater as $repeater): ?>
                             <div class="card">
-                                <div class="card-header" id="heading-<?php echo $i; ?>">
+                                <div class="card-header inform-tab" id="heading-<?php echo $i; ?> " data-block="<?php echo $i; ?>" >
                                     <h2 class="mb-0">
                                         <button class="btn btn-link" data-toggle="collapse"
                                                 data-target="#collapse-<?php echo $i; ?>" collapseOne
@@ -297,7 +292,7 @@ global $post;
                                         </button>
                                     </h2>
                                 </div>
-                                <div id="collapse<?php echo $i; ?>" class="collapse show"
+                                <div id="collapse<?php echo $i; ?>" class="collapse  tab-content show <?php  echo $i>1?'no-display':''; ?>"
                                      aria-labelledby="heading<?php echo $i; ?>"
                                      data-parent="#accordion">
                                     <div class="card-body">
@@ -314,12 +309,17 @@ global $post;
                 </div>
             </div>
             <div class="col-md-6">
-                <?php $accordion_image = get_field('accordion_image');
-                if (!empty($accordion_image)): ?>
-                    <img class="img-fluid"
-                         src="<?php echo $accordion_image['sizes']['image_article_large']; ?>"
-                         alt="<?php echo $accordion_image['alt']; ?>"/>
+                <?php $i = 1; ?>
+                <?php  foreach ($p_accordion_repeater as $repeater):
+
+                if (!empty($repeater['two_logo_image'])): ?>
+                    <img id="image-b-<?php echo $i; ?>" class="img-fluid  content-media-b <?php  echo $i>1?'no-display':''; ?> "
+                         src="<?php echo $repeater['two_logo_image']['sizes']['image_article_large']; ?>"
+                         alt="<?php echo $repeater['two_logo_image']['alt']; ?>"/>
                 <?php endif; ?>
+                <?php
+                $i++ ;
+                endforeach; ?>
             </div>
         </div>
     </div>
