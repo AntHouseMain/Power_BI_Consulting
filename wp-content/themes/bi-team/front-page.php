@@ -50,7 +50,7 @@ $slider = get_field("header_slider_repeater");
     <!--    <! --== Carousel ==-->
 
     <section class="container-fluid p-0">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide main-carousel" data-ride="carousel">
             <?php if (have_rows('header_slider_repeater')):
             $i=0 ;
             ?>
@@ -78,7 +78,10 @@ $slider = get_field("header_slider_repeater");
                         <h3 class="with-line">We can help</h3>
                         <p><?php the_sub_field('header_slider_content'); ?></p>
                         <button type="button" class="btn get-quote-btn">
-                            <a class="d-inline-block" href="<?php the_field('header_slider_link'); ?>">GET A QUETE</a>
+                            <a href="<?php the_field('header_slider_link'); ?>">
+                              GET A QUETE
+                              <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </a>
                         </button>
                     </div>
                 </div>
@@ -135,15 +138,16 @@ $slider = get_field("header_slider_repeater");
                         <?php _e('Our Difference', 'bi-team'); ?>
                     </h2>
                     <?php the_field('our_different_content'); ?>
+                  <div class="our_difference_big_text">
+                    FluentPro achieves very high customer satisfaction rates - over 97%.
+                  </div>
+                  <br>
                     <?php if (!empty(get_field('our_different_link'))) : ?>
                         <a class="text-uppercase more-link"
                            href="<?php the_field('our_different_link'); ?>"><?php _e('VISIT MAIN
                         SITE', 'bi-tema'); ?></a>
                     <?php endif; ?>
-                    <div class="our_difference_big_text">
-                      FluentPro achieves very high customer satisfaction rates - over 97%.
-                    </div>
-                    <a class="more-link text-uppercase our_difference_link" href="#">Visit main site</a>
+
                 </div>
             </div>
         </div>
@@ -183,11 +187,11 @@ $slider = get_field("header_slider_repeater");
 <?php endif; ?>
 
     <section class="container-fluid p-0">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide review-carousel" data-ride="carousel">
             <ol class="carousel-indicators">
-                                <?php  foreach ($featured_reviews as $itr => $slide) :?>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $itr ; ?> "  class="<?php if ($itr == 0){echo 'active' ;} ?>"></li>
-                                <?php endforeach;?>
+            <?php  foreach ($featured_reviews as $itr => $slide) :?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $itr ; ?> "  class="<?php if ($itr == 0){echo 'active' ;} ?>"></li>
+            <?php endforeach;?>
             </ol>
             <div class="carousel-inner">
                 <?php foreach ($featured_reviews as $it=> $reviews) : ;
@@ -197,17 +201,20 @@ $slider = get_field("header_slider_repeater");
                                                 ?>
 
                     <div class="carousel-item text-center <?php if ($it == 0){echo 'active' ;} ?>">
-                        <img class="img-fluid"  src="<?php echo get_the_post_thumbnail_url($reviews->ID, 'customers_logo'); ?>"
-                                                             alt="<?php the_post_thumbnail_caption($reviews->ID); ?>">
+                        <img
+                                class="img-fluid"
+                                src="<?php echo get_the_post_thumbnail_url($reviews->ID, 'customers_logo'); ?>"
+                                alt="<?php the_post_thumbnail_caption($reviews->ID); ?>">
+                        <h2> <?php echo  $reviews->post_title; ?></h2>
+                        <h3 class="text-silver font-weight-bold">
+                          <?php  echo $position ; ?>
+                        </h3>
+                        <i class="fa fa-quote-left fa-2x color-icon d-block py-3" aria-hidden="true"></i>
+                        <p><?php echo $reviews->post_excerpt ; ?></p>
+                        <a class="d-inline-block link-read-more text-uppercase font-weight-bold" href="<?php echo  $reviews->guid ;   // the_premalink(); ?>">Read the review</a>
 
-                                                        <h2> <?php echo  $reviews->post_title; ?></h2>
-                                                        <h3 class="text-silver">
-                                                            <?php  echo $position ; ?>
-                                                        </h3>
-                                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                                        <?php echo $reviews->post_excerpt ; ?>
-                                                        <a href="<?php echo  $reviews->guid ;   // the_premalink(); ?>"></a>
                     </div>
+
                  <?php endforeach;?>
 
             </div>

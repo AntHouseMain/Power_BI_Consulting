@@ -92,22 +92,22 @@ global $post;
         </div>
     </section>
 <?php endif; ?>
-<?php if (!empty($c_title)) : ?>
-    <section class="section-connect py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 text-center m-auto text-white">
-                    <h2 class="yellow-border-text-bottom text-white">
-                        <?php echo $c_title; ?>
-                    </h2>
-                    <?php if (!empty($c_content)) : ?>
-                        <?php echo $c_content; ?>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </section>
-<?php endif; ?>
+<?php //if (!empty($c_title)) : ?>
+<!--    <section class="section-connect py-5">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-10 text-center m-auto text-white">-->
+<!--                    <h2 class="yellow-border-text-bottom text-white">-->
+<!--                        --><?php //echo $c_title; ?>
+<!--                    </h2>-->
+<!--                    --><?php //if (!empty($c_content)) : ?>
+<!--                        --><?php //echo $c_content; ?>
+<!--                    --><?php //endif; ?>
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<?php //endif; ?>
 <?php if (have_rows('two_logo_repeater')): ?>
     <section class="two-logo py-5">
         <div class="container">
@@ -156,18 +156,16 @@ global $post;
                     the_row(); ?>
                     <div class="row py-6 products-multirow">
                         <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-sm-12 col-lg-10 products-multirow-image">
-                                    <?php $multirow_image = get_sub_field('product_multi_row_image');
-                                    if (!empty($multirow_image)): ?>
-                                        <img class="img-fluid"
-                                             src="<?php echo $multirow_image['sizes']['image_article_large']; ?>"
-                                             alt="<?php echo $multirow_image['alt']; ?>"/>
-                                    <?php endif; ?>
-                                </div>
+                            <div class="col-sm-12 col-lg-10 products-multirow-image">
+                                <?php $multirow_image = get_sub_field('product_multi_row_image');
+                                if (!empty($multirow_image)): ?>
+                                    <img class="img-fluid"
+                                         src="<?php echo $multirow_image['sizes']['image_article_large']; ?>"
+                                         alt="<?php echo $multirow_image['alt']; ?>"/>
+                                <?php endif; ?>
                             </div>
                         </div>
-                        <div class="col-md-6 d-flex align-items-center multirow-start-end">
+                        <div class="col-md-6">
                             <div class="row">
                                 <div class="col-sm-12 col-lg-8 col-xl-8 multirow-item">
                                     <div class="multirow-section-products-description">
@@ -266,7 +264,7 @@ global $post;
     </section>
 <?php endif; ?>
     <!--///-->
-    <section class="accordion-section py-5">
+<section class="accordion-section py-5">
     <div class="container-large">
         <div class="row align-items-center">
             <?php if (!empty($title_product_tab)) : ?>
@@ -281,22 +279,22 @@ global $post;
                     if (!empty($p_accordion_repeater)): ?>
                         <?php $i = 1; ?>
                         <?php  foreach ($p_accordion_repeater as $repeater): ?>
+
                             <div class="card">
-                                <div class="card-header inform-tab" id="heading-<?php echo $i; ?> " data-block="<?php echo $i; ?>" >
+                                <div class="card-header inform-tab" id="heading<?php echo $i; ?>" data-block="<?php echo $i; ?>" >
                                     <h2 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse"
-                                                data-target="#collapse-<?php echo $i; ?>" collapseOne
-                                                aria-expanded="true" aria-controls="">
+                                        <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapse<?php echo $i; ?>"
+                                                aria-expanded="false" aria-controls="collapse<?php echo $i; ?>">
                                             <i class="fa" aria-hidden="true"></i>
                                             <?php echo $repeater["two_logo_title"]; ?>
                                         </button>
                                     </h2>
                                 </div>
-                                <div id="collapse<?php echo $i; ?>" class="collapse  tab-content show <?php  echo $i>1?'no-display':''; ?>"
+                                <div id="collapse<?php echo $i; ?>" class="collapse <?php echo $i > 0 ? '' : 'show'; ?>"
                                      aria-labelledby="heading<?php echo $i; ?>"
                                      data-parent="#accordion">
                                     <div class="card-body">
-
                                         <?php echo $repeater["two_logo_content"];  ?>
                                     </div>
                                 </div>
@@ -309,17 +307,7 @@ global $post;
                 </div>
             </div>
             <div class="col-md-6">
-                <?php $i = 1; ?>
-                <?php  foreach ($p_accordion_repeater as $repeater):
-
-                if (!empty($repeater['two_logo_image'])): ?>
-                    <img id="image-b-<?php echo $i; ?>" class="img-fluid  content-media-b <?php  echo $i>1?'no-display':''; ?> "
-                         src="<?php echo $repeater['two_logo_image']['sizes']['image_article_large']; ?>"
-                         alt="<?php echo $repeater['two_logo_image']['alt']; ?>"/>
-                <?php endif; ?>
-                <?php
-                $i++ ;
-                endforeach; ?>
+              <img src="" alt="">
             </div>
         </div>
     </div>
@@ -335,7 +323,6 @@ global $post;
             </div>
         </div>
     </div>
-
 
     <div class="container">
         <div class="row">
