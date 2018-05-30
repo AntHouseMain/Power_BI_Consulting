@@ -265,8 +265,8 @@ global $post;
         </div>
     </section>
 <?php endif; ?>
-<!--///-->
-<section class="accordion-section py-5">
+    <!--///-->
+    <section class="accordion-section py-5">
     <div class="container-large">
         <div class="row align-items-center">
             <?php if (!empty($title_product_tab)) : ?>

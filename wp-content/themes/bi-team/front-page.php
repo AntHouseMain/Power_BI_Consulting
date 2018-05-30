@@ -181,122 +181,41 @@ $slider = get_field("header_slider_repeater");
         </div>
     </section>
 <?php endif; ?>
-    <!--///-->
-    <section class="reviews-section py-5 pb-6">
-        <div class="container-large container">
-            <div class="row">
-                <div class="col-md-10 m-auto">
 
-                    <div id="reviewSlider" class="carousel slide" data-ride="carousel">
-
-                        <div class="carousel-inner">
-                            <?php foreach ($featured_reviews as $reviews) :
-                                setup_postdata($reviews);
-                                $position = '';
-                                $position = get_field('reviews_position');
-
-                                ?>
-                            <div class="carousel-item active text-center">
-
-                                <img class="img-fluid"
-                                     src="<?php echo get_the_post_thumbnail_url($reviews->ID, 'customers_logo'); ?>"
-                                     alt="<?php the_post_thumbnail_caption($reviews->ID); ?>">
-
-                                <h2> <?php echo  $reviews->post_title; ?></h2>
-                                <h3 class="text-silver">
-                                    <?php  echo $position ; ?>
-                                </h3>
-                                <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                <?php echo $reviews->post_excerpt ; ?>
-                                <a href="<?php echo  $reviews->guid ;   // the_premalink(); ?>">
-
-                                </a>
-
-                            </div>
-                            <div class="carousel-item">
-                                <!--Сюда выводим следующий слайдер!-->
-                            </div>
-                            <?php endforeach;
-
-                            ?>
-
-                        </div>
-                        <a class="carousel-control-prev" href="#reviewSlider" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#reviewSlider" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="container-fluid p-0">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <?php if (have_rows('header_slider_repeater')):
-            $i=0 ;
-            ?>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <?php  foreach ($slider as $it => $slide) :?>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $it ; ?> "  class="<?php if ($it == 0){echo 'active' ;} ?>"></li>
-                <?php endforeach;?>
+                                <?php  foreach ($featured_reviews as $itr => $slide) :?>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $itr ; ?> "  class="<?php if ($itr == 0){echo 'active' ;} ?>"></li>
+                                <?php endforeach;?>
             </ol>
-
             <div class="carousel-inner">
+                <?php foreach ($featured_reviews as $it=> $reviews) : ;
+                                                setup_postdata($reviews);
+                                                $position = '';
+                                                $position = get_field('reviews_position');
+                                                ?>
 
-                <?php while (have_rows('header_slider_repeater')): the_row();
+                    <div class="carousel-item text-center <?php if ($it == 0){echo 'active' ;} ?>">
+                        <img class="img-fluid"  src="<?php echo get_the_post_thumbnail_url($reviews->ID, 'customers_logo'); ?>"
+                                                             alt="<?php the_post_thumbnail_caption($reviews->ID); ?>">
 
-                    ?>
-<!--                    <div class="carousel-item --><?php //if ($i==0){echo 'active' ;} ?><!-- ">-->
-<!--                        --><?php //$slider_image = get_sub_field('header_slider_image');
-//                        if (!empty($slider_image)): ?>
-<!--                            <img class="d-block w-100 img-fluid"-->
-<!--                                 src="--><?php //echo $slider_image['sizes']['image_main_slider']; ?><!--"-->
-<!--                                 alt="--><?php //echo $slider_image['alt']; ?><!--"/>-->
-<!--                        --><?php //endif; ?>
-<!---->
-<!--                        </div>-->
-<!--                        <a class="carousel-control-prev" href="#reviewSlider" role="button" data-slide="prev">-->
-<!--                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--                            <span class="sr-only">Previous</span>-->
-<!--                        </a>-->
-<!--                        <a class="carousel-control-next" href="#reviewSlider" role="button" data-slide="next">-->
-<!--                            <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--                            <span class="sr-only">Next</span>-->
-<!--                        </a>-->
-<!--                    </div>-->
-                    <div class="carousel-item active text-center">
-
-                        <img class="img-fluid"
-                             src="<?php echo get_the_post_thumbnail_url($reviews->ID, 'customers_logo'); ?>"
-                             alt="<?php the_post_thumbnail_caption($reviews->ID); ?>">
-
-                        <h2> <?php echo  $reviews->post_title; ?></h2>
-                        <h3 class="text-silver">
-                            <?php  echo $position ; ?>
-                        </h3>
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                        <?php echo $reviews->post_excerpt ; ?>
-                        <a href="<?php echo  $reviews->guid ;   // the_premalink(); ?>">
-
-                        </a>
-
+                                                        <h2> <?php echo  $reviews->post_title; ?></h2>
+                                                        <h3 class="text-silver">
+                                                            <?php  echo $position ; ?>
+                                                        </h3>
+                                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                                        <?php echo $reviews->post_excerpt ; ?>
+                                                        <a href="<?php echo  $reviews->guid ;   // the_premalink(); ?>"></a>
                     </div>
-                    <?php
-                    $i++ ;
-
-                endwhile; ?>
-                <?php endif; ?>
+                 <?php endforeach;?>
 
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>

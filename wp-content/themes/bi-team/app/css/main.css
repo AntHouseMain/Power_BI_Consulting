@@ -1108,7 +1108,33 @@ blockquote.right {
   left: 20px;
 }
 
-.contact-us-form .form-group .form-check .form-check-input:focus {
+
+.form-check-input input[type="checkbox"] {
+  display:none;
+}
+
+.contact-us-form .form-group  input[type="checkbox"] + label {
+  color:#f2f2f2;
+}
+
+.contact-us-form .form-group .form-check-input input[type="checkbox"] + label span {
+  display:inline-block;
+  width:19px;
+  height:19px;
+  margin:-2px 10px 0 0;
+  vertical-align:middle;
+  background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) left top no-repeat;
+  cursor:pointer;
+}
+.rounded-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%!important;
+}
+.contact-us-form .form-group .form-check-input input[type="checkbox"]:checked + label span {
+  background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -19px top no-repeat;
+}
+.contact-us-form .form-group .contact-us-form .form-group .form-check .form-check-input:focus {
   outline: none;
 }
 
@@ -1117,6 +1143,7 @@ blockquote.right {
   border: 1px solid #fccd1a;
   outline: none;
 }
+
 
 .contact-us-form .form-group .form-check .form-check-input:checked:after {
   content: '\2714';

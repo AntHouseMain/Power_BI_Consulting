@@ -17,7 +17,6 @@
         var num = $(".reviews-item-product").length ;
         var ajaxpagination = {"ajaxurl":"\/wp-admin\/admin-ajax.php"};
 
-        console.log(num);
 
         $.ajax({
             url: ajaxpagination.ajaxurl,
@@ -33,6 +32,10 @@
                   $(".add-ajax").hide();
                }else{
                    $("#new-ajax").append(result)
+                   if(num+2> $(".reviews-item-product").length)
+                   {
+                       $(".add-ajax").hide();
+                   }
                }
 
             }
@@ -44,26 +47,39 @@
     $(document).on("click", ".inform-tab", function() {
         var tab =  $(".tab-content");
         var img =  $(".content-media-b");
+        var block = $(this).data("block")
 
-        tab.each(function(i,elem) {
+        // if ($("#collapse"+block).hasClass('show'))
+        // {
+        //
+        //     $("#collapse"+block).removeClass('show')
+        // }else
+        // {
+        //     $("#collapse"+block).addClass('show')
+        // }
 
-            if (!($(elem).hasClass('no-display')))
-            {
-                $(elem).addClass('no-display')
-            }
-        });
+            tab.each(function(i,elem) {
 
-        img.each(function(i,elem) {
+                if (!($(elem).hasClass('no-display')))
+                {
+                    $(elem).addClass('no-display')
+                }
+            });
 
-                    if (!($(elem).hasClass('no-display')))
-                    {
-                        $(elem).addClass('no-display')
-                    }
-                });
+            img.each(function(i,elem) {
 
-        var number = $(this).data('block');
-        $("#collapse"+number+"").removeClass("no-display");
-        $("#image-b-"+number+"").removeClass("no-display");
+                if (!($(elem).hasClass('no-display')))
+                {
+                    $(elem).addClass('no-display')
+                }
+            });
+
+            var number = $(this).data('block');
+            $("#collapse"+number+"").removeClass("no-display");
+            $("#image-b-"+number+"").removeClass("no-display");
+
+
+
 
         event.preventDefault();
 
