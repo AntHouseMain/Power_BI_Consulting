@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05fd0e58-0704-4af7-bc54-eb4115f3d5a5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/bi-team/app/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/bi-team/app/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/bi-team/app/css/main.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/bi-team/app/css/main.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages1.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages1.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/bi-team/front-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/bi-team/front-page.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/bi-team/templates/template-products.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/bi-team/templates/template-products.php" afterDir="false" />
     </list>
@@ -18,37 +19,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="front-page.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="front-page.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/front-page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-65">
-              <caret line="131" column="58" lean-forward="true" selection-start-line="131" selection-start-column="58" selection-end-line="131" selection-end-column="58" />
+            <state relative-caret-position="170">
+              <caret line="195" column="57" selection-start-line="195" selection-start-column="57" selection-end-line="195" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multi-row-item.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/template-parts/multi-row-item.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="56" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="56" />
               <folding>
-                <element signature="e#7#33#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reviews-single-parts.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/template-parts/reviews-single-parts.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file leaf-file-name="template-products.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/templates/template-products.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="342" column="80" selection-start-line="342" selection-start-column="60" selection-end-line="342" selection-end-column="80" />
+            <state relative-caret-position="79">
+              <caret line="93" column="15" lean-forward="true" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_pages.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_pages.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="559" column="18" selection-start-line="559" selection-start-column="18" selection-end-line="559" selection-end-column="18" />
+            <state relative-caret-position="494">
+              <caret line="446" column="3" selection-start-line="446" selection-start-column="3" selection-end-line="446" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -65,8 +70,8 @@
       <file leaf-file-name="_pages1.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages1.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2875">
-              <caret line="614" column="1" selection-start-line="476" selection-end-line="614" selection-end-column="1" />
+            <state relative-caret-position="661">
+              <caret line="660" column="1" selection-start-line="660" selection-start-column="1" selection-end-line="660" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -74,7 +79,7 @@
       <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
+            <state relative-caret-position="900">
               <caret line="50" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
@@ -84,35 +89,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>data-slide-to</find>
-      <find>our</find>
-      <find>list-group</find>
-      <find>get-q</find>
-      <find>list</find>
-      <find>header-main-menu</find>
-      <find>mul</find>
-      <find>header_content_link_download</find>
-      <find>$repeater</find>
-      <find>reviews</find>
-      <find>accordion_title_section</find>
-      <find />
+      <find>Multirow Section</find>
       <find>Customers</find>
       <find>yellow-border-text-bottom</find>
       <find>heading-</find>
       <find>container-fluid</find>
       <find>col-md-6</find>
-      <find />
+      <find>container-fluid p-0</find>
       <find>reviewSlider</find>
       <find>check-input:checked</find>
       <find>rounded-circle</find>
       <find>.rounded-circle</find>
       <find>reviews-item</find>
       <find>prod</find>
-      <find>multirow</find>
       <find>accordion</find>
-      <find>section-reviews-product</find>
-      <find>reviews-item-product</find>
       <find>differe</find>
+      <find>article-item</find>
+      <find>multirow-item</find>
+      <find>products-multirow</find>
+      <find>reviews-item-product</find>
+      <find>add-ajax</find>
+      <find>section-reviews-product</find>
+      <find>pricing-item</find>
+      <find>pricing-section</find>
+      <find>list-section</find>
+      <find>two-logo</find>
+      <find>occupation-item</find>
+      <find>occupa</find>
+      <find>logo</find>
+      <find>multirow</find>
+      <find>carousel-indicators</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -132,9 +138,11 @@
         <option value="$PROJECT_DIR$/wp-content/themes/bi-team/app/css/main.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/bi-team/app/js/scripts.js" />
         <option value="$PROJECT_DIR$/wp-config.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/bi-team/template-parts/multi-row-item.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages1.scss" />
+        <option value="$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages.scss" />
         <option value="$PROJECT_DIR$/wp-content/themes/bi-team/templates/template-products.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/bi-team/front-page.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages.scss" />
       </list>
     </option>
   </component>
@@ -161,7 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -234,13 +241,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ena" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="D:/NamiDorama/React_Radux_Nextjs" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -274,37 +282,38 @@
       <workItem from="1527147816640" duration="13971000" />
       <workItem from="1527577595846" duration="9525000" />
       <workItem from="1527666491339" duration="599000" />
-      <workItem from="1527676374745" duration="11454000" />
+      <workItem from="1527676374745" duration="12713000" />
+      <workItem from="1527751473042" duration="14342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70038000" />
+    <option name="totallyTimeSpent" value="85639000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1688" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="14" />
-      <window_info anchor="bottom" id="Event Log" order="17" side_tool="true" />
+      <window_info anchor="bottom" id="TODO" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="5" />
-      <window_info anchor="bottom" id="Version Control" order="16" />
-      <window_info anchor="bottom" id="Terminal" order="18" visible="true" weight="0.16197975" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.097862765" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.18520783" />
-      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.013447433" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,13 +323,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/app/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22253">
-          <caret line="1309" column="1" lean-forward="true" selection-start-line="1309" selection-start-column="1" selection-end-line="1309" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10438">
@@ -332,9 +334,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5899">
           <caret line="350" column="3" selection-start-line="350" selection-start-column="3" selection-end-line="388" selection-end-column="14" />
-          <folding>
-            <element signature="e#7#33#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -369,9 +368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
           <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
-          <folding>
-            <element signature="e#7#33#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -407,9 +403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5899">
           <caret line="350" column="3" selection-start-line="350" selection-start-column="3" selection-end-line="388" selection-end-column="14" />
-          <folding>
-            <element signature="e#7#33#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -424,9 +417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3618">
           <caret line="209" column="2" selection-start-line="209" selection-start-column="2" selection-end-line="209" selection-end-column="2" />
-          <folding>
-            <element signature="e#7#33#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -492,9 +482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3618">
           <caret line="335" column="2" selection-start-line="335" selection-start-column="2" selection-end-line="335" selection-end-column="2" />
-          <folding>
-            <element signature="e#7#33#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -516,9 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
           <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
-          <folding>
-            <element signature="e#7#33#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -557,15 +541,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
+        <state relative-caret-position="900">
           <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/template-parts/multi-row-item.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="27" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -626,6 +603,13 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/template-parts/reviews-single-parts.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/template-parts/article-single-parts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/template-parts/reviews-archive-parts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -633,34 +617,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages1.scss">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/template-parts/multi-row-item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2875">
-          <caret line="614" column="1" selection-start-line="476" selection-end-line="614" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/front-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="131" column="58" lean-forward="true" selection-start-line="131" selection-start-column="58" selection-end-line="131" selection-end-column="58" />
+        <state relative-caret-position="162">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="56" />
           <folding>
-            <element signature="e#7#33#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/templates/template-products.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="342" column="80" selection-start-line="342" selection-start-column="60" selection-end-line="342" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="559" column="18" selection-start-line="559" selection-start-column="18" selection-end-line="559" selection-end-column="18" />
+        <state relative-caret-position="494">
+          <caret line="446" column="3" selection-start-line="446" selection-start-column="3" selection-end-line="446" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/app/sass/layouts/_pages1.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="660" column="1" selection-start-line="660" selection-start-column="1" selection-end-line="660" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/templates/template-products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="93" column="15" lean-forward="true" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/bi-team/front-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="195" column="57" selection-start-line="195" selection-start-column="57" selection-end-line="195" selection-end-column="57" />
         </state>
       </provider>
     </entry>

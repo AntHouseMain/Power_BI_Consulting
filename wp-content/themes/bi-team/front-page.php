@@ -57,7 +57,7 @@ $slider = get_field("header_slider_repeater");
             <ol class="carousel-indicators">
                <?php  foreach ($slider as $it => $slide) :?>
                 <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $it ; ?> "  class="<?php if ($it == 0){echo 'active' ;} ?>"></li>
-<?php endforeach;?>
+               <?php endforeach;?>
             </ol>
 
             <div class="carousel-inner">
@@ -114,9 +114,11 @@ $slider = get_field("header_slider_repeater");
                             <div class="occupation-item text-center p-4 pt-5 w-100">
                                 <?php $occupation_logo = get_sub_field('occupation_repeater_image');
                                 if (!empty($occupation_logo)): ?>
-                                    <img class="img-fluid"
-                                         src="<?php echo $occupation_logo['sizes']['customers_logo']; ?>"
-                                         alt="<?php echo $occupation_logo['alt']; ?>"/>
+                                    <div class="occupation-img-wrapper">
+                                      <img class="img-fluid"
+                                           src="<?php echo $occupation_logo['sizes']['customers_logo']; ?>"
+                                           alt="<?php echo $occupation_logo['alt']; ?>"/>
+                                    </div>
                                 <?php endif; ?>
                                 <h2 class="my-4"><?php the_sub_field('occupation_repeater_title'); ?></h2>
                                 <?php the_sub_field('occupation_repeater_content'); ?>
@@ -188,10 +190,11 @@ $slider = get_field("header_slider_repeater");
 
     <section class="container-fluid p-0">
         <div id="carouselExampleControls" class="carousel slide review-carousel" data-ride="carousel">
+
             <ol class="carousel-indicators">
-            <?php  foreach ($featured_reviews as $itr => $slide) :?>
-                <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $itr ; ?> "  class="<?php if ($itr == 0){echo 'active' ;} ?>"></li>
-            <?php endforeach;?>
+                <?php  foreach ($featured_reviews as $itr => $slide) :?>
+                <li data-target="#carouselExampleControls" data-slide-to="<?php echo $itr ; ?> "  class="<?php if ($itr == 0){echo 'active' ;} ?>"></li>
+                <?php endforeach;?>
             </ol>
             <div class="carousel-inner">
                 <?php foreach ($featured_reviews as $it=> $reviews) : ;

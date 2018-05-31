@@ -92,22 +92,7 @@ global $post;
         </div>
     </section>
 <?php endif; ?>
-<?php //if (!empty($c_title)) : ?>
-<!--    <section class="section-connect py-5">-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-10 text-center m-auto text-white">-->
-<!--                    <h2 class="yellow-border-text-bottom text-white">-->
-<!--                        --><?php //echo $c_title; ?>
-<!--                    </h2>-->
-<!--                    --><?php //if (!empty($c_content)) : ?>
-<!--                        --><?php //echo $c_content; ?>
-<!--                    --><?php //endif; ?>
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<?php //endif; ?>
+<!--///-->
 <?php if (have_rows('two_logo_repeater')): ?>
     <section class="two-logo py-5">
         <div class="container">
@@ -121,17 +106,15 @@ global $post;
 
                                 <div class="col-md-4 two-logo-item">
                                     <?php if (!empty($two_logo_image)): ?>
-                                        <img class="img-fluid"
-                                             src="<?php echo $two_logo_image['sizes']['customers_logo']; ?>"
-                                             alt="<?php echo $two_logo_image['alt']; ?>"/>
+                                        <div class="logo-image-wrapper">
+                                          <img class="img-fluid"
+                                               src="<?php echo $two_logo_image['sizes']['customers_logo']; ?>"
+                                               alt="<?php echo $two_logo_image['alt']; ?>"/>
+                                        </div>
                                     <?php endif; ?>
-                                    <img src="" alt="">
-                                    <p>
-                                        <?php the_sub_field('two_logo_content'); ?>
-                                    </p>
-                                    <h2>
+                                    <h3>
                                         <?php the_sub_field('two_logo_title'); ?>
-                                    </h2>
+                                    </h3>
                                 </div>
 
                             <?php endwhile; ?>
@@ -367,9 +350,10 @@ global $post;
                 </div>
                 <div class="row add-ajax">
                     <div class="col-md-12 text-center my-5">
-                        <a class="add-new-rew d-inline-block link-read-more text-uppercase font-weight-bold">SHOW MORE
-                            REWIEWS</a>
-
+                        <a class="add-new-rew link-read-more text-uppercase font-weight-bold">
+                          <i class="fa fa-refresh" aria-hidden="true"></i>
+                          SHOW MORE REWIEWS
+                        </a>
                     </div>
                 </div>
             </div>
