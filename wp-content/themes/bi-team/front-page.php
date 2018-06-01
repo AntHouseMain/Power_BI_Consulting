@@ -75,7 +75,7 @@ $slider = get_field("header_slider_repeater");
 
                     <div class="carousel-caption d-none d-md-block">
                         <h3><?php the_sub_field('header_slider_title'); ?></h3>
-                        <h3 class="with-line">We can help</h3>
+                        <h3 class="with-line"><?php the_sub_field('header_slider_content_title'); ?></h3>
                         <p><?php the_sub_field('header_slider_content'); ?></p>
                         <button type="button" class="btn get-quote-btn">
                             <a href="<?php the_field('header_slider_link'); ?>">
@@ -131,7 +131,9 @@ $slider = get_field("header_slider_repeater");
     </section>
 <?php endif; ?>
     <!--///-->
-<?php if (!empty(get_field('our_different_content'))) : ?>
+<?php
+$our_different_content = get_field('our_different_content');
+if (!empty($our_different_content)) : ?>
     <section class="our-different py-5 text-center">
         <div class="container">
             <div class="row">
@@ -139,10 +141,14 @@ $slider = get_field("header_slider_repeater");
                     <h2 class="yellow-border-text-bottom white-border-text">
                         <?php _e('Our Difference', 'bi-team'); ?>
                     </h2>
-                    <?php the_field('our_different_content'); ?>
-                  <div class="our_difference_big_text">
-                    FluentPro achieves very high customer satisfaction rates - over 97%.
-                  </div>
+
+        <?php while (have_rows('our_different_content')): the_row(); ?>
+            <?php the_sub_field('p_different_content_1'); ?>
+            <?php the_sub_field('p_different_content_2'); ?>
+            <div class="our_difference_big_text">
+                <?php the_sub_field('p_different_content_3'); ?>
+            </div>
+        <?php endwhile; ?>
                   <br>
                     <?php if (!empty(get_field('our_different_link'))) : ?>
                         <a class="text-uppercase more-link"
@@ -199,8 +205,8 @@ $slider = get_field("header_slider_repeater");
             <div class="carousel-inner">
                 <?php foreach ($featured_reviews as $it=> $reviews) : ;
                                                 setup_postdata($reviews);
-                                                $position = '';
-                                                $position = get_field('reviews_position');
+
+                                                $position = get_field('reviews_position',$reviews->ID);
                                                 ?>
 
                     <div class="carousel-item text-center <?php if ($it == 0){echo 'active' ;} ?>">
@@ -213,8 +219,14 @@ $slider = get_field("header_slider_repeater");
                           <?php  echo $position ; ?>
                         </h3>
                         <i class="fa fa-quote-left fa-2x color-icon d-block py-3" aria-hidden="true"></i>
+                        <?php
+                        if(!empty( $reviews->post_excerpt)):
+                        ?>
                         <p><?php echo $reviews->post_excerpt ; ?></p>
-                        <a class="d-inline-block link-read-more text-uppercase font-weight-bold" href="<?php echo  $reviews->guid ;   // the_premalink(); ?>">Read the review</a>
+                        <?php else:?>
+                            <p><?php echo $reviews->post_content ; ?></p>
+                        <?php endif; ?>
+                        <a class="d-inline-block link-read-more text-uppercase font-weight-bold" href="<?php echo  $reviews->guid ;    ?>">Read the review</a>
 
                     </div>
 
@@ -236,7 +248,7 @@ $slider = get_field("header_slider_repeater");
 
     <section class="multirow-section">
         <div class="container-fluid">
-            <?php foreach ($featured_news as $new) : setup_postdata($new); ?>
+            <?php foreach ($featured_news as $post) : setup_postdata($post); ?>
                <?php echo render_template_part('multi-row-item'); ?>
                 <?php
             endforeach;
@@ -255,21 +267,21 @@ $slider = get_field("header_slider_repeater");
                         <?php _e('Pricing', 'bi-team'); ?>
                     </h2>
                 </div>
-                <?php foreach ($featured_news as $post) : setup_postdata($post); ?>
+                <?php foreach ($featured_news as $new) : setup_postdata($new); ?>
                     <div class="col-md-4 mb-3 d-flex">
                         <div class="pricing-item text-center py-4 px-5 w-100">
                             <h3>
-                                <?php the_title(); ?>
+                                <?php echo $new->post_title ; ?>
                             </h3>
                             <p class="circle-text">
-                                $<?php the_field('products_price'); ?>
+                                <?php the_field('products_price', $new->ID); ?>
                             </p>
-                            <?php if (!empty(get_field('products_list'))): ?>
+                            <?php if (!empty(get_field('products_list', $new->ID))): ?>
                                 <div class="single-content text-left">
-                                    <?php the_field('products_list'); ?>
+                                    <?php the_field('products_list', $new->ID); ?>
                                 </div>
                             <?php endif; ?>
-                            <a class="d-block text-uppercase link-buy-products" href="<?php the_permalink(); ?>">
+                            <a class="d-block text-uppercase link-buy-products" href="<?php echo $new->guid  ; ?>">
                                 buy product
                             </a>
                         </div>

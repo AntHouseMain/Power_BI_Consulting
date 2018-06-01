@@ -36,6 +36,11 @@
                             'type' => 'text',
                         ),
                         array(
+                            'key' => 'header_slider_content_title',
+                            'label' => __('Slider content title', 'bi-team'),
+                            'name' => 'header_slider_content_title',
+                            'type' => 'text',
+                        ),array(
                             'key' => 'header_slider_content',
                             'label' => __('Slider content', 'bi-team'),
                             'name' => 'header_slider_content',
@@ -97,8 +102,35 @@
                     'key' => 'our_different_content',
                     'label' => __('Content', 'bi-team'),
                     'name' => 'our_different_content',
-                    'type' => 'wysiwyg',
-                    'required' => 0,
+                    'type' => 'repeater',
+                    'instructions' => 'max 1 items',
+                    'layout' => 'block',
+                    'max' => '1',
+                    'min' => '1',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'p_different_content_1',
+                            'label' => __('Text content', 'bi-team'),
+                            'name' => 'p_different_content_1',
+                            'type' => 'wysiwyg',
+                            'required' =>0,
+                        ),
+                        array(
+                            'key' => 'p_different_content_2',
+                            'label' => __('Text content', 'bi-team'),
+                            'name' => 'p_different_content_2',
+                            'type' => 'wysiwyg',
+                            'required' => 0,
+                        ),
+                        array(
+                            'key' => 'p_different_content_3',
+                            'label' => __('Text content', 'bi-team'),
+                            'name' => 'p_different_content_3',
+                            'type' => 'wysiwyg',
+                            'required' => 0,
+                        ),
+                    ),
+
                 ),
                 array(
                     'key' => 'our_different_link',

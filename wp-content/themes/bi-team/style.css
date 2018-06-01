@@ -982,3 +982,7 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+.no-display {
+	display: none;
+}

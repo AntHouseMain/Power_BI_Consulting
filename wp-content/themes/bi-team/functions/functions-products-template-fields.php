@@ -262,16 +262,11 @@
                 ),
                 array(
                     'key' => 'accordion_title_section',
-                    'label' => __('Image', 'bi-team'),
+                    'label' => __('Title', 'bi-team'),
                     'name' => 'accordion_title_section',
-                    'type' => 'image',
+                    'type' => 'text',
                 ),
-                array(
-                    'key' => 'accordion_image',
-                    'label' => __('Image', 'bi-team'),
-                    'name' => 'accordion_image',
-                    'type' => 'image',
-                ),
+
 
                 array(
                     'key' => 'accordion_repeater',
@@ -294,6 +289,12 @@
                             'name' => 'accordion_content',
                             'type' => 'wysiwyg',
                         ),
+                        array(
+                            'key' => 'accordion_image',
+                            'label' => __('Image', 'bi-team'),
+                            'name' => 'accordion_image',
+                            'type' => 'image',
+                       ),
                     ),
                 ),
             ),

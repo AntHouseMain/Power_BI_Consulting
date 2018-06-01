@@ -28,36 +28,39 @@ $customers = get_field("customers");
 ?>
 
     <!--    <! --== Carousel ==-->
-
     <section class="container-fluid p-0">
-        <?php if(!empty($slider)):  ?>
-
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <?php
+        <div id="carouselExampleIndicators" class="carousel slide main-carousel" data-ride="carousel">
+            <?php if(!empty($slider)):
             $i=0 ;
             ?>
             <ol class="carousel-indicators">
-                <?php  foreach ($slider as $it => $slid) :?>
+                <?php  foreach ($slider as $it => $slide) :?>
                     <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $it ; ?> "  class="<?php if ($it == 0){echo 'active' ;} ?>"></li>
                 <?php endforeach;?>
             </ol>
 
             <div class="carousel-inner">
 
-        <?php   foreach ($slider as $it => $slide) :?>
+                <?php   foreach ($slider as $it => $slide) :?>
+
+
                     <div class="carousel-item <?php if ($i==0){echo 'active' ;} ?> ">
                         <?php $slider_image = get_sub_field('header_slider_image');
-                        if (!empty($slide['image'])): ?>
-                            <img class="d-block w-100 img-fluid"
-                                 src="<?php echo $slide['image']["url"]; ?>"
-                                 alt="<?php echo $slide['image']['alt']; ?>"/>
-                        <?php endif; ?>
+    if (!empty($slide['image'])): ?>
+                                    <img class="d-block w-100 img-fluid"
+                                         src="<?php echo $slide['image']["url"]; ?>"
+                                         alt="<?php echo $slide['image']['alt']; ?>"/>
+                                <?php endif; ?>
 
                         <div class="carousel-caption d-none d-md-block">
                             <h3><?php echo $slide['slider_title']; ?></h3>
+                            <h3 class="with-line"><?php echo $slide['header_slider_content_title']; ?></h3>
                             <p><?php echo $slide['slider_content']; ?></p>
                             <button type="button" class="btn get-quote-btn">
-                                <a class="d-inline-block" href="<?php echo $slide['button_link'] ; ?>">GET A QUETE</a>
+                                <a href="<?php echo $slide['button_link'] ; ?>">
+                                    GET A QUETE
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
                             </button>
                         </div>
                     </div>
@@ -65,7 +68,7 @@ $customers = get_field("customers");
                     <?php
                     $i++ ;
 
-                   endforeach; ?>
+                endforeach; ?>
                 <?php endif; ?>
 
             </div>
@@ -78,8 +81,58 @@ $customers = get_field("customers");
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
     </section>
+<!--    <section class="container-fluid p-0">-->
+<!--        --><?php //if(!empty($slider)):  ?>
+<!---->
+<!--        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
+<!--            --><?php
+//            $i=0 ;
+//            ?>
+<!--            <ol class="carousel-indicators">-->
+<!--                --><?php // foreach ($slider as $it => $slid) :?>
+<!--                    <li data-target="#carouselExampleIndicators" data-slide-to="--><?php //echo $it ; ?><!-- "  class="--><?php //if ($it == 0){echo 'active' ;} ?><!--"></li>-->
+<!--                --><?php //endforeach;?>
+<!--            </ol>-->
+<!---->
+<!--            <div class="carousel-inner">-->
+<!---->
+<!--        --><?php //  foreach ($slider as $it => $slide) :?>
+<!--                    <div class="carousel-item --><?php //if ($i==0){echo 'active' ;} ?><!-- ">-->
+<!--                        --><?php //$slider_image = get_sub_field('header_slider_image');
+//                        if (!empty($slide['image'])): ?>
+<!--                            <img class="d-block w-100 img-fluid"-->
+<!--                                 src="--><?php //echo $slide['image']["url"]; ?><!--"-->
+<!--                                 alt="--><?php //echo $slide['image']['alt']; ?><!--"/>-->
+<!--                        --><?php //endif; ?>
+<!---->
+<!--                        <div class="carousel-caption d-none d-md-block">-->
+<!--                            <h3>--><?php //echo $slide['slider_title']; ?><!--</h3>-->
+<!--                            <p>--><?php //echo $slide['slider_content']; ?><!--</p>-->
+<!--                            <button type="button" class="btn get-quote-btn">-->
+<!--                                <a class="d-inline-block" href="--><?php //echo $slide['button_link'] ; ?><!--">GET A QUETE</a>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    --><?php
+//                    $i++ ;
+//
+//                   endforeach; ?>
+<!--                --><?php //endif; ?>
+<!---->
+<!--            </div>-->
+<!--            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
+<!--                <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--                <span class="sr-only">Previous</span>-->
+<!--            </a>-->
+<!--            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
+<!--                <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--                <span class="sr-only">Next</span>-->
+<!--            </a>-->
+<!--        </div>-->
+<!---->
+<!--    </section>-->
 
     <section class="multirow-section">
         <?php if(!empty($products)): ;?>
