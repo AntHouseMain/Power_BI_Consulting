@@ -417,6 +417,22 @@
   }
 }
 
+/* --== About Us Page ==-- */
+
+.about-us-header {
+  min-height: 50vh;
+  background-size: cover;
+  background-position: center;
+  @include image-darken-background;
+}
+
+.list-section {
+  .principles-list {
+    padding: 0;
+    margin: 30px 0;
+  }
+}
+
 /* --== Product Page ==-- */
 
 .products-header {
